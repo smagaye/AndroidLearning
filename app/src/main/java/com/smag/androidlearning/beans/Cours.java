@@ -62,4 +62,12 @@ public class Cours {
     public void setTheme(Theme theme) {
         this.theme = theme;
     }
+
+    public String getContenu() {
+        return contenu;
+    }
+
+    public void setContenu(String contenu) {
+        this.contenu = contenu;
+    }
 }

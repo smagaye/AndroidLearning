@@ -31,7 +31,7 @@ public class Driver extends AppCompatActivity {
         ressourcedescription.setPhoto("");
         databaseFactory.getRessourcedescriptionDao().persist(ressourcedescription);
 
-        Log.i(MsgLog,"Titre Ressource " + databaseFactory.getRessourcedescriptionDao().getAllRessourcedescriptions().get(3).getTitre());
+        Log.i(MsgLog,"Titre Ressource " + databaseFactory.getRessourcedescriptionDao().getAllRessourcedescriptions().get(0).getTitre());
 
         //Persistence Theme
         Theme theme = new Theme();
@@ -55,7 +55,7 @@ public class Driver extends AppCompatActivity {
         cours.setDatedernierelecture(new Date());
         databaseFactory.getCoursDao().persist(cours);
 
-        Log.i(MsgLog,"Identifiant Cours: " + databaseFactory.getCoursDao().getAllCours().get(2).getIdcours().toString());
+        Log.i(MsgLog,"Identifiant Cours: " + databaseFactory.getCoursDao().getAllCours().get(0).getIdcours().toString());
 
 
         //Persistence Exercice
@@ -67,7 +67,7 @@ public class Driver extends AppCompatActivity {
 
         databaseFactory.getExerciceDao().persist(exercice);
 
-        Log.i(MsgLog,"Sequence question: " + databaseFactory.getExerciceDao().getAllExercices().get(1).getSequencequestion());
+        Log.i(MsgLog,"Sequence question: " + databaseFactory.getExerciceDao().getAllExercices().get(0).getSequencequestion());
 
     }
 }
