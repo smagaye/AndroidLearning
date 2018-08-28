@@ -64,4 +64,15 @@ public class Exercice {
     public void setTheme(Theme theme) {
         this.theme = theme;
     }
+
+    @Override
+    public String toString() {
+        return "Exercice{" +
+                "idexercice=" + idexercice +
+                ", sequencequestion='" + sequencequestion + '\'' +
+                ", score=" + score +
+                ", tempsreponse=" + tempsreponse +
+                ", theme=" + theme +
+                '}';
+    }
 }

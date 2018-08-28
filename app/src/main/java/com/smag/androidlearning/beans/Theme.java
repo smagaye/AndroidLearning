@@ -20,9 +20,6 @@ public class Theme {
     @ColumnInfo(name = "idthemeColonne")
     private Integer idtheme;
 
-    @ColumnInfo(name = "titreColonne")
-    private String titre;
-
     @ColumnInfo(name = "dateactivationColonne")
     @TypeConverters(DateConverter.class)
     private Date dateactivation;
@@ -36,14 +33,6 @@ public class Theme {
 
     public void setIdtheme(Integer idtheme) {
         this.idtheme = idtheme;
-    }
-
-    public String getTitre() {
-        return titre;
-    }
-
-    public void setTitre(String titre) {
-        this.titre = titre;
     }
 
     public Date getDateactivation() {
@@ -60,5 +49,14 @@ public class Theme {
 
     public void setRessourcedescription(Ressourcedescription ressourcedescription) {
         this.ressourcedescription = ressourcedescription;
+    }
+
+    @Override
+    public String toString() {
+        return "Theme{" +
+                "idtheme=" + idtheme +
+                ", dateactivation=" + dateactivation +
+                ", ressourcedescription=" + ressourcedescription +
+                '}';
     }
 }

@@ -1,27 +1,41 @@
 package com.smag.androidlearning;
 
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.smag.androidlearning.beans.Cours;
 import com.smag.androidlearning.beans.Exercice;
 import com.smag.androidlearning.beans.Ressourcedescription;
 import com.smag.androidlearning.beans.Theme;
 import com.smag.androidlearning.database.DatabaseFactory;
+import com.smag.androidlearning.helper.XmlManager;
 
+import org.w3c.dom.Document;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Date;
 
-public class Driver extends AppCompatActivity {
+public class Driver {
 
     DatabaseFactory databaseFactory;
 
     private static String MsgLog ="MsgConsole";
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_driver);
-        databaseFactory = DatabaseFactory.getAppDatabase(getApplicationContext());
+
+    public static void main(String[] args) {
+        Document doc= XmlManager.getDocument("/Users/apple/AndroidStudioProjects/androidLearning/app/src/main/res/xml/androidlearningdata.xml");
+        XmlManager.runXmlFile(doc);
+    }
+
+    public static void daoTest(){
+        //databaseFactory = DatabaseFactory.getAppDatabase(getApplicationContext());
+
+    }
+        /*databaseFactory = DatabaseFactory.getAppDatabase(getApplicationContext());
 
         //Persistence Ressourcedescription
         Ressourcedescription ressourcedescription = new Ressourcedescription();
@@ -31,7 +45,7 @@ public class Driver extends AppCompatActivity {
         ressourcedescription.setPhoto("");
         databaseFactory.getRessourcedescriptionDao().persist(ressourcedescription);
 
-        Log.i(MsgLog,"Titre Ressource " + databaseFactory.getRessourcedescriptionDao().getAllRessourcedescriptions().get(0).getTitre());
+        Log.i(MsgLog,"Titre Ressource " + databaseFactory.getRessourcedescriptionDao().getAllRessourcedescriptions().get(0).toString());
 
         //Persistence Theme
         Theme theme = new Theme();
@@ -40,7 +54,7 @@ public class Driver extends AppCompatActivity {
         theme.setTitre("Theme Widget");
         databaseFactory.getThemeDao().persist(theme);
 
-        Log.i(MsgLog,"Date activation Theme: " + databaseFactory.getThemeDao().getAllThemes().get(0).getDateactivation());
+        Log.i(MsgLog,"Date activation Theme: " + databaseFactory.getThemeDao().getAllThemes().get(0).toString());
 
         // Persistence Cours
         Cours cours = new Cours();
@@ -55,7 +69,7 @@ public class Driver extends AppCompatActivity {
         cours.setDatedernierelecture(new Date());
         databaseFactory.getCoursDao().persist(cours);
 
-        Log.i(MsgLog,"Identifiant Cours: " + databaseFactory.getCoursDao().getAllCours().get(0).getIdcours().toString());
+        Log.i(MsgLog,"Identifiant Cours: " + databaseFactory.getCoursDao().getAllCours().get(0).toString());
 
 
         //Persistence Exercice
@@ -67,7 +81,7 @@ public class Driver extends AppCompatActivity {
 
         databaseFactory.getExerciceDao().persist(exercice);
 
-        Log.i(MsgLog,"Sequence question: " + databaseFactory.getExerciceDao().getAllExercices().get(0).getSequencequestion());
+        Log.i(MsgLog,"\nExercice : " + databaseFactory.getExerciceDao().getAllExercices().get(0).toString());
+    */
 
-    }
 }

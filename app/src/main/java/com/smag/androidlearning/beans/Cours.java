@@ -70,4 +70,15 @@ public class Cours {
     public void setContenu(String contenu) {
         this.contenu = contenu;
     }
+
+    @Override
+    public String toString() {
+        return "Cours{" +
+                "idcours=" + idcours +
+                ", datedernierelecture=" + datedernierelecture +
+                ", contenu='" + contenu + '\'' +
+                ", ressourcedescription=" + ressourcedescription +
+                ", theme=" + theme +
+                '}';
+    }
 }

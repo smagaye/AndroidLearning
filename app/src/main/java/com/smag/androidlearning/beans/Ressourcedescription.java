@@ -63,4 +63,15 @@ public class Ressourcedescription {
     public void setEtat(String etat) {
         this.etat = etat;
     }
+
+    @Override
+    public String toString() {
+        return "Ressourcedescription{" +
+                "idressourcedescription=" + idressourcedescription +
+                ", titre='" + titre + '\'' +
+                ", description='" + description + '\'' +
+                ", photo='" + photo + '\'' +
+                ", etat='" + etat + '\'' +
+                '}';
+    }
 }
