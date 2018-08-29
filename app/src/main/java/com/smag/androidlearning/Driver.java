@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.smag.androidlearning.beans.Cours;
 import com.smag.androidlearning.beans.Exercice;
@@ -19,29 +18,24 @@ import org.w3c.dom.Document;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.time.Duration;
 import java.util.Date;
 
-public class Driver extends  AppCompatActivity {
+public class Driver {
 
-    private static DatabaseFactory databaseFactory;
+    DatabaseFactory databaseFactory;
+
     private static String MsgLog ="MsgConsole";
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_driver);
-
-        databaseFactory = DatabaseFactory.getAppDatabase(getApplicationContext());
-        //daoTest();
-
-
-        Log.i(MsgLog,"\n\n\nNombre de cours: "+databaseFactory.getCoursDao().getAllCours().size());
+    public static void main(String[] args) {
+        Document doc= XmlManager.getDocument("/Users/apple/AndroidStudioProjects/androidLearning/app/src/main/res/xml/androidlearningdata.xml");
+        XmlManager.runXmlFile(doc);
     }
 
     public static void daoTest(){
+        //databaseFactory = DatabaseFactory.getAppDatabase(getApplicationContext());
 
-
+    }
+        /*databaseFactory = DatabaseFactory.getAppDatabase(getApplicationContext());
 
         //Persistence Ressourcedescription
         Ressourcedescription ressourcedescription = new Ressourcedescription();
@@ -57,6 +51,7 @@ public class Driver extends  AppCompatActivity {
         Theme theme = new Theme();
         theme.setRessourcedescription(ressourcedescription);
         theme.setDateactivation(new Date());
+        theme.setTitre("Theme Widget");
         databaseFactory.getThemeDao().persist(theme);
 
         Log.i(MsgLog,"Date activation Theme: " + databaseFactory.getThemeDao().getAllThemes().get(0).toString());
@@ -85,13 +80,8 @@ public class Driver extends  AppCompatActivity {
         exercice.setTempsreponse(27);
 
         databaseFactory.getExerciceDao().persist(exercice);
-        Log.i(MsgLog,"\nExercice : " + databaseFactory.getExerciceDao().getAllExercices().get(0).toString());
 
-    }
-    /* public static void main(String[] args) {
-        Document doc= XmlManager.getDocument("/Users/apple/AndroidStudioProjects/androidLearning/app/src/main/res/xml/androidlearningdata.xml");
-        XmlManager.runXmlFile(doc);
-    }
-   */
+        Log.i(MsgLog,"\nExercice : " + databaseFactory.getExerciceDao().getAllExercices().get(0).toString());
+    */
 
 }
