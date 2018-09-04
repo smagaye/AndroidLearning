@@ -20,22 +20,19 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Date;
 
-public class Driver {
+public class Driver extends AppCompatActivity {
 
     DatabaseFactory databaseFactory;
 
     private static String MsgLog ="MsgConsole";
 
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         Document doc= XmlManager.getDocument("/Users/apple/AndroidStudioProjects/androidLearning/app/src/main/res/xml/androidlearningdata.xml");
         XmlManager.runXmlFile(doc);
     }
-
+   */
     public static void daoTest(){
-        //databaseFactory = DatabaseFactory.getAppDatabase(getApplicationContext());
-
-    }
-        /*databaseFactory = DatabaseFactory.getAppDatabase(getApplicationContext());
+         /*databaseFactory = DatabaseFactory.getAppDatabase(getApplicationContext());
 
         //Persistence Ressourcedescription
         Ressourcedescription ressourcedescription = new Ressourcedescription();
@@ -83,5 +80,7 @@ public class Driver {
 
         Log.i(MsgLog,"\nExercice : " + databaseFactory.getExerciceDao().getAllExercices().get(0).toString());
     */
+
+    }
 
 }
