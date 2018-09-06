@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">androidLearning</string>
+    <string name="datafile">androidlearningdata.xml</string>
 </resources>

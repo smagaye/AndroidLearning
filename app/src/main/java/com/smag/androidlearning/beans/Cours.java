@@ -12,7 +12,9 @@ import java.util.Date;
 
 @Entity
 public class Cours {
-    private static final long serialVersionUID = 1L;
+    public Cours() {
+        this.datedernierelecture = new Date();
+    }
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "idcoursColonne")

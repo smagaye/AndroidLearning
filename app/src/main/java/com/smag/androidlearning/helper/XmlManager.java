@@ -1,159 +1,215 @@
 package com.smag.androidlearning.helper;
 
-import android.content.res.AssetManager;
-import android.content.res.Resources;
-import android.util.Log;
-
 import com.smag.androidlearning.beans.Cours;
 import com.smag.androidlearning.beans.Exercice;
 import com.smag.androidlearning.beans.Ressourcedescription;
 import com.smag.androidlearning.beans.Theme;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserFactory;
 
-public class XmlManager {
+public class XmlManager{
 
-    public static Document getDocument(String location) {
-        Document doc = null;
+
+    private static String texte;
+    private static XmlPullParser xpp;
+    private static int eventType;
+    private static List<Theme> listeTheme = new ArrayList<Theme>();
+
+    public static void startDatabaseConfiguration(InputStream inputStream) {
+        if(xpp==null) intialize(inputStream);
+        storeData();
+    }
+
+    private static void intialize(InputStream inputStream){
         try {
-
-            File inputFile = new File(location);
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            doc = dBuilder.parse(inputFile);
-            doc.getDocumentElement().normalize();
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
+            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+            factory.setNamespaceAware(true);
+            xpp = factory.newPullParser();
+            xpp.setInput( inputStream,null );
+            eventType = xpp.getEventType();
+        }catch (Exception e){
+            e.printStackTrace();
         }
-        return doc;
     }
 
-    public static List<Element> extractElement(Document doc, String tag) {
-        List<Element> listElement = new ArrayList<Element>();
-        NodeList nList = doc.getElementsByTagName(tag);
-        System.out.println("----------------------------");
-
-        for (int temp = 0; temp < nList.getLength(); temp++) {
-            Node nNode = nList.item(temp);
-            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-                Element element = (Element) nNode;
-                listElement.add(element);
-            }
-        }
-        return listElement;
-    }
-
-    public static Element getFirstTagName(Element element, String tagname) {
-        return ((Element) element.getElementsByTagName(tagname).item(0));
-    }
-
-    public static Theme extraireTheme(Element element) {
+    private static List<Theme> getThemes() {
         Theme theme = null;
+        int idtheme=0;
         try {
-            Ressourcedescription res = new Ressourcedescription();
-            res.setIdressourcedescription(Integer.parseInt(XmlManager.getFirstTagName(element, "ressourcedescription").getAttribute("idressource")));
-            res.setTitre(XmlManager.getFirstTagName(element, "titre").getTextContent());
-            res.setDescription(XmlManager.getFirstTagName(element, "description").getTextContent());
-            res.setPhoto(XmlManager.getFirstTagName(element, "photo").getTextContent());
-            res.setEtat(XmlManager.getFirstTagName(element, "etat").getTextContent());
-
-            theme = new Theme();
-            theme.setIdtheme(Integer.parseInt(element.getAttribute("idtheme")));
-            theme.setRessourcedescription(res);
-
-        } catch (Exception Exception) {
-            System.out.println("Le parametre effectif ne referencie pas une structure de theme valide");
+            while (eventType != XmlPullParser.END_DOCUMENT) {
+                String tagname = xpp.getName();
+                switch (eventType) {
+                    case XmlPullParser.START_DOCUMENT:
+                        System.out.println("Start document");
+                        break;
+                    case XmlPullParser.START_TAG:
+                        if (tagname.equalsIgnoreCase("theme")) {
+                            theme = new Theme();
+                            theme.setIdtheme(idtheme+=1);
+                            theme.setRessourcedescription(getRessourceDescription());
+                            theme.setListeCours(getCours(theme));
+                            theme.setListeExercices(getExercices(theme));
+                            System.out.println(theme);
+                            System.out.println(theme.getListeCours());
+                            System.out.println(theme.getListeExercices());
+                            listeTheme.add(theme);
+                        }
+                        break;
+                    case XmlPullParser.END_DOCUMENT:
+                        System.out.println("End Document");
+                        break;
+                    default:
+                        break;
+                }
+                eventType = xpp.next();
+            }
+        } catch (Exception er) {
+            er.printStackTrace();
         }
-        return theme;
+        return listeTheme;
     }
 
-    public static Cours extraireCours(Element element) {
-        Cours cours = null;
-        try {
-            Ressourcedescription res = new Ressourcedescription();
-            res.setIdressourcedescription(Integer.parseInt(XmlManager.getFirstTagName(element, "ressourcedescription").getAttribute("idressource")));
-            res.setTitre(XmlManager.getFirstTagName(element, "titre").getTextContent());
-            res.setDescription(XmlManager.getFirstTagName(element, "description").getTextContent());
-            res.setPhoto(XmlManager.getFirstTagName(element, "photo").getTextContent());
-            res.setEtat(XmlManager.getFirstTagName(element, "etat").getTextContent());
-
-            cours = new Cours();
-            cours.setIdcours(Integer.parseInt(element.getAttribute("idcours")));
-            cours.setDatedernierelecture(new Date());
-            cours.setRessourcedescription(res);
-
-        } catch (Exception Exception) {
-            System.out.println("Le parametre effectif ne referencie pas une structure de cours valide");
-            Exception.printStackTrace();
-        }
-        return cours;
+    private static Ressourcedescription getRessourceDescription() {
+        Ressourcedescription ressourcedescription =new Ressourcedescription();;
+        try{
+            while (eventType != XmlPullParser.END_DOCUMENT) {
+                String tagname = xpp.getName();
+                switch (eventType) {
+                    case XmlPullParser.START_TAG:
+                        System.out.println("Start tag "+tagname);
+                        if(tagname.equalsIgnoreCase("blockexercices") || tagname.equalsIgnoreCase("blockcours"))
+                        {
+                            return ressourcedescription;
+                        }
+                    break;
+                    case XmlPullParser.TEXT:
+                        texte = xpp.getText();
+                        break;
+                    case XmlPullParser.END_TAG:
+                       try{ if(tagname.equalsIgnoreCase("ressourcedescription")){
+                            return ressourcedescription;
+                        } else if(tagname.equalsIgnoreCase("titre")){
+                            ressourcedescription.setTitre(texte);
+                        } else if(tagname.equalsIgnoreCase("description")){
+                            ressourcedescription.setDescription(texte);
+                        } else if(tagname.equalsIgnoreCase("etat")){
+                            ressourcedescription.setEtat(texte);
+                        } else if(tagname.equalsIgnoreCase("photo")){
+                            ressourcedescription.setPhoto(texte);
+                        } else if(tagname.equalsIgnoreCase("idressource")){
+                        ressourcedescription.setIdressourcedescription(Integer.parseInt(texte));
+                    }
+                       }catch (Exception e){e.getMessage();}
+                        break;
+                    default: break;
+                }
+                eventType = xpp.next();
+            }
+        }catch (Exception er){er.printStackTrace();}
+        return ressourcedescription;
     }
 
-    public static Exercice extraireExercice(Element element) {
-        Exercice exercice = null;
-        try {
-            exercice = new Exercice();
-            exercice.setIdexercice(Integer.parseInt(element.getAttribute("idexercice")));
-            exercice.setScore(Integer.parseInt(XmlManager.getFirstTagName(element, "score").getTextContent()));
-            exercice.setSequencequestion(XmlManager.getFirstTagName(element, "sequencequestion").getTextContent());
-            exercice.setTempsreponse(Integer.parseInt(XmlManager.getFirstTagName(element, "tempsreponse").getTextContent()));
-
-        } catch (Exception Exception) {
-            System.out.println("Le parametre effectif ne referencie pas une structure d'exercice valide");
-            Exception.printStackTrace();
-        }
-        return exercice;
+    private static List<Cours> getCours(Theme theme) {
+        List<Cours> listeCours = new ArrayList<Cours>();
+        Cours cours=null;
+        try{
+            while (eventType != XmlPullParser.END_DOCUMENT) {
+                String tagname = xpp.getName();
+                switch (eventType) {
+                    case XmlPullParser.START_TAG:
+                       // System.out.println("Start tag "+tagname);
+                        if(tagname.equalsIgnoreCase("cours")){
+                            cours = new Cours();
+                            cours.setTheme(theme);
+                            cours.setRessourcedescription(new Ressourcedescription());
+                        }
+                        break;
+                    case XmlPullParser.TEXT:
+                        texte = xpp.getText();
+                        break;
+                    case XmlPullParser.END_TAG:
+                        if(tagname.equalsIgnoreCase("cours")){
+                            listeCours.add(cours);
+                        } else if(tagname.equalsIgnoreCase("idressource")){
+                            cours.getRessourcedescription().setIdressourcedescription(Integer.parseInt(texte));
+                        }
+                        else if(tagname.equalsIgnoreCase("idcours")){
+                            cours.setIdcours(Integer.parseInt(texte));
+                        }else if(tagname.equalsIgnoreCase("titre")){
+                            cours.getRessourcedescription().setTitre(texte);
+                        } else if(tagname.equalsIgnoreCase("description")){
+                            cours.getRessourcedescription().setDescription(texte);
+                        } else if(tagname.equalsIgnoreCase("etat")){
+                            cours.getRessourcedescription().setEtat(texte);
+                        } else if(tagname.equalsIgnoreCase("description")){
+                            cours.getRessourcedescription().setPhoto(texte);
+                        } else if(tagname.equalsIgnoreCase("photo")){
+                            cours.getRessourcedescription().setPhoto(texte);
+                        } else if(tagname.equalsIgnoreCase("contenu")){
+                            cours.setContenu(texte);
+                        } else if(tagname.equalsIgnoreCase("blockcours")){
+                            return listeCours;
+                        }
+                        break;
+                    default: break;
+                }
+                eventType = xpp.next();
+            }
+        }catch (Exception er){er.printStackTrace();}
+        return listeCours;
     }
 
-    public static Cours getCours(Theme theme, Element element) {
-        Cours cours = extraireCours(element);
-        cours.setTheme(theme);
-        return cours;
+    private static List<Exercice> getExercices(Theme theme) {
+        List<Exercice> listeExercices = new ArrayList<Exercice>();
+        Exercice exercice=null;
+        try{
+            while (eventType != XmlPullParser.END_DOCUMENT) {
+                String tagname = xpp.getName();
+                switch (eventType) {
+                    case XmlPullParser.START_TAG:
+                        System.out.println("Start tag "+tagname);
+                        if(tagname.equalsIgnoreCase("exercice")){
+                            exercice = new Exercice();
+                            exercice.setTheme(theme);
+                        }
+                        break;
+                    case XmlPullParser.TEXT:
+                        texte = xpp.getText();
+                        break;
+                    case XmlPullParser.END_TAG:
+                        if(tagname.equalsIgnoreCase("exercice")){
+                            listeExercices.add(exercice);
+                        } else if(tagname.equalsIgnoreCase("idexercice")){
+                            exercice.setIdexercice(Integer.parseInt(texte));
+                        }
+                        else if(tagname.equalsIgnoreCase("sequencequestion")){
+                            exercice.setSequencequestion(texte);
+                        }else if(tagname.equalsIgnoreCase("tempsreponse")){
+                            exercice.setTempsreponse(Integer.parseInt(texte));
+                        } else if(tagname.equalsIgnoreCase("score")){
+                            exercice.setScore(Integer.parseInt(texte));
+                        } else if(tagname.equalsIgnoreCase("blockexercices")){
+                            return listeExercices;
+                        }
+                        break;
+                    default: break;
+                }
+                eventType = xpp.next();
+            }
+        }catch (Exception er){er.printStackTrace();}
+        return listeExercices;
     }
 
-    public static Exercice getExercice(Theme theme, Element element) {
-        Exercice exercice = extraireExercice(element);
-        exercice.setTheme(theme);
-        return exercice;
+    private static void storeData() {
+        System.out.println(getThemes());
+        persist(getThemes());
     }
 
-    public static void runXmlFile(Document doc){
-        List<Element> themeElements = extractElement(doc,"theme");
-        for(Element elementTheme : themeElements){
-            Theme theme =extraireTheme(elementTheme);
-            System.out.println("\n\n\n-----------------------------------------------------------");
-            System.out.println("Theme Item\n\t Cours : "+theme.toString());
-            
-           NodeList blockcoursItems= getFirstTagName(elementTheme,"blockcours").getElementsByTagName("cours");
-           for(int i=0 ; i<blockcoursItems.getLength();i++){
-               Element elementCours =(Element) blockcoursItems.item(i);
-               Cours cours =getCours(theme, elementCours);
-               System.out.println("Cours Item\n\t Cours : "+cours.toString());
-           }
-           
-           System.out.println("\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
-           NodeList blockexerciceItems= getFirstTagName(elementTheme,"blockexercices").getElementsByTagName("exercice");
-           for(int i=0 ; i<blockexerciceItems.getLength();i++){
-               Element elementExercice =(Element) blockexerciceItems.item(i);
-               Exercice exercice =getExercice(theme, elementExercice);
-               System.out.println("Exercice Item\n\tExercice : "+exercice.toString());
-           }
-           
-           System.out.println("-----------------------------------------------------------\n\n\n");
-  
-        }
-    }
+    private static void persist(List<Theme> liste){
+        return;
+    };
+
 }

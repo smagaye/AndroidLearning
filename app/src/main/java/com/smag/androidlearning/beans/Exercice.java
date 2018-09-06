@@ -7,7 +7,6 @@ import android.arch.persistence.room.PrimaryKey;
 
 @Entity
 public class Exercice {
-    private static final long serialVersionUID = 1L;
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "idexerciceColonne")

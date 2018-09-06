@@ -6,7 +6,6 @@ import android.arch.persistence.room.PrimaryKey;
 
 @Entity
 public class Ressourcedescription {
-    private static final long serialVersionUID = 1L;
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "idressourcedescriptionColonne")

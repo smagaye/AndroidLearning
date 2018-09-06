@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidlearningdata>
     <themes>
-        <theme idtheme="1">
-            <ressourcedescription idressource="1">
+        <theme>
+            <ressourcedescription>
+                <idressource>1</idressource>
                 <titre>Titre Theme 1</titre>
                 <description> Description Theme 1</description>
                 <photo>Source photo Theme 1</photo>
-                <etat>Etat Theme 1</etat>       
+                <etat>Etat Theme 1</etat>
             </ressourcedescription>
-           
             <blockcours>
-                <cours idcours="1">
-                    <ressourcedescription idressource="2">
+                <cours>
+                    <idcours>1</idcours>
+                    <ressourcedescription>
+                        <idressource>2</idressource>
                         <titre>Titre Cours 1</titre>
                         <description> Description Cours 1</description>
                         <photo>source photo 1</photo>
@@ -19,9 +21,10 @@
                     </ressourcedescription>
                     <contenu>Ceci est le contenu du cours 1</contenu>
                 </cours>
-                
-                <cours idcours="2">
-                    <ressourcedescription idressource="3">
+                <cours>
+                    <idcours>2</idcours>
+                    <ressourcedescription>
+                        <idressource>3</idressource>
                         <titre>Titre Cours 2</titre>
                         <description> Description Cours 2</description>
                         <photo>source photo 2</photo>
@@ -29,9 +32,10 @@
                     </ressourcedescription>
                     <contenu>Ceci est le contenu du cours 2</contenu>
                 </cours>
-                
-                <cours idcours="3">
-                    <ressourcedescription idressource="4">
+                <cours>
+                    <idcours>3</idcours>
+                    <ressourcedescription>
+                        <idressource>4</idressource>
                         <titre>Titre Cours 3</titre>
                         <description> Description Cours 3</description>
                         <photo>source photo 3</photo>
@@ -40,38 +44,40 @@
                     <contenu>Ceci est le contenu du cours 3</contenu>
                 </cours>             
             </blockcours>
-           
             <blockexercices>
-                <exercice idexercice="1">
+                <exercice>
+                    <idexercice>1</idexercice>
                     <sequencequestion>24;6;9;0;2</sequencequestion>
                     <score>15</score>
                     <tempsreponse>47</tempsreponse>
                 </exercice>
-                <exercice idexercice="2">
+                <exercice>
+                    <idexercice>2</idexercice>
                     <sequencequestion>45;63;19;108;2</sequencequestion>
                     <score>33</score>
                     <tempsreponse>152</tempsreponse>
                 </exercice>
-                <exercice idexercice="3">
+                <exercice>
+                    <idexercice>3</idexercice>
                     <sequencequestion>3;10;31;56;80</sequencequestion>
                     <score>71</score>
                     <tempsreponse>12</tempsreponse>
                 </exercice>
             </blockexercices>
         </theme>
-        
-          <theme idtheme="2">
-            <ressourcedescription idressource="5">
+          <theme>
+            <ressourcedescription>
+                <idressource>5</idressource>
                 <titre>Titre Theme 2</titre>
                 <description> Description Theme 2</description>
                 <photo>Source photo Theme 2</photo>
-                <etat>Etat Theme 2</etat>       
+                <etat>Etat Theme 2</etat>
             </ressourcedescription>
-           
             <blockcours>
-                
-                <cours idcours="4">
-                    <ressourcedescription idressource="6">
+                <cours>
+                    <idcours>4</idcours>
+                    <ressourcedescription>
+                        <idressource>6</idressource>
                         <titre>Titre Cours 4</titre>
                         <description> Description Cours 4</description>
                         <photo>source photo 4</photo>
@@ -80,8 +86,10 @@
                     <contenu>Ceci est le contenu du cours 4</contenu>
                 </cours>
                 
-                <cours idcours="5">
-                    <ressourcedescription idressource="7">
+                <cours>
+                    <idcours>5</idcours>
+                    <ressourcedescription>
+                        <idressource>7</idressource>
                         <titre>Titre Cours 5</titre>
                         <description> Description Cours 5</description>
                         <photo>source photo 5</photo>
@@ -90,8 +98,10 @@
                     <contenu>Ceci est le contenu du cours 5</contenu>
                 </cours>
                 
-                <cours idcours="6">
-                    <ressourcedescription idressource="8">
+                <cours>
+                    <idcours>6</idcours>
+                    <ressourcedescription>
+                        <idressource>8</idressource>
                         <titre>Titre Cours 6</titre>
                         <description> Description Cours 6</description>
                         <photo>source photo 6</photo>
@@ -100,19 +110,21 @@
                     <contenu>Ceci est le contenu du cours 6</contenu>
                 </cours>               
             </blockcours>
-           
             <blockexercices>
-                <exercice idexercice="4">
+                <exercice>
+                    <idexercice>4</idexercice>
                     <sequencequestion>9;0;2</sequencequestion>
                     <score>2</score>
                     <tempsreponse>283</tempsreponse>
                 </exercice>
-                <exercice idexercice="5">
+                <exercice>
+                    <idexercice>5</idexercice>
                     <sequencequestion>45;63;19;108;2</sequencequestion>
                     <score>14</score>
                     <tempsreponse>47</tempsreponse>
                 </exercice>
-                <exercice idexercice="6">
+                <exercice>
+                    <idexercice>6</idexercice>
                     <sequencequestion>80;78</sequencequestion>
                     <score>2</score>
                     <tempsreponse>122</tempsreponse>
@@ -120,5 +132,4 @@
             </blockexercices>
         </theme>
     </themes>
-   
 </androidlearningdata>
