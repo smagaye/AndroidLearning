@@ -9,9 +9,12 @@ import com.smag.androidlearning.beans.Exercice;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-public class ListeConverter {
+public class ConverterHelper {
+
+    // Converter for ListCours
     @TypeConverter
     public String fromCoursList(List<Cours> optionValues) {
         if (optionValues == null) {
@@ -24,6 +27,7 @@ public class ListeConverter {
         return json;
     }
 
+    // Converter for ListCours
     @TypeConverter
     public List<Cours> toOptionValuesList(String optionValuesString) {
         if (optionValuesString == null) {
@@ -36,6 +40,7 @@ public class ListeConverter {
         return productCategoriesList;
     }
 
+    // Converter for ListExercices
     @TypeConverter
     public String fromExerciceList(List<Exercice> optionValues) {
         if (optionValues == null) {
@@ -48,6 +53,7 @@ public class ListeConverter {
         return json;
     }
 
+    // Converter for ListExercices
     @TypeConverter
     public List<Exercice> toOptionValuesListExercice(String optionValuesString) {
         if (optionValuesString == null) {
@@ -58,5 +64,17 @@ public class ListeConverter {
         }.getType();
         List<Exercice> productCategoriesList = gson.fromJson(optionValuesString, type);
         return productCategoriesList;
+    }
+
+    // Converter for Date
+    @TypeConverter
+    public static Date toDate(Long timestamp) {
+        return timestamp == null ? null : new Date(timestamp);
+    }
+
+    // Converter for Date
+    @TypeConverter
+    public static Long toTimestamp(Date date) {
+        return date == null ? null : date.getTime();
     }
 }

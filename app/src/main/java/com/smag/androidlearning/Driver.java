@@ -8,9 +8,6 @@ import com.smag.androidlearning.helper.XmlManager;
 
 public class Driver extends Activity {
 
-    DatabaseFactory databaseFactory;
-    private static String MsgLog ="MsgConsole";
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -3,14 +3,9 @@ package com.smag.androidlearning.beans;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
-import android.arch.persistence.room.TypeConverter;
 import android.arch.persistence.room.TypeConverters;
-
-import com.smag.androidlearning.helper.DateConverter;
-import com.smag.androidlearning.helper.ListeConverter;
-
+import com.smag.androidlearning.helper.ConverterHelper;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,23 +13,21 @@ import java.util.List;
 @Entity
 public class Theme {
 
-    private static final long serialVersionUID = 1L;
-
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "idthemeColonne")
     private Integer idtheme;
 
     @ColumnInfo(name = "dateactivationColonne")
-    @TypeConverters(DateConverter.class)
+    @TypeConverters(ConverterHelper.class)
     private Date dateactivation;
 
     @Embedded(prefix = "ressourcedescriptionColonne")
     private Ressourcedescription ressourcedescription;
 
-    @TypeConverters(ListeConverter.class)
+    @TypeConverters(ConverterHelper.class)
     private List<Cours> listeCours =new ArrayList<Cours>();
 
-    @TypeConverters(ListeConverter.class)
+    @TypeConverters(ConverterHelper.class)
     private List<Exercice> listeExercices;
 
     public Theme() {

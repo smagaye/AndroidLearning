@@ -6,7 +6,7 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.arch.persistence.room.TypeConverters;
 
-import com.smag.androidlearning.helper.DateConverter;
+import com.smag.androidlearning.helper.ConverterHelper;
 
 import java.util.Date;
 
@@ -21,7 +21,7 @@ public class Cours {
     private Integer idcours;
 
     @ColumnInfo(name = "datedernierelectureColonne")
-    @TypeConverters(DateConverter.class)
+    @TypeConverters(ConverterHelper.class)
     private Date datedernierelecture;
 
     @ColumnInfo(name = "contenuColonne")
