@@ -52,9 +52,6 @@ public class XmlManager{
                             theme.setRessourcedescription(getRessourceDescription());
                             theme.setListeCours(getCours(theme));
                             theme.setListeExercices(getExercices(theme));
-                            System.out.println(theme);
-                            System.out.println(theme.getListeCours());
-                            System.out.println(theme.getListeExercices());
                             listeTheme.add(theme);
                         }
                         break;
@@ -79,7 +76,7 @@ public class XmlManager{
                 String tagname = xpp.getName();
                 switch (eventType) {
                     case XmlPullParser.START_TAG:
-                        System.out.println("Start tag "+tagname);
+                       // System.out.println("Start tag "+tagname);
                         if(tagname.equalsIgnoreCase("blockexercices") || tagname.equalsIgnoreCase("blockcours"))
                         {
                             return ressourcedescription;
@@ -170,7 +167,7 @@ public class XmlManager{
                 String tagname = xpp.getName();
                 switch (eventType) {
                     case XmlPullParser.START_TAG:
-                        System.out.println("Start tag "+tagname);
+                        //System.out.println("Start tag "+tagname);
                         if(tagname.equalsIgnoreCase("exercice")){
                             exercice = new Exercice();
                             exercice.setTheme(theme);
@@ -205,6 +202,12 @@ public class XmlManager{
 
     private static void storeData() {
         System.out.println(getThemes());
+        for(int i=0;i<getThemes().size();i++){
+            Theme theme = getThemes().get(i);
+            System.out.println("\t\t\t--\t\t\t\t-- \n Debut" +theme);
+            System.out.println(theme.getListeCours());
+            System.out.println(theme.getListeExercices()+"\t\t\t--\t\t\t\t-- fin");
+        }
         persist(getThemes());
     }
 
