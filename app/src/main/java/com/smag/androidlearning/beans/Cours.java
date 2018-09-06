@@ -75,12 +75,12 @@ public class Cours {
 
     @Override
     public String toString() {
-        return "Cours{" +
-                "idcours=" + idcours +
-                ", datedernierelecture=" + datedernierelecture +
-                ", contenu='" + contenu + '\'' +
-                ", ressourcedescription=" + ressourcedescription +
-                ", theme=" + theme +
-                '}';
+        return "Cours{\n" +
+                "\nidcours = " + idcours +
+                "\ndatedernierelecture = " + datedernierelecture +
+                "\ncontenu = " + contenu  +
+                "\nressourcedescription=" + ressourcedescription +
+                "\n theme = " + theme +
+                "\n}";
     }
 }

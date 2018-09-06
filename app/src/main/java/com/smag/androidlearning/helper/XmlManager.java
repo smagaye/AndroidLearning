@@ -4,6 +4,8 @@ import com.smag.androidlearning.beans.Cours;
 import com.smag.androidlearning.beans.Exercice;
 import com.smag.androidlearning.beans.Ressourcedescription;
 import com.smag.androidlearning.beans.Theme;
+import com.smag.androidlearning.database.DatabaseFactory;
+
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -208,11 +210,7 @@ public class XmlManager{
             System.out.println(theme.getListeCours());
             System.out.println(theme.getListeExercices()+"\t\t\t--\t\t\t\t-- fin");
         }
-        persist(getThemes());
-    }
 
-    private static void persist(List<Theme> liste){
-        return;
-    };
+    }
 
 }

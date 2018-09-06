@@ -3,8 +3,9 @@ package com.smag.androidlearning;
 import android.app.Activity;
 import android.support.annotation.Nullable;
 import android.os.Bundle;
-import com.smag.androidlearning.database.DatabaseFactory;
 import com.smag.androidlearning.helper.XmlManager;
+
+import java.io.IOException;
 
 public class Driver extends Activity {
 
@@ -13,9 +14,8 @@ public class Driver extends Activity {
         super.onCreate(savedInstanceState);
         try {
             XmlManager.startDatabaseConfiguration(getAssets().open(getResources().getString(R.string.datafile)));
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }

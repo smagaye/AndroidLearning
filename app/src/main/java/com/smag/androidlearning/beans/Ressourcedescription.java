@@ -65,12 +65,12 @@ public class Ressourcedescription {
 
     @Override
     public String toString() {
-        return "Ressourcedescription{" +
-                "idressourcedescription=" + idressourcedescription +
-                ", titre='" + titre + '\'' +
-                ", description='" + description + '\'' +
-                ", photo='" + photo + '\'' +
-                ", etat='" + etat + '\'' +
-                '}';
+        return "Ressourcedescription{\n" +
+                "\nidressourcedescription=" + idressourcedescription +
+                "\ntitre='" + titre  +
+                "\ndescription='" + description +
+                "\nphoto='" + photo +
+                "\n etat='" + etat +
+                "\n}";
     }
 }

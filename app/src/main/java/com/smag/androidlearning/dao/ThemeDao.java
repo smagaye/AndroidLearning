@@ -6,8 +6,6 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 import android.database.Cursor;
-
-import com.smag.androidlearning.beans.Exercice;
 import com.smag.androidlearning.beans.Theme;
 
 import java.util.List;
@@ -29,4 +27,7 @@ public interface ThemeDao {
 
     @Query("SELECT * FROM Theme WHERE idthemeColonne = :idtheme")
     public Cursor findById(int idtheme);
+
+    @Insert
+    public void insertAll(List<Theme> list);
 }
