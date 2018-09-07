@@ -1,24 +1,64 @@
-package com.smag.androidlearning.helper;
+package com.smag.androidlearning.database;
 
+import android.app.Service;
+import android.content.Intent;
+import android.os.Binder;
+import android.os.IBinder;
+import android.support.annotation.Nullable;
+
+import com.smag.androidlearning.R;
 import com.smag.androidlearning.beans.Cours;
 import com.smag.androidlearning.beans.Exercice;
 import com.smag.androidlearning.beans.Ressourcedescription;
 import com.smag.androidlearning.beans.Theme;
-import com.smag.androidlearning.database.DatabaseFactory;
 
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
-public class XmlManager{
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
+public class DatabaseService extends Service {
 
-    private static String texte;
     private static XmlPullParser xpp;
     private static int eventType;
+    private static String texte;
     private static List<Theme> listeTheme = new ArrayList<Theme>();
+
+    public class DatabaseServiceBinder extends Binder{
+        public DatabaseService getService(){
+            return DatabaseService.this;
+        }
+    }
+    private IBinder iBinder =new DatabaseServiceBinder();
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        try {
+            startDatabaseConfiguration(getAssets().open(getResources().getString(R.string.datafile)));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        return iBinder;
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        return START_STICKY;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
 
     public static void startDatabaseConfiguration(InputStream inputStream) {
         if(xpp==null) intialize(inputStream);
@@ -37,7 +77,7 @@ public class XmlManager{
         }
     }
 
-    private static List<Theme> getThemes() {
+    private static List<Theme> extractThemes() {
         Theme theme = null;
         int idtheme=0;
         try {
@@ -51,9 +91,9 @@ public class XmlManager{
                         if (tagname.equalsIgnoreCase("theme")) {
                             theme = new Theme();
                             theme.setIdtheme(idtheme+=1);
-                            theme.setRessourcedescription(getRessourceDescription());
-                            theme.setListeCours(getCours(theme));
-                            theme.setListeExercices(getExercices(theme));
+                            theme.setRessourcedescription(extractRessourceDescription());
+                            theme.setListeCours(extractCours(theme));
+                            theme.setListeExercices(extractExercices(theme));
                             listeTheme.add(theme);
                         }
                         break;
@@ -71,24 +111,24 @@ public class XmlManager{
         return listeTheme;
     }
 
-    private static Ressourcedescription getRessourceDescription() {
+    private static Ressourcedescription extractRessourceDescription() {
         Ressourcedescription ressourcedescription =new Ressourcedescription();;
         try{
             while (eventType != XmlPullParser.END_DOCUMENT) {
                 String tagname = xpp.getName();
                 switch (eventType) {
                     case XmlPullParser.START_TAG:
-                       // System.out.println("Start tag "+tagname);
+                        // System.out.println("Start tag "+tagname);
                         if(tagname.equalsIgnoreCase("blockexercices") || tagname.equalsIgnoreCase("blockcours"))
                         {
                             return ressourcedescription;
                         }
-                    break;
+                        break;
                     case XmlPullParser.TEXT:
                         texte = xpp.getText();
                         break;
                     case XmlPullParser.END_TAG:
-                       try{ if(tagname.equalsIgnoreCase("ressourcedescription")){
+                        try{ if(tagname.equalsIgnoreCase("ressourcedescription")){
                             return ressourcedescription;
                         } else if(tagname.equalsIgnoreCase("titre")){
                             ressourcedescription.setTitre(texte);
@@ -99,9 +139,9 @@ public class XmlManager{
                         } else if(tagname.equalsIgnoreCase("photo")){
                             ressourcedescription.setPhoto(texte);
                         } else if(tagname.equalsIgnoreCase("idressource")){
-                        ressourcedescription.setIdressourcedescription(Integer.parseInt(texte));
-                    }
-                       }catch (Exception e){e.getMessage();}
+                            ressourcedescription.setIdressourcedescription(Integer.parseInt(texte));
+                        }
+                        }catch (Exception e){e.getMessage();}
                         break;
                     default: break;
                 }
@@ -111,7 +151,7 @@ public class XmlManager{
         return ressourcedescription;
     }
 
-    private static List<Cours> getCours(Theme theme) {
+    private static List<Cours> extractCours(Theme theme) {
         List<Cours> listeCours = new ArrayList<Cours>();
         Cours cours=null;
         try{
@@ -119,7 +159,7 @@ public class XmlManager{
                 String tagname = xpp.getName();
                 switch (eventType) {
                     case XmlPullParser.START_TAG:
-                       // System.out.println("Start tag "+tagname);
+                        // System.out.println("Start tag "+tagname);
                         if(tagname.equalsIgnoreCase("cours")){
                             cours = new Cours();
                             cours.setTheme(theme);
@@ -161,7 +201,7 @@ public class XmlManager{
         return listeCours;
     }
 
-    private static List<Exercice> getExercices(Theme theme) {
+    private static List<Exercice> extractExercices(Theme theme) {
         List<Exercice> listeExercices = new ArrayList<Exercice>();
         Exercice exercice=null;
         try{
@@ -203,14 +243,15 @@ public class XmlManager{
     }
 
     private static void storeData() {
-        System.out.println(getThemes());
-        for(int i=0;i<getThemes().size();i++){
-            Theme theme = getThemes().get(i);
+    }
+
+    public void showData() {
+        for(int i=0;i<extractThemes().size();i++){
+            Theme theme = extractThemes().get(i);
             System.out.println("\t\t\t--\t\t\t\t-- \n Debut" +theme);
             System.out.println(theme.getListeCours());
-            System.out.println(theme.getListeExercices()+"\t\t\t--\t\t\t\t-- fin");
+            System.out.println(theme.getListeExercices()+"\t\t\t--\t\t\t\t-- Fin");
         }
-
     }
 
 }
