@@ -6,12 +6,14 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.arch.persistence.room.TypeConverters;
 import com.smag.androidlearning.helper.ConverterHelper;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Entity
-public class Theme {
+public class Theme implements Serializable{
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "idthemeColonne")
@@ -23,17 +25,6 @@ public class Theme {
 
     @Embedded(prefix = "ressourcedescriptionColonne")
     private Ressourcedescription ressourcedescription;
-
-    @TypeConverters(ConverterHelper.class)
-    private List<Cours> listeCours =new ArrayList<Cours>();
-
-    @TypeConverters(ConverterHelper.class)
-    private List<Exercice> listeExercices;
-
-    public Theme() {
-        listeExercices = new ArrayList<Exercice>();
-        this.dateactivation=new Date();
-    }
 
     public Integer getIdtheme() {
         return idtheme;
@@ -57,22 +48,6 @@ public class Theme {
 
     public void setRessourcedescription(Ressourcedescription ressourcedescription) {
         this.ressourcedescription = ressourcedescription;
-    }
-
-    public List<Cours> getListeCours() {
-        return listeCours;
-    }
-
-    public List<Exercice> getListeExercices() {
-        return listeExercices;
-    }
-
-    public void setListeCours(List<Cours> listeCours) {
-        this.listeCours = listeCours;
-    }
-
-    public void setListeExercices(List<Exercice> listeExercices) {
-        this.listeExercices = listeExercices;
     }
 
     @Override

@@ -17,7 +17,7 @@ import com.smag.androidlearning.dao.ExerciceDao;
 import com.smag.androidlearning.dao.RessourcedescriptionDao;
 import com.smag.androidlearning.dao.ThemeDao;
 
-@Database(entities = {Ressourcedescription.class, Theme.class, Exercice.class, Cours.class}, version = 2, exportSchema = false)
+@Database(entities = {Ressourcedescription.class, Theme.class, Exercice.class, Cours.class}, version = 3, exportSchema = false)
 public abstract class DatabaseFactory extends RoomDatabase {
 
     private static DatabaseFactory INSTANCE;

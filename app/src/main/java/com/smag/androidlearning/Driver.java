@@ -85,7 +85,6 @@ public class Driver extends AppCompatActivity {
         try {
             if (isServiceBound) {
                 msgView.setText("Service call");
-                System.out.print("\n\n\n\n\n\n\n ServiceMethode \n\n\n\n\n\n\n");
                 service.showData();
             } else {
                 msgView.setText("Service not bound");
@@ -94,6 +93,5 @@ public class Driver extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
 
 }

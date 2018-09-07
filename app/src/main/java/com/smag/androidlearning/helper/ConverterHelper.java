@@ -7,12 +7,13 @@ import com.google.gson.reflect.TypeToken;
 import com.smag.androidlearning.beans.Cours;
 import com.smag.androidlearning.beans.Exercice;
 
+import java.io.Serializable;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class ConverterHelper {
+public class ConverterHelper implements Serializable {
 
     // Converter for ListCours
     @TypeConverter

@@ -8,10 +8,11 @@ import android.arch.persistence.room.TypeConverters;
 
 import com.smag.androidlearning.helper.ConverterHelper;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-public class Cours {
+public class Cours implements Serializable {
     public Cours() {
         this.datedernierelecture = new Date();
     }

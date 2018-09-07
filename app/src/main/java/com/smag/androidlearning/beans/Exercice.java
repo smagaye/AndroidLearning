@@ -5,8 +5,10 @@ import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity
-public class Exercice {
+public class Exercice implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "idexerciceColonne")
