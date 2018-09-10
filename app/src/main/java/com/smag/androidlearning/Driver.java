@@ -9,8 +9,11 @@ import android.support.annotation.Nullable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
-import com.smag.androidlearning.database.DatabaseService;
+import com.smag.androidlearning.service.DatabaseService;
 
 public class Driver extends AppCompatActivity {
 
@@ -18,40 +21,19 @@ public class Driver extends AppCompatActivity {
     private ServiceConnection serviceConnection;
     private DatabaseService service;
     private boolean isServiceBound;
-    private TextView msgView;
+
+    private TextView txtname;
+    private ImageView image;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver);
-        msgView =(TextView)findViewById(R.id.idMsgView);
         serviceIntent = new Intent(getApplicationContext(),DatabaseService.class);
-    }
-
-    public void btnStart(View view){
-        startService(serviceIntent);
-        System.out.println("Service is stated !!!");
-    }
-
-    public void btnBindService(View view) {
         bindService();
-        System.out.println("Service is Bind !!!");
+        new ThreadApp().start();
     }
 
-    public void btnUnbind(View view){
-        unBindService();
-        System.out.println("Service is unBind !!!");
-    }
-
-    public void btnStop(View view){
-        stopService(serviceIntent);
-        System.out.println("Service is stopped !!!");
-    }
-
-    public void btnCallServiceMethode(View view)  {
-        callMethodService();
-        System.out.println("Service ShowData() is called !!!");
-    }
 
     private void bindService() {
         if(serviceConnection==null) {
@@ -60,13 +42,13 @@ public class Driver extends AppCompatActivity {
                 public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
                     DatabaseService.DatabaseServiceBinder mbinder = (DatabaseService.DatabaseServiceBinder) iBinder;
                     service = mbinder.getService();
-                    msgView.setText("Service Binded");
+
                     isServiceBound = true;
                 }
                 @Override
                 public void onServiceDisconnected(ComponentName componentName) {
                     isServiceBound = false;
-                    msgView.setText("Service Unbinded");
+
                 }
             };
         }
@@ -77,21 +59,44 @@ public class Driver extends AppCompatActivity {
         if(isServiceBound){
             unbindService(serviceConnection);
             isServiceBound = false;
-            msgView.setText("Service Unbinded");
+
         }
     }
 
     private void callMethodService() {
         try {
             if (isServiceBound) {
-                msgView.setText("Service call");
                 service.showData();
             } else {
-                msgView.setText("Service not bound");
+
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    class ThreadApp extends Thread{
+        @Override
+        public void run() {
+            try {
+                initComponent();
+                sleep(3000);
+                if(isServiceBound){
+                    startActivity(new Intent(getApplicationContext(),AppViewContainer.class));
+                    finish();
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void initComponent() {
+        txtname =(TextView) findViewById(R.id.txt_id);
+        image = (ImageView) findViewById(R.id.img_id);
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.animation_res);
+        txtname.setAnimation(animation);
+        image.setAnimation(animation);
     }
 
 }

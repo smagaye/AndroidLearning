@@ -1,50 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".Main">
+    android:alwaysDrawnWithCache="false"
+    android:background="@android:color/black"
+    tools:context=".Driver">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="204dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/im1"
+        android:orientation="vertical"></LinearLayout>
 
     <TextView
-        android:id="@+id/idMsgView"
-        android:layout_width="match_parent"
-        android:layout_height="64dp" />
-
-    <Button
-        android:id="@+id/idbtnStartService"
-        android:layout_width="match_parent"
+        android:id="@+id/txt_id"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
-        android:onClick="btnStart"
-        android:text="Start Service" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="60dp"
+        android:layout_marginTop="20dp"
+        android:text="Aarujob Learning"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        android:typeface="serif"
+        app:fontFamily="casual" />
 
-    <Button
-        android:id="@+id/idbtnStopService"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="btnStop"
-        android:text="Stop Service" />
-
-    <Button
-        android:id="@+id/idBtnBindService"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="btnBindService"
-        android:text="Bind Service" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="btnUnbind"
-        android:text="UnBind Service" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="btnCallServiceMethode"
-        android:text="Voir les donnees" />
-
-</LinearLayout>
+    <ImageView
+        android:id="@+id/img_id"
+        android:layout_width="151dp"
+        android:layout_height="175dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        app:srcCompat="@drawable/livre" />
+</RelativeLayout>

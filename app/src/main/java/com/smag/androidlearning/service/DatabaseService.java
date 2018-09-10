@@ -1,4 +1,4 @@
-package com.smag.androidlearning.database;
+package com.smag.androidlearning.service;
 
 import android.app.Service;
 import android.content.Intent;
@@ -12,6 +12,7 @@ import com.smag.androidlearning.beans.Cours;
 import com.smag.androidlearning.beans.Exercice;
 import com.smag.androidlearning.beans.Ressourcedescription;
 import com.smag.androidlearning.beans.Theme;
+import com.smag.androidlearning.database.DatabaseFactory;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -19,7 +20,6 @@ import org.xmlpull.v1.XmlPullParserFactory;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class DatabaseService extends Service {
@@ -27,7 +27,7 @@ public class DatabaseService extends Service {
     private static XmlPullParser xpp;
     private static int eventType;
     private static String texte;
-    private boolean isDatabaseSet;
+    private boolean isDbEmpty;
     private InputStream inputStream;
     private static List<Theme> listeTheme = new ArrayList<Theme>();
     private static List<Cours> listeCours = new ArrayList<Cours>();
@@ -91,14 +91,15 @@ public class DatabaseService extends Service {
             databaseFactory = DatabaseFactory.getAppDatabase(getApplicationContext());
             Toast.makeText(getApplicationContext(),"Setting Database Parameters ...",Toast.LENGTH_LONG).show();
         }
-        isDatabaseSet=isDatabaseEmpty();
+        isDbEmpty=isDatabaseEmpty();
 
-        if(isDatabaseSet){
+        if(isDbEmpty){
+            Toast.makeText(getApplicationContext(),"Database is empty!",Toast.LENGTH_LONG).show();
             Toast.makeText(getApplicationContext(),"Before Inserting!",Toast.LENGTH_LONG).show();
             showData();
             storeData();
             Toast.makeText(getApplicationContext(),"Upload data Succesfull!",Toast.LENGTH_LONG).show();
-            Toast.makeText(getApplicationContext(),"Database Room is ready For CRUD Operation!",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Database Room is ready for CRUD Operations!",Toast.LENGTH_LONG).show();
         }else{
             Toast.makeText(getApplicationContext(),"Database already exsits!",Toast.LENGTH_LONG).show();
         }
