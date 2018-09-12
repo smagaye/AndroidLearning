@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="194dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/id_theme"
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="#38D0FD"
+            android:text="Introduction Android"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:layout_alignStart="@+id/textView3"
+            android:layout_below="@+id/id_theme"
+            android:layout_weight="1"
+            android:contentDescription="TODO"
+            app:srcCompat="@drawable/im1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_weight="1"
+            android:background="#38D0FD"
+            android:orientation="horizontal"
+            android:textStyle="bold">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_cours" />
+
+            <TextView
+                android:id="@+id/idcours"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/id_theme"
+                android:layout_alignParentTop="true"
+                android:layout_weight="1"
+                android:text="Cours"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/id_note_cours"
+                android:layout_width="92dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="12/37"
+                android:textColor="@android:color/background_dark"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:background="#38D0FD"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_quizz"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/id_quizz"
+                android:layout_width="54dp"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/id_theme"
+                android:layout_alignParentTop="true"
+                android:layout_weight="1"
+                android:text="Quizz"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/id_note_quizz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="102/104"
+                android:textColor="@android:color/background_dark"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_plus" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--  net.steamcrafted.materialiconlib.MaterialIconView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:materialIcon="glass_mug"
+        app:materialIconColor="#fff"
+        app:materialIconSize="24dp"
+        android:scaleType="center"
+        /-->
+
+</RelativeLayout>
