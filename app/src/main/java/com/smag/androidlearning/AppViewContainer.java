@@ -35,7 +35,7 @@ public class AppViewContainer extends AppCompatActivity {
         setContentView(R.layout.activity_app_view_container);
         initUI();
         themes = (List<Theme>) getIntent().getSerializableExtra("listThemesTrans");
-        Log.i("MSG_LOG",themes.toString());
+       // Log.i("MSG_LOG",themes.toString());
     }
 
     private void initUI() {
@@ -59,25 +59,24 @@ public class AppViewContainer extends AppCompatActivity {
             @Override
             public Object instantiateItem(final ViewGroup container, final int position) {
                 final View view ;
-                if(position==2){
-                    view= LayoutInflater.from(getBaseContext()).inflate(R.layout.fragment_settings, null, false);
-                }else if(position==1){
+                if(position==0){
                     view= LayoutInflater.from(getBaseContext()).inflate(R.layout.fragment_account, null, false);
                     ((Button)view.findViewById(R.id.button2)).setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Toast.makeText(getApplicationContext(),"btn fragment account",Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),"Btn fragment_account",Toast.LENGTH_LONG).show();
                         }
                     });
-                }
 
-                else{
+                }else if(position==1){
                     view= LayoutInflater.from(getBaseContext()).inflate(R.layout.fragment_home, null, false);
                     final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rv);
                     recyclerView.setHasFixedSize(true);
                     GridLayoutManager gridLayoutManager =new GridLayoutManager(getBaseContext(), 2);
                     recyclerView.setLayoutManager(gridLayoutManager);
                     recyclerView.setAdapter(new RecycleAdapterHome(getApplicationContext() , images,themes));
+                }else{
+                    view= LayoutInflater.from(getBaseContext()).inflate(R.layout.fragment_settings, null, false);
                 }
 
                 container.addView(view);
@@ -89,13 +88,7 @@ public class AppViewContainer extends AppCompatActivity {
 
         final NavigationTabBar navigationTabBar = (NavigationTabBar) findViewById(R.id.ntb_horizontal);
         final ArrayList<NavigationTabBar.Model> models = new ArrayList<>();
-        models.add(
-                new NavigationTabBar.Model.Builder(
-                        getResources().getDrawable(R.drawable.ic_home_black_24dp),
-                        Color.parseColor(colors[1]))
-                        .title("Home")
-                        .build()
-        );
+
         models.add(
                 new NavigationTabBar.Model.Builder(
                         getResources().getDrawable(R.drawable.ic_account_box_black_24dp),
@@ -103,6 +96,15 @@ public class AppViewContainer extends AppCompatActivity {
                         .title("User")
                         .build()
         );
+
+        models.add(
+                new NavigationTabBar.Model.Builder(
+                        getResources().getDrawable(R.drawable.ic_home_black_24dp),
+                        Color.parseColor(colors[1]))
+                        .title("Home")
+                        .build()
+        );
+
         models.add(
                 new NavigationTabBar.Model.Builder(
                         getResources().getDrawable(R.drawable.ic_settings_black_24dp),
@@ -112,7 +114,7 @@ public class AppViewContainer extends AppCompatActivity {
         );
 
         navigationTabBar.setModels(models);
-        navigationTabBar.setViewPager(viewPager, 0);
+        navigationTabBar.setViewPager(viewPager, 1);
 
         //IMPORTANT: ENABLE SCROLL BEHAVIOUR IN COORDINATOR LAYOUT
         navigationTabBar.setBehaviorEnabled(true);

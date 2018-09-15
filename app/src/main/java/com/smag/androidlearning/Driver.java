@@ -74,6 +74,7 @@ public class Driver extends AppCompatActivity {
                 bindService();
                 sleep(3000);
                 if(isServiceBound){
+                    // Transfert des donnees vers AppViewContainer
                     Intent intent =new Intent(getApplicationContext(),AppViewContainer.class);
                     intent.putExtra("listThemesTrans", (Serializable) service.getAllTheme());
                     intent.putExtra("listCoursTrans", (Serializable) service.getAllCours());
