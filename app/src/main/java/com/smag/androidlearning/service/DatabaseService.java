@@ -45,18 +45,21 @@ public class DatabaseService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        try {
-            inputStream =getAssets().open(getResources().getString(R.string.datafile));
-            Toast.makeText(getApplicationContext(),"File Configuration androidlearning.xml loading...",Toast.LENGTH_LONG).show();
-            startDatabaseConfiguration(inputStream);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
     }
+
 
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
+        try {
+            inputStream =getAssets().open(getResources().getString(R.string.datafile));
+            Toast.makeText(getApplicationContext(),"File Configuration androidlearning.xml loading...",Toast.LENGTH_LONG).show();
+            startDatabaseConfiguration(inputStream);
+            stopSelf();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return iBinder;
     }
 
@@ -68,6 +71,7 @@ public class DatabaseService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        Toast.makeText(getApplicationContext(),"Service arrete",Toast.LENGTH_LONG).show();
     }
 
     private static void intializeParser(InputStream inputStream){

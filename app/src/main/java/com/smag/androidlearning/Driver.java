@@ -51,8 +51,8 @@ public class Driver extends AppCompatActivity {
 
                 }
             };
+            bindService(serviceIntent,serviceConnection, Context.BIND_AUTO_CREATE);
         }
-        bindService(serviceIntent,serviceConnection, Context.BIND_AUTO_CREATE);
     }
 
     private void unBindService() {

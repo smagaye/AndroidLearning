@@ -91,7 +91,7 @@ public class NavigationTabBar extends View implements ViewPager.OnPageChangeList
 
     protected final static int DEFAULT_INACTIVE_COLOR = Color.parseColor("#1164F9");
     protected final static int DEFAULT_ACTIVE_COLOR = Color.WHITE;
-    protected final static int DEFAULT_BG_COLOR = Color.parseColor("#38D0FD");
+    protected final static int DEFAULT_BG_COLOR = Color.parseColor("#009cef");
 
     protected final static float MIN_FRACTION = 0.0F;
     protected final static float MAX_FRACTION = 1.0F;

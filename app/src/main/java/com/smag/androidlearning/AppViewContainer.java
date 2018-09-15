@@ -8,12 +8,14 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.smag.androidlearning.helper.RecycleAdapter;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -54,11 +56,11 @@ public class AppViewContainer extends AppCompatActivity {
 
                 final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rv);
                 recyclerView.setHasFixedSize(true);
-                recyclerView.setLayoutManager(new LinearLayoutManager(
-                                getBaseContext(), LinearLayoutManager.VERTICAL, false
-                        )
+                GridLayoutManager gridLayoutManager =new GridLayoutManager(getBaseContext(), 2);
+                recyclerView.setLayoutManager(gridLayoutManager
                 );
-                recyclerView.setAdapter(new RecycleAdapter());
+
+                recyclerView.setAdapter(new RecycleAdapter(getApplicationContext() , new int[] {R.drawable.im1 , R.drawable.im1}));
 
                 container.addView(view);
                 return view;
@@ -72,7 +74,7 @@ public class AppViewContainer extends AppCompatActivity {
         models.add(
                 new NavigationTabBar.Model.Builder(
                         getResources().getDrawable(R.drawable.ic_home_black_24dp),
-                        Color.parseColor(colors[0]))
+                        Color.parseColor(colors[1]))
                         .title("Home")
                         .build()
         );
@@ -86,7 +88,7 @@ public class AppViewContainer extends AppCompatActivity {
         models.add(
                 new NavigationTabBar.Model.Builder(
                         getResources().getDrawable(R.drawable.ic_settings_black_24dp),
-                        Color.parseColor(colors[2]))
+                        Color.parseColor(colors[1]))
                         .title("Settings")
                         .build()
         );
@@ -161,32 +163,5 @@ public class AppViewContainer extends AppCompatActivity {
         collapsingToolbarLayout.setCollapsedTitleTextColor(Color.parseColor("#ffffff"));
     }
 
-    public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.ViewHolder> {
 
-        @Override
-        public ViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
-            final View view = LayoutInflater.from(getBaseContext()).inflate(R.layout.theme_item, parent, false);
-            return new ViewHolder(view);
-        }
-
-        @Override
-        public void onBindViewHolder(final ViewHolder holder, final int position) {
-            //holder.txt.setText(String.format("Navigation Item #%d", position));
-        }
-
-        @Override
-        public int getItemCount() {
-            return 5;
-        }
-
-        public class ViewHolder extends RecyclerView.ViewHolder {
-
-            public TextView txt;
-
-            public ViewHolder(final View itemView) {
-                super(itemView);
-                //txt = (TextView) itemView.findViewById(R.id.txt_vp_item_list);
-            }
-        }
-    }
 }
