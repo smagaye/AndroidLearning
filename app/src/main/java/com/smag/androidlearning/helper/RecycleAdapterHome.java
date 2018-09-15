@@ -7,26 +7,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.smag.androidlearning.AppViewContainer;
 import com.smag.androidlearning.R;
 
-public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.ViewHolder> {
+public class RecycleAdapterHome extends RecyclerView.Adapter<RecycleAdapterHome.ViewHolder> {
 
     private Context context;
     private  int[] images;
 
-    public RecycleAdapter(Context context, int[] images) {
+    public RecycleAdapterHome(Context context, int[] images) {
         this.context = context;
         this.images = images;
     }
 
     @Override
-    public RecycleAdapter.ViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
-        final View view = LayoutInflater.from(context).inflate(R.layout.theme_item, parent, false);
-        return new RecycleAdapter.ViewHolder(view);
+    public RecycleAdapterHome.ViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
+        final View view = LayoutInflater.from(context).inflate(R.layout.item_theme, parent, false);
+        return new RecycleAdapterHome.ViewHolder(view);
     }
 
     @Override

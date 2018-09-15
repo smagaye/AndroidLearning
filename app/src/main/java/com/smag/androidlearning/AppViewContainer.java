@@ -13,9 +13,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.smag.androidlearning.helper.RecycleAdapter;
+import com.smag.androidlearning.helper.RecycleAdapterHome;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -36,7 +38,7 @@ public class AppViewContainer extends AppCompatActivity {
         viewPager.setAdapter(new PagerAdapter() {
             @Override
             public int getCount() {
-                return 5;
+                return 3;
             }
 
             @Override
@@ -51,18 +53,32 @@ public class AppViewContainer extends AppCompatActivity {
 
             @Override
             public Object instantiateItem(final ViewGroup container, final int position) {
-                final View view = LayoutInflater.from(
-                        getBaseContext()).inflate(R.layout.item_vp_list, null, false);
+                final View view ;
+                if(position==2){
+                    view= LayoutInflater.from(getBaseContext()).inflate(R.layout.fragment_settings, null, false);
+                }else if(position==1){
+                    view= LayoutInflater.from(getBaseContext()).inflate(R.layout.fragment_account, null, false);
+                    ((Button)view.findViewById(R.id.button2)).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Toast.makeText(getApplicationContext(),"btn fragment account",Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
 
-                final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rv);
-                recyclerView.setHasFixedSize(true);
-                GridLayoutManager gridLayoutManager =new GridLayoutManager(getBaseContext(), 2);
-                recyclerView.setLayoutManager(gridLayoutManager
-                );
+                else{
+                    view= LayoutInflater.from(
+                            getBaseContext()).inflate(R.layout.fragment_home, null, false);
+                    final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rv);
+                    recyclerView.setHasFixedSize(true);
+                    GridLayoutManager gridLayoutManager =new GridLayoutManager(getBaseContext(), 2);
+                    recyclerView.setLayoutManager(gridLayoutManager);
 
-                recyclerView.setAdapter(new RecycleAdapter(getApplicationContext() , new int[] {R.drawable.im1 , R.drawable.im1}));
+                    recyclerView.setAdapter(new RecycleAdapterHome(getApplicationContext() , new int[] {R.drawable.im1 , R.drawable.android_im}));
 
-                container.addView(view);
+                }
+
+                     container.addView(view);
                 return view;
             }
         });
@@ -94,7 +110,7 @@ public class AppViewContainer extends AppCompatActivity {
         );
 
         navigationTabBar.setModels(models);
-        navigationTabBar.setViewPager(viewPager, 1);
+        navigationTabBar.setViewPager(viewPager, 0);
 
         //IMPORTANT: ENABLE SCROLL BEHAVIOUR IN COORDINATOR LAYOUT
         navigationTabBar.setBehaviorEnabled(true);
@@ -150,7 +166,7 @@ public class AppViewContainer extends AppCompatActivity {
                         final Snackbar snackbar = Snackbar.make(navigationTabBar, "Notification", Snackbar.LENGTH_SHORT);
                         snackbar.getView().setBackgroundColor(Color.parseColor("#38D0FD"));
                         ((TextView) snackbar.getView().findViewById(R.id.snackbar_text))
-                                .setTextColor(Color.parseColor("#1164F9"));
+                                .setTextColor(Color.parseColor(colors[1]));
                         snackbar.show();
                     }
                 }, 1000);
