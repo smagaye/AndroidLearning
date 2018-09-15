@@ -8,12 +8,17 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.smag.androidlearning.service.DatabaseService;
+
+import java.io.Serializable;
 
 public class Driver extends AppCompatActivity {
 
@@ -30,7 +35,6 @@ public class Driver extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver);
         serviceIntent = new Intent(getApplicationContext(),DatabaseService.class);
-        bindService();
         new ThreadApp().start();
     }
 
@@ -59,19 +63,6 @@ public class Driver extends AppCompatActivity {
         if(isServiceBound){
             unbindService(serviceConnection);
             isServiceBound = false;
-
-        }
-    }
-
-    private void callMethodService() {
-        try {
-            if (isServiceBound) {
-                service.showData();
-            } else {
-
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
@@ -80,9 +71,15 @@ public class Driver extends AppCompatActivity {
         public void run() {
             try {
                 initComponent();
+                bindService();
                 sleep(3000);
                 if(isServiceBound){
-                    startActivity(new Intent(getApplicationContext(),AppViewContainer.class));
+                    Intent intent =new Intent(getApplicationContext(),AppViewContainer.class);
+                    intent.putExtra("listThemesTrans", (Serializable) service.getAllTheme());
+                    intent.putExtra("listCoursTrans", (Serializable) service.getAllCours());
+                    intent.putExtra("listExercicesTrans", (Serializable) service.getAllExercices());
+                    startActivity(intent);
+                    unBindService();
                     finish();
                 }
             } catch (InterruptedException e) {

@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,20 +18,24 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.smag.androidlearning.beans.Theme;
 import com.smag.androidlearning.helper.RecycleAdapterHome;
-
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
-
 import devlight.io.library.ntb.NavigationTabBar;
 
 public class AppViewContainer extends AppCompatActivity {
 
+    private int [] images =new int[] {R.drawable.im1 , R.drawable.android_im,R.drawable.im1 , R.drawable.android_im,R.drawable.im1 , R.drawable.android_im};
+    private List<Theme> themes;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_view_container);
         initUI();
+        themes = (List<Theme>) getIntent().getSerializableExtra("listThemesTrans");
+        Log.i("MSG_LOG",themes.toString());
     }
 
     private void initUI() {
@@ -67,18 +72,15 @@ public class AppViewContainer extends AppCompatActivity {
                 }
 
                 else{
-                    view= LayoutInflater.from(
-                            getBaseContext()).inflate(R.layout.fragment_home, null, false);
+                    view= LayoutInflater.from(getBaseContext()).inflate(R.layout.fragment_home, null, false);
                     final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rv);
                     recyclerView.setHasFixedSize(true);
                     GridLayoutManager gridLayoutManager =new GridLayoutManager(getBaseContext(), 2);
                     recyclerView.setLayoutManager(gridLayoutManager);
-
-                    recyclerView.setAdapter(new RecycleAdapterHome(getApplicationContext() , new int[] {R.drawable.im1 , R.drawable.android_im}));
-
+                    recyclerView.setAdapter(new RecycleAdapterHome(getApplicationContext() , images,themes));
                 }
 
-                     container.addView(view);
+                container.addView(view);
                 return view;
             }
         });
@@ -178,6 +180,5 @@ public class AppViewContainer extends AppCompatActivity {
         collapsingToolbarLayout.setExpandedTitleColor(Color.parseColor("#38D0FD"));
         collapsingToolbarLayout.setCollapsedTitleTextColor(Color.parseColor("#ffffff"));
     }
-
 
 }

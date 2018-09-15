@@ -2,6 +2,7 @@ package com.smag.androidlearning.service;
 
 import android.app.Service;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Binder;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
@@ -48,7 +49,6 @@ public class DatabaseService extends Service {
 
     }
 
-
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -56,7 +56,6 @@ public class DatabaseService extends Service {
             inputStream =getAssets().open(getResources().getString(R.string.datafile));
             Toast.makeText(getApplicationContext(),"File Configuration androidlearning.xml loading...",Toast.LENGTH_LONG).show();
             startDatabaseConfiguration(inputStream);
-            stopSelf();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -66,6 +65,12 @@ public class DatabaseService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         return START_STICKY;
+    }
+
+    @Override
+    public void unbindService(ServiceConnection conn) {
+        super.unbindService(conn);
+        stopSelf();
     }
 
     @Override
@@ -312,5 +317,17 @@ public class DatabaseService extends Service {
                 databaseFactory.getCoursDao().getAllCours().size() == 0 ||
                 databaseFactory.getExerciceDao().getAllExercices().size() == 0 ||
                 databaseFactory.getRessourcedescriptionDao().getAllRessourcedescriptions().size()==0);
+    }
+
+    public List<Theme> getAllTheme(){
+        return databaseFactory.getThemeDao().getAllThemes();
+    }
+
+    public List<Cours> getAllCours(){
+        return databaseFactory.getCoursDao().getAllCours();
+    }
+
+    public List<Exercice> getAllExercices(){
+        return databaseFactory.getExerciceDao().getAllExercices();
     }
 }

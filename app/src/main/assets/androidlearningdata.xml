@@ -65,7 +65,7 @@
                 </exercice>
             </blockexercices>
         </theme>
-          <theme>
+        <theme>
             <ressourcedescription>
                 <idressource>5</idressource>
                 <titre>Titre Theme 2</titre>
@@ -128,6 +128,263 @@
                     <sequencequestion>80;78</sequencequestion>
                     <score>2</score>
                     <tempsreponse>122</tempsreponse>
+                </exercice>
+            </blockexercices>
+        </theme>
+
+        <theme>
+            <ressourcedescription>
+                <idressource>3</idressource>
+                <titre>Titre Theme 3</titre>
+                <description> Description Theme 3</description>
+                <photo>Source photo Theme 3</photo>
+                <etat>Etat Theme 3</etat>
+            </ressourcedescription>
+            <blockcours>
+                <cours>
+                    <idcours>1</idcours>
+                    <ressourcedescription>
+                        <idressource>9</idressource>
+                        <titre>Titre Cours 5</titre>
+                        <description> Description Cours 5</description>
+                        <photo>source photo 5</photo>
+                        <etat>Etat Cours 5</etat>
+                    </ressourcedescription>
+                    <contenu>Ceci est le contenu du cours 5</contenu>
+                </cours>
+                <cours>
+                    <idcours>6</idcours>
+                    <ressourcedescription>
+                        <idressource>10</idressource>
+                        <titre>Titre Cours 6</titre>
+                        <description> Description Cours 6</description>
+                        <photo>source photo 6</photo>
+                        <etat>Etat Cours 6</etat>
+                    </ressourcedescription>
+                    <contenu>Ceci est le contenu du cours 6</contenu>
+                </cours>
+                <cours>
+                    <idcours>7</idcours>
+                    <ressourcedescription>
+                        <idressource>11</idressource>
+                        <titre>Titre Cours 7</titre>
+                        <description> Description Cours 7</description>
+                        <photo>source photo 7</photo>
+                        <etat>Etat Cours 7</etat>
+                    </ressourcedescription>
+                    <contenu>Ceci est le contenu du cours 3</contenu>
+                </cours>
+            </blockcours>
+            <blockexercices>
+                <exercice>
+                    <idexercice>1</idexercice>
+                    <sequencequestion>24;6;9;0;2</sequencequestion>
+                    <score>15</score>
+                    <tempsreponse>47</tempsreponse>
+                </exercice>
+                <exercice>
+                    <idexercice>2</idexercice>
+                    <sequencequestion>45;63;19;108;2</sequencequestion>
+                    <score>33</score>
+                    <tempsreponse>152</tempsreponse>
+                </exercice>
+                <exercice>
+                    <idexercice>3</idexercice>
+                    <sequencequestion>3;10;31;56;80</sequencequestion>
+                    <score>71</score>
+                    <tempsreponse>12</tempsreponse>
+                </exercice>
+            </blockexercices>
+        </theme>
+        <theme>
+            <ressourcedescription>
+                <idressource>20</idressource>
+                <titre>Titre Theme 4</titre>
+                <description> Description Theme 4</description>
+                <photo>Source photo Theme 4</photo>
+                <etat>Etat Theme 4</etat>
+            </ressourcedescription>
+            <blockcours>
+                <cours>
+                    <idcours>1</idcours>
+                    <ressourcedescription>
+                        <idressource>2</idressource>
+                        <titre>Titre Cours 1</titre>
+                        <description> Description Cours 1</description>
+                        <photo>source photo 1</photo>
+                        <etat>Etat Cours 1</etat>
+                    </ressourcedescription>
+                    <contenu>Ceci est le contenu du cours 1</contenu>
+                </cours>
+                <cours>
+                    <idcours>2</idcours>
+                    <ressourcedescription>
+                        <idressource>3</idressource>
+                        <titre>Titre Cours 2</titre>
+                        <description> Description Cours 2</description>
+                        <photo>source photo 2</photo>
+                        <etat>Etat Cours 2</etat>
+                    </ressourcedescription>
+                    <contenu>Ceci est le contenu du cours 2</contenu>
+                </cours>
+                <cours>
+                    <idcours>3</idcours>
+                    <ressourcedescription>
+                        <idressource>4</idressource>
+                        <titre>Titre Cours 3</titre>
+                        <description> Description Cours 3</description>
+                        <photo>source photo 3</photo>
+                        <etat>Etat Cours 3</etat>
+                    </ressourcedescription>
+                    <contenu>Ceci est le contenu du cours 3</contenu>
+                </cours>
+            </blockcours>
+            <blockexercices>
+                <exercice>
+                    <idexercice>1</idexercice>
+                    <sequencequestion>24;6;9;0;2</sequencequestion>
+                    <score>15</score>
+                    <tempsreponse>47</tempsreponse>
+                </exercice>
+                <exercice>
+                    <idexercice>2</idexercice>
+                    <sequencequestion>45;63;19;108;2</sequencequestion>
+                    <score>33</score>
+                    <tempsreponse>152</tempsreponse>
+                </exercice>
+                <exercice>
+                    <idexercice>3</idexercice>
+                    <sequencequestion>3;10;31;56;80</sequencequestion>
+                    <score>71</score>
+                    <tempsreponse>12</tempsreponse>
+                </exercice>
+            </blockexercices>
+        </theme>
+        <theme>
+            <ressourcedescription>
+                <idressource>30</idressource>
+                <titre>Titre Theme 5</titre>
+                <description> Description Theme 5</description>
+                <photo>Source photo Theme 5</photo>
+                <etat>Etat Theme 5</etat>
+            </ressourcedescription>
+            <blockcours>
+                <cours>
+                    <idcours>1</idcours>
+                    <ressourcedescription>
+                        <idressource>2</idressource>
+                        <titre>Titre Cours 1</titre>
+                        <description> Description Cours 1</description>
+                        <photo>source photo 1</photo>
+                        <etat>Etat Cours 1</etat>
+                    </ressourcedescription>
+                    <contenu>Ceci est le contenu du cours 1</contenu>
+                </cours>
+                <cours>
+                    <idcours>2</idcours>
+                    <ressourcedescription>
+                        <idressource>3</idressource>
+                        <titre>Titre Cours 2</titre>
+                        <description> Description Cours 2</description>
+                        <photo>source photo 2</photo>
+                        <etat>Etat Cours 2</etat>
+                    </ressourcedescription>
+                    <contenu>Ceci est le contenu du cours 2</contenu>
+                </cours>
+                <cours>
+                    <idcours>3</idcours>
+                    <ressourcedescription>
+                        <idressource>4</idressource>
+                        <titre>Titre Cours 3</titre>
+                        <description> Description Cours 3</description>
+                        <photo>source photo 3</photo>
+                        <etat>Etat Cours 3</etat>
+                    </ressourcedescription>
+                    <contenu>Ceci est le contenu du cours 3</contenu>
+                </cours>
+            </blockcours>
+            <blockexercices>
+                <exercice>
+                    <idexercice>1</idexercice>
+                    <sequencequestion>24;6;9;0;2</sequencequestion>
+                    <score>15</score>
+                    <tempsreponse>47</tempsreponse>
+                </exercice>
+                <exercice>
+                    <idexercice>2</idexercice>
+                    <sequencequestion>45;63;19;108;2</sequencequestion>
+                    <score>33</score>
+                    <tempsreponse>152</tempsreponse>
+                </exercice>
+                <exercice>
+                    <idexercice>3</idexercice>
+                    <sequencequestion>3;10;31;56;80</sequencequestion>
+                    <score>71</score>
+                    <tempsreponse>12</tempsreponse>
+                </exercice>
+            </blockexercices>
+        </theme>
+        <theme>
+            <ressourcedescription>
+                <idressource>40</idressource>
+                <titre>Titre Theme 6</titre>
+                <description> Description Theme 6</description>
+                <photo>Source photo Theme 6</photo>
+                <etat>Etat Theme 6</etat>
+            </ressourcedescription>
+            <blockcours>
+                <cours>
+                    <idcours>1</idcours>
+                    <ressourcedescription>
+                        <idressource>2</idressource>
+                        <titre>Titre Cours 1</titre>
+                        <description> Description Cours 1</description>
+                        <photo>source photo 1</photo>
+                        <etat>Etat Cours 1</etat>
+                    </ressourcedescription>
+                    <contenu>Ceci est le contenu du cours 1</contenu>
+                </cours>
+                <cours>
+                    <idcours>2</idcours>
+                    <ressourcedescription>
+                        <idressource>3</idressource>
+                        <titre>Titre Cours 2</titre>
+                        <description> Description Cours 2</description>
+                        <photo>source photo 2</photo>
+                        <etat>Etat Cours 2</etat>
+                    </ressourcedescription>
+                    <contenu>Ceci est le contenu du cours 2</contenu>
+                </cours>
+                <cours>
+                    <idcours>3</idcours>
+                    <ressourcedescription>
+                        <idressource>4</idressource>
+                        <titre>Titre Cours 3</titre>
+                        <description> Description Cours 3</description>
+                        <photo>source photo 3</photo>
+                        <etat>Etat Cours 3</etat>
+                    </ressourcedescription>
+                    <contenu>Ceci est le contenu du cours 3</contenu>
+                </cours>
+            </blockcours>
+            <blockexercices>
+                <exercice>
+                    <idexercice>1</idexercice>
+                    <sequencequestion>24;6;9;0;2</sequencequestion>
+                    <score>15</score>
+                    <tempsreponse>47</tempsreponse>
+                </exercice>
+                <exercice>
+                    <idexercice>2</idexercice>
+                    <sequencequestion>45;63;19;108;2</sequencequestion>
+                    <score>33</score>
+                    <tempsreponse>152</tempsreponse>
+                </exercice>
+                <exercice>
+                    <idexercice>3</idexercice>
+                    <sequencequestion>3;10;31;56;80</sequencequestion>
+                    <score>71</score>
+                    <tempsreponse>12</tempsreponse>
                 </exercice>
             </blockexercices>
         </theme>
