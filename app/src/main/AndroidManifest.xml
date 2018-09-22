@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".Driver">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,18 +17,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <service android:name=".service.DatabaseService" />
-
         <activity android:name=".AppViewContainer" />
         <activity android:name=".ActTest" />
         <activity android:name=".CoursExerciceContainer">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-    </application>
 
+        <service android:name=".service.DatabaseService" />
+        <service android:name=".service.ServiceNotification"/>
+
+        <receiver android:name=".service.BroadcastReceiverService">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.REBOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+    </application>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 </manifest>

@@ -1,5 +1,6 @@
 package com.smag.androidlearning;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -20,6 +21,8 @@ import android.widget.Toast;
 
 import com.smag.androidlearning.beans.Theme;
 import com.smag.androidlearning.helper.RecycleAdapterHome;
+import com.smag.androidlearning.service.ServiceNotification;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -29,11 +32,18 @@ public class AppViewContainer extends AppCompatActivity {
 
     private int [] images =new int[] {R.drawable.theme1 , R.drawable.theme1x ,R.drawable.theme3 , R.drawable.theme4,R.drawable.theme5 , R.drawable.theme6};
     private List<Theme> themes;
+
+    @Override
+    public void onBackPressed() {
+        //Alerter si il veut quitter l'application
+        startService(new Intent(this,ServiceNotification.class));
+        super.onBackPressed();
+    }
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         themes = (List<Theme>) getIntent().getSerializableExtra("listThemesTrans");
-        // Log.i("MSG_LOG",themes.toString());
         setContentView(R.layout.activity_app_view_container);
         initUI();
     }
@@ -183,4 +193,9 @@ public class AppViewContainer extends AppCompatActivity {
         collapsingToolbarLayout.setCollapsedTitleTextColor(Color.parseColor("#ffffff"));
     }
 
+    @Override
+    protected void onResume() {
+        startService(new Intent(this,ServiceNotification.class));
+        super.onResume();
+    }
 }

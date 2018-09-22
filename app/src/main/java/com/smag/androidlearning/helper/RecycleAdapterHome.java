@@ -82,7 +82,7 @@ public class RecycleAdapterHome extends RecyclerView.Adapter<RecycleAdapterHome.
             plus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(itemView.getContext(),"Afficher Cours plus",Toast.LENGTH_LONG).show();
+                    Toast.makeText(itemView.getContext(),"Show description",Toast.LENGTH_LONG).show();
                 }
             });
         }

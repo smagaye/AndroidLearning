@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.smag.androidlearning.service.DatabaseService;
+import com.smag.androidlearning.service.ServiceNotification;
 
 import java.io.Serializable;
 
@@ -32,13 +33,19 @@ public class Driver extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        startNotification();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver);
         serviceIntent = new Intent(getApplicationContext(),DatabaseService.class);
         new ThreadApp().start();
     }
 
-
+    private void startNotification() {
+        if(getIntent().getBooleanExtra("boot", false)) {
+            startService(new Intent(this, ServiceNotification.class));
+            finish();
+        }
+    }
     private void bindService() {
         if(serviceConnection==null) {
             serviceConnection = new ServiceConnection() {
@@ -97,4 +104,9 @@ public class Driver extends AppCompatActivity {
         image.setAnimation(animation);
     }
 
+    @Override
+    public void onBackPressed() {
+        unBindService();
+        super.onBackPressed();
+    }
 }
