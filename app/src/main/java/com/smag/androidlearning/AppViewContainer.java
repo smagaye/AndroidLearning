@@ -32,10 +32,10 @@ public class AppViewContainer extends AppCompatActivity {
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        themes = (List<Theme>) getIntent().getSerializableExtra("listThemesTrans");
+        // Log.i("MSG_LOG",themes.toString());
         setContentView(R.layout.activity_app_view_container);
         initUI();
-        themes = (List<Theme>) getIntent().getSerializableExtra("listThemesTrans");
-       // Log.i("MSG_LOG",themes.toString());
     }
 
     private void initUI() {
@@ -115,13 +115,13 @@ public class AppViewContainer extends AppCompatActivity {
 
         navigationTabBar.setModels(models);
         navigationTabBar.setViewPager(viewPager, 1);
-
         //IMPORTANT: ENABLE SCROLL BEHAVIOUR IN COORDINATOR LAYOUT
         navigationTabBar.setBehaviorEnabled(true);
 
         navigationTabBar.setOnTabBarSelectedIndexListener(new NavigationTabBar.OnTabBarSelectedIndexListener() {
             @Override
             public void onStartTabSelected(final NavigationTabBar.Model model, final int index) {
+
             }
 
             @Override

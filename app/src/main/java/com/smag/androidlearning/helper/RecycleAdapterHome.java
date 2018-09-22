@@ -1,6 +1,7 @@
 package com.smag.androidlearning.helper;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -11,14 +12,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.smag.androidlearning.CoursExerciceContainer;
 import com.smag.androidlearning.R;
+import com.smag.androidlearning.beans.Cours;
 import com.smag.androidlearning.beans.Theme;
+import com.smag.androidlearning.database.DatabaseFactory;
+import com.smag.androidlearning.service.DatabaseService;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class RecycleAdapterHome extends RecyclerView.Adapter<RecycleAdapterHome.ViewHolder> {
 
-    private Context context;
+    private static Context context;
     private  int[] images;
     private List<Theme> themes;
 
@@ -65,7 +71,12 @@ public class RecycleAdapterHome extends RecyclerView.Adapter<RecycleAdapterHome.
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(itemView.getContext(),"Afficher Cours",Toast.LENGTH_LONG).show();
+                    DatabaseFactory dbf =DatabaseFactory.getAppDatabase(itemView.getContext());
+                    List<Cours>  lc = dbf.getCoursDao().findByTheme(titre.getText().toString());
+                    //Envoie des donnees vers CoursExerciceContainer
+                    Intent intent = new Intent(itemView.getContext(), CoursExerciceContainer.class);
+                    intent.putExtra("listeCours",(Serializable) lc);
+                    context.startActivity(intent);
                 }
             });
             plus.setOnClickListener(new View.OnClickListener() {

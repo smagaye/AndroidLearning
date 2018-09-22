@@ -19,8 +19,15 @@
 
         <service android:name=".service.DatabaseService" />
 
-        <activity android:name=".AppViewContainer"></activity>
-        <activity android:name=".ActTest"></activity>
+        <activity android:name=".AppViewContainer" />
+        <activity android:name=".ActTest" />
+        <activity android:name=".CoursExerciceContainer">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

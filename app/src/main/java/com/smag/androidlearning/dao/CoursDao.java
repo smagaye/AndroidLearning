@@ -29,6 +29,9 @@ public interface CoursDao {
     @Query("SELECT * FROM Cours")
     public List<Cours> getAllCours();
 
-    @Query("SELECT * FROM Cours WHERE idcoursColonne = :idcours")
-    public List<Cours> findById(int idcours);
+    @Query("SELECT * FROM Cours where themeColonneidthemeColonne = :idthemeColonne")
+    public List<Cours> findById(int idthemeColonne);
+
+    @Query("SELECT * FROM Cours c where themeColonneressourcedescriptionColonnetitreColonne = :titre")
+    public List<Cours> findByTheme(String titre);
 }

@@ -330,4 +330,8 @@ public class DatabaseService extends Service {
     public List<Exercice> getAllExercices(){
         return databaseFactory.getExerciceDao().getAllExercices();
     }
+
+    public List<Cours> getCoursByTitleTheme(String titre ){
+        return databaseFactory.getCoursDao().findByTheme(titre);
+    }
 }
