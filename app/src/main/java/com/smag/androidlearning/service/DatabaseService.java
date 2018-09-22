@@ -201,23 +201,23 @@ public class DatabaseService extends Service {
                     case XmlPullParser.END_TAG:
                         if(tagname.equalsIgnoreCase("cours")){
                             liste.add(cours);
-                        } else if(tagname.equalsIgnoreCase("idressource")){
+                        } else if(tagname.equalsIgnoreCase("idressource") & texte != null){
                             cours.getRessourcedescription().setIdressourcedescription(Integer.parseInt(texte));
-                        } else if(tagname.equalsIgnoreCase("idcours")){
+                        } else if(tagname.equalsIgnoreCase("idcours")& texte != null){
                             cours.setIdcours(Integer.parseInt(texte));
-                        }else if(tagname.equalsIgnoreCase("titre")){
+                        }else if(tagname.equalsIgnoreCase("titre")& texte != null){
                             cours.getRessourcedescription().setTitre(texte);
-                        } else if(tagname.equalsIgnoreCase("description")){
+                        } else if(tagname.equalsIgnoreCase("description")& texte != null){
                             cours.getRessourcedescription().setDescription(texte);
-                        } else if(tagname.equalsIgnoreCase("etat")){
+                        } else if(tagname.equalsIgnoreCase("etat")& texte != null){
                             cours.getRessourcedescription().setEtat(texte);
-                        } else if(tagname.equalsIgnoreCase("description")){
+                        } else if(tagname.equalsIgnoreCase("description")& texte != null){
                             cours.getRessourcedescription().setDescription(texte);
-                        } else if(tagname.equalsIgnoreCase("photo")){
+                        } else if(tagname.equalsIgnoreCase("photo")& texte != null){
                             cours.getRessourcedescription().setPhoto(texte);
-                        } else if(tagname.equalsIgnoreCase("contenu")){
+                        } else if(tagname.equalsIgnoreCase("contenu")& texte != null){
                             cours.setContenu(texte);
-                        } else if(tagname.equalsIgnoreCase("blockcours")){
+                        } else if(tagname.equalsIgnoreCase("blockcours")& texte != null){
                             return liste;
                         }
                         break;

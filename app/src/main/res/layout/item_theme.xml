@@ -9,6 +9,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
         android:layout_marginLeft="4dp"
+        android:elevation="16dp"
+        android:background="@drawable/shadow"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:orientation="vertical">
@@ -26,7 +28,7 @@
 
         <ImageView
             android:id="@+id/ressource_image"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_alignStart="@+id/textView3"
             android:layout_below="@+id/id_theme"

@@ -27,7 +27,7 @@ import devlight.io.library.ntb.NavigationTabBar;
 
 public class AppViewContainer extends AppCompatActivity {
 
-    private int [] images =new int[] {R.drawable.im1 , R.drawable.android_im,R.drawable.im1 , R.drawable.android_im,R.drawable.im1 , R.drawable.android_im};
+    private int [] images =new int[] {R.drawable.theme1 , R.drawable.theme1x ,R.drawable.theme3 , R.drawable.theme4,R.drawable.theme5 , R.drawable.theme6};
     private List<Theme> themes;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {

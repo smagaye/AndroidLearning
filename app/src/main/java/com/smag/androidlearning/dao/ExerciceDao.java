@@ -9,6 +9,7 @@ import android.arch.persistence.room.Update;
 
 import com.smag.androidlearning.beans.Cours;
 import com.smag.androidlearning.beans.Exercice;
+import com.smag.androidlearning.beans.Theme;
 
 import java.util.List;
 
@@ -29,5 +30,8 @@ public interface ExerciceDao {
 
     @Query("SELECT * FROM Exercice WHERE idexerciceColonne = :idexercice")
     public List<Exercice> findById(int idexercice);
+
+    @Query("SELECT * FROM Exercice where themeColonneidthemeColonne = :idthemeColonne")
+    public List<Exercice> findByTheme(Integer idthemeColonne);
 }
 
