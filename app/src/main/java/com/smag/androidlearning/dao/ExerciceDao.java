@@ -31,7 +31,7 @@ public interface ExerciceDao {
     @Query("SELECT * FROM Exercice WHERE idexerciceColonne = :idexercice")
     public List<Exercice> findById(int idexercice);
 
-    @Query("SELECT * FROM Exercice where themeColonneidthemeColonne = :idthemeColonne")
-    public List<Exercice> findByTheme(Integer idthemeColonne);
+    @Query("SELECT * FROM Exercice where themeColonneressourcedescriptionColonnetitreColonne = :titre")
+    public List<Exercice> findExerciceByThemeTitle(String titre);
 }
 

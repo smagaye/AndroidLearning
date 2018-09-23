@@ -1,6 +1,7 @@
 package com.smag.androidlearning;
 
 import android.graphics.Color;
+import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.smag.androidlearning.beans.Cours;
+import com.smag.androidlearning.beans.Exercice;
+import com.smag.androidlearning.helper.RecycleAdapterCours;
+import com.smag.androidlearning.helper.RecycleAdapterExercice;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,13 +26,19 @@ import devlight.io.library.ntb.NavigationTabBar;
 
 public class CoursExerciceContainer extends AppCompatActivity {
 
+    private List<Cours> listCours;
+    private List<Exercice> listExercices;
+    private int [] images =new int[] {R.drawable.theme1 , R.drawable.theme1x ,R.drawable.theme3 , R.drawable.theme4,R.drawable.theme5 , R.drawable.theme6};
+    private int [] imagesExercices =new int[] {R.drawable.theme1 , R.drawable.theme1x ,R.drawable.theme3 , R.drawable.theme4,R.drawable.theme5 , R.drawable.theme6};
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cours_exercice_container);
+        listCours = (List<Cours>) getIntent().getSerializableExtra("listeCours");
+        listExercices = (List<Exercice>) getIntent().getSerializableExtra("listeExercices");
         initUI();
-        List<Cours> list = (List<Cours>) getIntent().getSerializableExtra("listeCours");
-        System.out.println(list);
     }
 
     private void initUI() {
@@ -36,7 +46,7 @@ public class CoursExerciceContainer extends AppCompatActivity {
         viewPager.setAdapter(new PagerAdapter() {
             @Override
             public int getCount() {
-                return 5;
+                return 3;
             }
 
             @Override
@@ -51,33 +61,46 @@ public class CoursExerciceContainer extends AppCompatActivity {
 
             @Override
             public Object instantiateItem(final ViewGroup container, final int position) {
-                final View view = LayoutInflater.from(
-                        getBaseContext()).inflate(R.layout.fragment_cours, null, false);
+                View view = null;
+                if(position==0){
+                    view = LayoutInflater.from(
+                            getBaseContext()).inflate(R.layout.fragment_cours, null, false);
 
-                final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rv);
-                recyclerView.setHasFixedSize(true);
-                recyclerView.setLayoutManager(new LinearLayoutManager(
-                                getBaseContext(), LinearLayoutManager.VERTICAL, false
-                        )
-                );
-                recyclerView.setAdapter(new RecycleAdapter());
+                    final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rv);
+                    recyclerView.setHasFixedSize(true);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(
+                                    getBaseContext(), LinearLayoutManager.VERTICAL, false
+                            )
+                    );
+                    recyclerView.setAdapter(new RecycleAdapterCours(getApplicationContext(),images,listCours));
 
-                container.addView(view);
+                    container.addView(view);
+                }
+                else{
+                    view = LayoutInflater.from(
+                            getBaseContext()).inflate(R.layout.fragment_exercice, null, false);
+
+                    final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rv);
+                    recyclerView.setHasFixedSize(true);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(
+                                    getBaseContext(), LinearLayoutManager.VERTICAL, false
+                            )
+                    );
+                    recyclerView.setAdapter(new RecycleAdapterExercice(getApplicationContext(),images,listExercices));
+
+                    container.addView(view);
+                }
+
                 return view;
             }
+
         });
 
         final String[] colors = getResources().getStringArray(R.array.default_preview);
 
         final NavigationTabBar navigationTabBar = (NavigationTabBar) findViewById(R.id.ntb_horizontal);
         final ArrayList<NavigationTabBar.Model> models = new ArrayList<>();
-        models.add(
-                new NavigationTabBar.Model.Builder(
-                        getResources().getDrawable(R.drawable.ic_home_black_24dp),
-                        Color.parseColor(colors[1]))
-                        .title("Home")
-                        .build()
-        );
+
         models.add(
                 new NavigationTabBar.Model.Builder(
                         getResources().getDrawable(R.drawable.ic_cours),
@@ -94,7 +117,7 @@ public class CoursExerciceContainer extends AppCompatActivity {
         );
 
         navigationTabBar.setModels(models);
-        navigationTabBar.setViewPager(viewPager, 1);
+        navigationTabBar.setViewPager(viewPager, 0);
 
         navigationTabBar.post(new Runnable() {
             @Override
@@ -109,7 +132,6 @@ public class CoursExerciceContainer extends AppCompatActivity {
         navigationTabBar.setOnTabBarSelectedIndexListener(new NavigationTabBar.OnTabBarSelectedIndexListener() {
             @Override
             public void onStartTabSelected(final NavigationTabBar.Model model, final int index) {
-
             }
 
             @Override
@@ -138,32 +160,4 @@ public class CoursExerciceContainer extends AppCompatActivity {
         });
     }
 
-    public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.ViewHolder> {
-
-        @Override
-        public ViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
-            final View view = LayoutInflater.from(getBaseContext()).inflate(R.layout.item_cours, parent, false);
-            return new ViewHolder(view);
-        }
-
-        @Override
-        public void onBindViewHolder(final ViewHolder holder, final int position) {
-            //holder.txt.setText(String.format("Navigation Item #%d", position));
-        }
-
-        @Override
-        public int getItemCount() {
-            return 20;
-        }
-
-        public class ViewHolder extends RecyclerView.ViewHolder {
-
-            public TextView txt;
-
-            public ViewHolder(final View itemView) {
-                super(itemView);
-                //txt = (TextView) itemView.findViewById(R.id.txt_vp_item_list);
-            }
-        }
-    }
 }

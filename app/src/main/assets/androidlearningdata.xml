@@ -17,7 +17,7 @@
                         <titre>Android c'est quoi</titre>
                         <description> Une petite histoire sur android et sa philosophie</description>
                         <photo>source photo 1</photo>
-                        <etat>0</etat>
+                        <etat>1</etat>
                     </ressourcedescription>
                     <contenu>Android est un OS mobile Open Source pour smartphone, PDA, MP3 et tablette. Conçu initialement par Android Inc., il a été racheté par Google en 2005.
                         Android est un projet open source largement adopté. Google développe activement la plate-forme Android mais en donne une partie gratuitement aux fabricants de matériel et aux opérateurs de téléphonie qui souhaitent utiliser Android sur leurs appareils. Google facture uniquement les fabricants s’ils installent également la partie des applications Google du système d’exploitation. Beaucoup (mais pas tous) les principaux appareils qui utilisent Android optent également pour la partie des applications Google du service. Une exception notable est Amazon. Bien que les tablettes Kindle Fire utilisent Android, elles n'utilisent pas les portions de Google et Amazon gère un magasin d'applications Android distinct.
@@ -81,19 +81,19 @@
             </blockcours>
             <blockexercices>
                 <exercice>
-                    <idexercice>1</idexercice>
+                    <idexercice>71</idexercice>
                     <sequencequestion>24;6;9;0;2</sequencequestion>
                     <score>15</score>
                     <tempsreponse>47</tempsreponse>
                 </exercice>
                 <exercice>
-                    <idexercice>2</idexercice>
+                    <idexercice>72</idexercice>
                     <sequencequestion>45;63;19;108;2</sequencequestion>
                     <score>33</score>
                     <tempsreponse>152</tempsreponse>
                 </exercice>
                 <exercice>
-                    <idexercice>3</idexercice>
+                    <idexercice>73</idexercice>
                     <sequencequestion>3;10;31;56;80</sequencequestion>
                     <score>71</score>
                     <tempsreponse>12</tempsreponse>
@@ -309,19 +309,19 @@
             </blockcours>
             <blockexercices>
                 <exercice>
-                    <idexercice>1</idexercice>
+                    <idexercice>51</idexercice>
                     <sequencequestion>24;6;9;0;2</sequencequestion>
                     <score>15</score>
                     <tempsreponse>47</tempsreponse>
                 </exercice>
                 <exercice>
-                    <idexercice>2</idexercice>
+                    <idexercice>52</idexercice>
                     <sequencequestion>45;63;19;108;2</sequencequestion>
                     <score>33</score>
                     <tempsreponse>152</tempsreponse>
                 </exercice>
                 <exercice>
-                    <idexercice>3</idexercice>
+                    <idexercice>53</idexercice>
                     <sequencequestion>3;10;31;56;80</sequencequestion>
                     <score>71</score>
                     <tempsreponse>12</tempsreponse>
@@ -351,19 +351,19 @@
             </blockcours>
             <blockexercices>
                 <exercice>
-                    <idexercice>1</idexercice>
+                    <idexercice>81</idexercice>
                     <sequencequestion>24;6;9;0;2</sequencequestion>
                     <score>15</score>
                     <tempsreponse>47</tempsreponse>
                 </exercice>
                 <exercice>
-                    <idexercice>2</idexercice>
+                    <idexercice>82</idexercice>
                     <sequencequestion>45;63;19;108;2</sequencequestion>
                     <score>33</score>
                     <tempsreponse>152</tempsreponse>
                 </exercice>
                 <exercice>
-                    <idexercice>3</idexercice>
+                    <idexercice>83</idexercice>
                     <sequencequestion>3;10;31;56;80</sequencequestion>
                     <score>71</score>
                     <tempsreponse>12</tempsreponse>

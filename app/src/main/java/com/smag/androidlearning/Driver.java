@@ -40,6 +40,12 @@ public class Driver extends AppCompatActivity {
         new ThreadApp().start();
     }
 
+    @Override
+    public void onBackPressed() {
+        unBindService();
+        super.onBackPressed();
+    }
+
     private void startNotification() {
         if(getIntent().getBooleanExtra("boot", false)) {
             startService(new Intent(this, ServiceNotification.class));
@@ -104,9 +110,4 @@ public class Driver extends AppCompatActivity {
         image.setAnimation(animation);
     }
 
-    @Override
-    public void onBackPressed() {
-        unBindService();
-        super.onBackPressed();
-    }
 }

@@ -3,17 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#DDDDDD"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#DDDDDD"
         android:clipChildren="false"
         android:clipToPadding="false"
         android:paddingBottom="5dp"
-        android:paddingTop="5dp"
-        tools:listitem="@layout/item_theme" />
+        android:paddingTop="5dp" />
 
 </FrameLayout>

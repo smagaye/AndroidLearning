@@ -30,7 +30,7 @@ import devlight.io.library.ntb.NavigationTabBar;
 
 public class AppViewContainer extends AppCompatActivity {
 
-    private int [] images =new int[] {R.drawable.theme1 , R.drawable.theme1x ,R.drawable.theme3 , R.drawable.theme4,R.drawable.theme5 , R.drawable.theme6};
+    private int [] imagesCours =new int[] {R.drawable.theme1 , R.drawable.theme1x ,R.drawable.theme3 , R.drawable.theme4,R.drawable.theme5 , R.drawable.theme6};
     private List<Theme> themes;
 
     @Override
@@ -84,7 +84,7 @@ public class AppViewContainer extends AppCompatActivity {
                     recyclerView.setHasFixedSize(true);
                     GridLayoutManager gridLayoutManager =new GridLayoutManager(getBaseContext(), 2);
                     recyclerView.setLayoutManager(gridLayoutManager);
-                    recyclerView.setAdapter(new RecycleAdapterHome(getApplicationContext() , images,themes));
+                    recyclerView.setAdapter(new RecycleAdapterHome(getApplicationContext() , imagesCours,themes));
                 }else{
                     view= LayoutInflater.from(getBaseContext()).inflate(R.layout.fragment_settings, null, false);
                 }

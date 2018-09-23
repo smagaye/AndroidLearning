@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.smag.androidlearning.CoursExerciceContainer;
 import com.smag.androidlearning.R;
 import com.smag.androidlearning.beans.Cours;
+import com.smag.androidlearning.beans.Exercice;
 import com.smag.androidlearning.beans.Theme;
 import com.smag.androidlearning.database.DatabaseFactory;
 import com.smag.androidlearning.service.DatabaseService;
@@ -73,16 +74,18 @@ public class RecycleAdapterHome extends RecyclerView.Adapter<RecycleAdapterHome.
                 public void onClick(View view) {
                     DatabaseFactory dbf =DatabaseFactory.getAppDatabase(itemView.getContext());
                     List<Cours>  lc = dbf.getCoursDao().findByTheme(titre.getText().toString());
+                    List<Exercice>  le = dbf.getExerciceDao().findExerciceByThemeTitle(titre.getText().toString());
                     //Envoie des donnees vers CoursExerciceContainer
                     Intent intent = new Intent(itemView.getContext(), CoursExerciceContainer.class);
                     intent.putExtra("listeCours",(Serializable) lc);
+                    intent.putExtra("listeExercices",(Serializable) le);
                     context.startActivity(intent);
                 }
             });
             plus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(itemView.getContext(),"Show description",Toast.LENGTH_LONG).show();
+                    Toast.makeText(itemView.getContext(),"Alert description",Toast.LENGTH_LONG).show();
                 }
             });
         }

@@ -12,7 +12,7 @@
         android:layout_height="103dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:background="#ffffff"
+        android:background="@android:color/white"
         android:orientation="horizontal"
         android:translationX="4dp">
 
@@ -38,7 +38,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:background="#ffffff"
-                android:text="Titre du cours"
+                android:text="Titre du Exercice"
                 android:textColor="#38D0FD"
                 android:textStyle="bold" />
 
