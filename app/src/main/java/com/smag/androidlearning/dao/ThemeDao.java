@@ -34,4 +34,5 @@ public interface ThemeDao {
 
     @Insert
     public void insertAll(List<Theme> list);
+
 }

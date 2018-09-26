@@ -1,5 +1,8 @@
 package com.smag.androidlearning;
 
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -11,16 +14,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.smag.androidlearning.beans.Theme;
 import com.smag.androidlearning.helper.RecycleAdapterHome;
+import com.smag.androidlearning.beans.Theme;
 import com.smag.androidlearning.service.ServiceNotification;
 
 import java.util.ArrayList;
@@ -30,14 +29,16 @@ import devlight.io.library.ntb.NavigationTabBar;
 
 public class AppViewContainer extends AppCompatActivity {
 
-    private int [] imagesCours =new int[] {R.drawable.theme1 , R.drawable.theme1x ,R.drawable.theme3 , R.drawable.theme4,R.drawable.theme5 , R.drawable.theme6};
+    private int [] imagesCours =new int[] {R.drawable.theme1 , R.drawable.theme1x ,R.drawable.theme3 , R.drawable.theme4,R.drawable.theme5 , R.drawable.theme6,R.drawable.theme6};
     private List<Theme> themes;
 
     @Override
     public void onBackPressed() {
         //Alerter si il veut quitter l'application
         startService(new Intent(this,ServiceNotification.class));
-        super.onBackPressed();
+        alertFunc("Fermeture","Voulez-vous vraiment quitter l'application?");
+
+        //super.onBackPressed();
     }
 
     @Override
@@ -71,20 +72,17 @@ public class AppViewContainer extends AppCompatActivity {
                 final View view ;
                 if(position==0){
                     view= LayoutInflater.from(getBaseContext()).inflate(R.layout.fragment_account, null, false);
-                    ((Button)view.findViewById(R.id.button2)).setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Toast.makeText(getApplicationContext(),"Btn fragment_account",Toast.LENGTH_LONG).show();
-                        }
-                    });
+
 
                 }else if(position==1){
+                    themes.add(themes.get(1));
                     view= LayoutInflater.from(getBaseContext()).inflate(R.layout.fragment_home, null, false);
                     final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rv);
                     recyclerView.setHasFixedSize(true);
                     GridLayoutManager gridLayoutManager =new GridLayoutManager(getBaseContext(), 2);
                     recyclerView.setLayoutManager(gridLayoutManager);
                     recyclerView.setAdapter(new RecycleAdapterHome(getApplicationContext() , imagesCours,themes));
+
                 }else{
                     view= LayoutInflater.from(getBaseContext()).inflate(R.layout.fragment_settings, null, false);
                 }
@@ -195,7 +193,27 @@ public class AppViewContainer extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        startService(new Intent(this,ServiceNotification.class));
         super.onResume();
+        startService(new Intent(this,ServiceNotification.class));
+    }
+
+    public void alertFunc(String title, String message){
+        // Use the Builder class for convenient dialog construction
+        AlertDialog.Builder builder = new AlertDialog.Builder(AppViewContainer.this);
+        builder.setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        finish();
+                    }
+                })
+            .setNegativeButton("Non", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.setTitle(title);
+        alert.setIcon(R.drawable.ic_launcher_background);
+        alert.show();
     }
 }

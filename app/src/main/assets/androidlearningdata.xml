@@ -7,7 +7,7 @@
                 <titre>Introduction à Android</titre>
                 <description> Ici vous apprendrer les bases de Android et vous pourrez vous familiariser avec le framework Android</description>
                 <photo>Source photo Theme 1</photo>
-                <etat>0</etat>
+                <etat>1</etat>
             </ressourcedescription>
             <blockcours>
                 <cours>
@@ -31,7 +31,7 @@
                         <titre>Android et la licence Apache</titre>
                         <description>Comme il est mentionné sur le site officiel, la licence préférée d’Android est l’Apache open source licence v2</description>
                         <photo>source photo 2</photo>
-                        <etat>0</etat>
+                        <etat>1</etat>
                     </ressourcedescription>
                     <contenu>Comme il est mentionné sur le site officiel, la licence préférée d’Android est l’Apache open source licence v2. Le terme « préférée » signifie que le projet Android pourra dans une certaine mesure accepter et intégrer du code source n’ayant pas été publié sous cette licence. Néanmoins, de façon prévisible, seules les licences « open source » approuvées par l’Open Source Initiative, organisation dont l’objet est de labéliser les licences « open source » - sont acceptées. Les contributeurs directs au projet, individus ou sociétés, devront, par contre, signer (il est possible de le faire en ligne) un agrément de licence.
                         La licence Apache a été choisie pour son côté « business friendly » comme on dit. Plus clairement, la licence Apache, contrairement aux licences GPL, autorise la reprise de tout ou partie du code dans un produit sous une autre licence y compris propriétaire. La licence Apache autorise la modification et la distribution du code sous forme libre ou non, et permet, comme toute licence vraiment libre, d’en faire un usage commercial. Elle oblige le maintien du copyright lors de toute modification (et également du texte de la licence elle-même).
@@ -49,7 +49,8 @@
                     <contenu>Les terminaux Android de base sont livrés avec un ensemble d’applications dénommées « Core Applications ». En fonction des constructeurs, d’autres logiciels pourront être préinstallés sur le téléphone mais les Core Applications constituent un socle commun minimum obligatoire.
                         Comme Android est destiné à motoriser en premier lieu des téléphones, parmi ces applications se trouvent tout logiquement le composeur de numéro et la gestion des contacts, ensuite viennent des applications plus sophistiquées comme Google Maps. un navigateur web, un gestionnaire de contacts, un calendrier…
                     </contenu>
-                </cours>                <cours>
+                </cours>
+                <cours>
                 <idcours>5</idcours>
                 <ressourcedescription>
                     <idressource>5</idressource>
@@ -104,7 +105,7 @@
             <ressourcedescription>
                 <idressource>7</idressource>
                 <titre>EDI (Environnement de Développement Intégré)</titre>
-                <description> Entrer dans le monde fascinant des environnements de développement intégré sous Android</description>
+                <description>Entrer dans le monde fascinant des environnements de développement intégré sous Android</description>
                 <photo>Source photo Theme 2</photo>
                 <etat>0</etat>
             </ressourcedescription>

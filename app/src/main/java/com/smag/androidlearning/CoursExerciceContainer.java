@@ -28,7 +28,7 @@ public class CoursExerciceContainer extends AppCompatActivity {
 
     private List<Cours> listCours;
     private List<Exercice> listExercices;
-    private int [] images =new int[] {R.drawable.theme1 , R.drawable.theme1x ,R.drawable.theme3 , R.drawable.theme4,R.drawable.theme5 , R.drawable.theme6};
+    private int [] images = new int[] {R.drawable.theme1 , R.drawable.theme1x ,R.drawable.theme3 , R.drawable.theme4,R.drawable.theme5 , R.drawable.theme6};
     private int [] imagesExercices =new int[] {R.drawable.theme1 , R.drawable.theme1x ,R.drawable.theme3 , R.drawable.theme4,R.drawable.theme5 , R.drawable.theme6};
 
 
@@ -87,17 +87,14 @@ public class CoursExerciceContainer extends AppCompatActivity {
                             )
                     );
                     recyclerView.setAdapter(new RecycleAdapterExercice(getApplicationContext(),images,listExercices));
-
                     container.addView(view);
                 }
-
                 return view;
             }
 
         });
 
         final String[] colors = getResources().getStringArray(R.array.default_preview);
-
         final NavigationTabBar navigationTabBar = (NavigationTabBar) findViewById(R.id.ntb_horizontal);
         final ArrayList<NavigationTabBar.Model> models = new ArrayList<>();
 

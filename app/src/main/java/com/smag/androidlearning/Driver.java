@@ -33,11 +33,15 @@ public class Driver extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        startNotification();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_driver);
-        serviceIntent = new Intent(getApplicationContext(),DatabaseService.class);
-        new ThreadApp().start();
+        if(!startNotification())
+          {
+            setContentView(R.layout.activity_driver);
+            serviceIntent = new Intent(getApplicationContext(),DatabaseService.class);
+            new ThreadApp().start();
+        } else{
+           onBackPressed();
+        }
     }
 
     @Override
@@ -46,11 +50,12 @@ public class Driver extends AppCompatActivity {
         super.onBackPressed();
     }
 
-    private void startNotification() {
+    private boolean startNotification() {
         if(getIntent().getBooleanExtra("boot", false)) {
-            startService(new Intent(this, ServiceNotification.class));
-            finish();
+            startService(new Intent(getApplicationContext(), ServiceNotification.class));
+            return true;
         }
+        return false;
     }
     private void bindService() {
         if(serviceConnection==null) {

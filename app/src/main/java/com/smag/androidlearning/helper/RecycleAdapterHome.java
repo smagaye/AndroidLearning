@@ -17,10 +17,12 @@ import com.smag.androidlearning.R;
 import com.smag.androidlearning.beans.Cours;
 import com.smag.androidlearning.beans.Exercice;
 import com.smag.androidlearning.beans.Theme;
+import com.smag.androidlearning.dao.CoursDao;
 import com.smag.androidlearning.database.DatabaseFactory;
 import com.smag.androidlearning.service.DatabaseService;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 public class RecycleAdapterHome extends RecyclerView.Adapter<RecycleAdapterHome.ViewHolder> {
@@ -28,11 +30,12 @@ public class RecycleAdapterHome extends RecyclerView.Adapter<RecycleAdapterHome.
     private static Context context;
     private  int[] images;
     private List<Theme> themes;
-
+    private DatabaseFactory databaseFactory;
     public RecycleAdapterHome(Context context, int[] images ,List<Theme> themes) {
         this.context = context;
         this.images = images;
         this.themes=themes;
+        databaseFactory = DatabaseFactory.getAppDatabase(context);
     }
 
     @Override
@@ -43,9 +46,14 @@ public class RecycleAdapterHome extends RecyclerView.Adapter<RecycleAdapterHome.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        if(themes.get(position).getRessourcedescription().getEtat()=="0") holder.imageView.setImageResource(R.drawable.locked);
+        else
         holder.imageView.setImageResource(images[position]);
-        holder.titre.setText(themes.get(position).getRessourcedescription().getTitre());
 
+        CoursDao dc = databaseFactory.getCoursDao();
+        int indice = themes.get(position).getIdtheme();
+        holder.titre.setText(themes.get(position).getRessourcedescription().getTitre());
+        holder.noteCours.setText(dc.nombreCoursLu(indice)+"/"+dc.nombreCoursParTheme(indice));
     }
 
 
@@ -76,10 +84,19 @@ public class RecycleAdapterHome extends RecyclerView.Adapter<RecycleAdapterHome.
                     List<Cours>  lc = dbf.getCoursDao().findByTheme(titre.getText().toString());
                     List<Exercice>  le = dbf.getExerciceDao().findExerciceByThemeTitle(titre.getText().toString());
                     //Envoie des donnees vers CoursExerciceContainer
-                    Intent intent = new Intent(itemView.getContext(), CoursExerciceContainer.class);
-                    intent.putExtra("listeCours",(Serializable) lc);
-                    intent.putExtra("listeExercices",(Serializable) le);
-                    context.startActivity(intent);
+
+                    if(lc.get(0).getTheme().getDateactivation()==null){
+                        Toast.makeText(itemView.getContext(), "Theme verouillé!", Toast.LENGTH_SHORT).show();
+                        imageView.setImageResource(R.drawable.locked);
+                    }
+
+                    else
+                    {
+                        Intent intent = new Intent(itemView.getContext(), CoursExerciceContainer.class);
+                        intent.putExtra("listeCours",(Serializable) lc);
+                        intent.putExtra("listeExercices",(Serializable) le);
+                        context.startActivity(intent);
+                    }
                 }
             });
             plus.setOnClickListener(new View.OnClickListener() {

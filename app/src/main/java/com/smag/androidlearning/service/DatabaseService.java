@@ -21,6 +21,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class DatabaseService extends Service {
@@ -125,6 +126,7 @@ public class DatabaseService extends Service {
                     case XmlPullParser.START_TAG:
                         if (tagname.equalsIgnoreCase("theme")) {
                             theme = new Theme();
+                            if(idtheme==0) theme.setDateactivation(new Date());
                             theme.setIdtheme(idtheme+=1);
                             theme.setRessourcedescription(extractRessourceDescription());
                             listeCours.addAll( extractCours(theme));
