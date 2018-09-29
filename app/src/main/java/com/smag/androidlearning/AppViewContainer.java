@@ -18,6 +18,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.smag.androidlearning.helper.RecycleAdapterAccount;
@@ -80,11 +81,13 @@ public class AppViewContainer extends AppCompatActivity {
 
                     final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rv);
                     recyclerView.setHasFixedSize(true);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(
-                                    getBaseContext(), LinearLayoutManager.VERTICAL, false
-                            )
+                    RecyclerView.LayoutManager manager =new LinearLayoutManager(
+                            getBaseContext(), LinearLayoutManager.VERTICAL, false
+                    );
+                    recyclerView.setLayoutManager(manager
                     );
                     recyclerView.setAdapter(new RecycleAdapterAccount(getApplicationContext()));
+                    container.addView(view);
 
                 }else if(position==1){
                     themes.add(themes.get(1));
@@ -94,6 +97,7 @@ public class AppViewContainer extends AppCompatActivity {
                     GridLayoutManager gridLayoutManager =new GridLayoutManager(getBaseContext(), 2);
                     recyclerView.setLayoutManager(gridLayoutManager);
                     recyclerView.setAdapter(new RecycleAdapterHome(getApplicationContext() , imagesCours,themes));
+                    container.addView(view);
 
                 }else{
                     view = LayoutInflater.from(
@@ -106,9 +110,8 @@ public class AppViewContainer extends AppCompatActivity {
                             )
                     );
                     recyclerView.setAdapter(new RecycleAdapterSettings(getApplicationContext()));
+                    container.addView(view);
                 }
-
-                container.addView(view);
                 return view;
             }
         });

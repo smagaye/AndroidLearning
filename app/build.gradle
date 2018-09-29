@@ -41,4 +41,7 @@ dependencies {
     //Materialize design icon dependency
     implementation 'net.steamcrafted:materialiconlib:1.0.7'
     implementation 'com.android.support:cardview-v7:27.1.1'
+
+    //Circle Image
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
 }

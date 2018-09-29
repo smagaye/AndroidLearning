@@ -16,13 +16,15 @@
         android:orientation="horizontal"
         android:translationX="4dp">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/id_image"
             android:layout_width="93dp"
             android:layout_height="match_parent"
-            android:background="@android:color/holo_blue_light"
             android:contentDescription="TODO"
-            app:srcCompat="@drawable/android_im" />
+            app:srcCompat="@drawable/android_im"
+            android:src="@drawable/user_default_icon"
+            app:civ_border_color="#000000"
+            app:civ_border_width="1dp" />
 
         <LinearLayout
             android:layout_width="match_parent"

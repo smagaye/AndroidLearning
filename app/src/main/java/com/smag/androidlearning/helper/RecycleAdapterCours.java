@@ -21,6 +21,8 @@ import com.smag.androidlearning.database.DatabaseFactory;
 import java.io.Serializable;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class RecycleAdapterCours extends RecyclerView.Adapter<RecycleAdapterCours.ViewHolder> {
 
     private static Context context;
@@ -55,7 +57,7 @@ public class RecycleAdapterCours extends RecyclerView.Adapter<RecycleAdapterCour
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        public ImageView imageView;
+        public CircleImageView imageView;
         public ImageView icone;
         public TextView titre;
         public TextView description;

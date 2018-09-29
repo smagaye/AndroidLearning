@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">androidLearning</string>
     <string name="datafile">androidlearningdata.xml</string>
+    <string name="prenom">Bassirou</string>
+    <string name="nom">Diaby</string>
+    <string name="statut">Développeur</string>
 </resources>
