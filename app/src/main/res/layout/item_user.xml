@@ -4,75 +4,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/id_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="192dp"
-        android:layout_alignParentStart="true"
+    <LinearLayout
+        android:id="@+id/idl"
+        android:layout_width="match_parent"
+        android:layout_height="197dp"
+        android:layout_alignStart="@+id/id_profile"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="96dp"
         android:layout_marginTop="0dp"
-        app:srcCompat="@drawable/classical_blue"
-        tools:background="@color/colorAccent" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/id_prenom"
-        android:layout_width="224dp"
-        android:layout_height="25dp"
-        android:layout_above="@+id/id_nom"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="5dp"
-        android:text="Mamadou Souaré"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        tools:text="@tools:sample/first_names" />
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginBottom="367dp"
+            android:background="@android:color/white"
+            android:padding="0dp"
+            app:srcCompat="@drawable/user_default_icon" />
 
-    <TextView
-        android:id="@+id/id_nom"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="158dp"
-        android:layout_marginLeft="158dp"
-        android:layout_marginBottom="490dp"
-        android:text="TextView"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        tools:text="@tools:sample/last_names" />
+        <LinearLayout
+            android:layout_width="233dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/id_statut"
-        android:layout_width="223dp"
-        android:layout_height="37dp"
-        android:layout_alignStart="@+id/id_prenom"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="89dp"
-        android:text="Développeur"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:textStyle="italic" />
+            <TextView
+                android:id="@+id/id_prenom"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_above="@+id/id_nom"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="23dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="5dp"
+                android:paddingLeft="14dp"
+                android:text="Mamadou"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="@tools:sample/first_names" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="152dp"
-        android:layout_height="193dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginBottom="374dp"
-        android:background="@android:color/white"
-        app:srcCompat="@drawable/user_default_icon" />
+            <TextView
+                android:id="@+id/id_nom"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="14dp"
+                android:layout_marginBottom="2dp"
+                android:text="Souaré"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="@tools:sample/last_names" />
+
+            <TextView
+                android:id="@+id/id_statut"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="14dp"
+                android:text="Développeur"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
+                android:textStyle="italic" />
+
+        </LinearLayout>
+    </LinearLayout>
 
     <Button
         android:id="@+id/id_editer_profile"
@@ -81,9 +88,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="255dp"
-        android:layout_marginLeft="255dp"
-        android:layout_marginBottom="399dp"
+        android:layout_marginStart="354dp"
+        android:layout_marginLeft="354dp"
+        android:layout_marginBottom="540dp"
         android:background="@android:color/white"
         android:drawableLeft="@drawable/ic_mode_edit_black_24dp" />
 
@@ -99,10 +106,11 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="106dp"
+            android:layout_width="397dp"
+            android:layout_height="115dp"
             android:layout_below="@+id/id_profile"
             android:layout_alignParentStart="true"
+            android:layout_marginTop="4dp"
             android:orientation="horizontal">
 
             <LinearLayout

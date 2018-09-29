@@ -13,13 +13,17 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.smag.androidlearning.helper.RecycleAdapterAccount;
 import com.smag.androidlearning.helper.RecycleAdapterHome;
 import com.smag.androidlearning.beans.Theme;
+import com.smag.androidlearning.helper.RecycleAdapterSettings;
 import com.smag.androidlearning.service.ServiceNotification;
 
 import java.util.ArrayList;
@@ -71,8 +75,16 @@ public class AppViewContainer extends AppCompatActivity {
             public Object instantiateItem(final ViewGroup container, final int position) {
                 final View view ;
                 if(position==0){
-                    view= LayoutInflater.from(getBaseContext()).inflate(R.layout.fragment_account, null, false);
+                    view = LayoutInflater.from(
+                            getBaseContext()).inflate(R.layout.fragment_account, null, false);
 
+                    final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rv);
+                    recyclerView.setHasFixedSize(true);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(
+                                    getBaseContext(), LinearLayoutManager.VERTICAL, false
+                            )
+                    );
+                    recyclerView.setAdapter(new RecycleAdapterAccount(getApplicationContext()));
 
                 }else if(position==1){
                     themes.add(themes.get(1));
@@ -84,7 +96,16 @@ public class AppViewContainer extends AppCompatActivity {
                     recyclerView.setAdapter(new RecycleAdapterHome(getApplicationContext() , imagesCours,themes));
 
                 }else{
-                    view= LayoutInflater.from(getBaseContext()).inflate(R.layout.fragment_settings, null, false);
+                    view = LayoutInflater.from(
+                            getBaseContext()).inflate(R.layout.fragment_settings, null, false);
+
+                    final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rv);
+                    recyclerView.setHasFixedSize(true);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(
+                                    getBaseContext(), LinearLayoutManager.VERTICAL, false
+                            )
+                    );
+                    recyclerView.setAdapter(new RecycleAdapterSettings(getApplicationContext()));
                 }
 
                 container.addView(view);
