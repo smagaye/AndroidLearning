@@ -35,6 +35,9 @@ public interface CoursDao {
     @Query("SELECT * FROM Cours c where themeColonneressourcedescriptionColonnetitreColonne = :titre")
     public List<Cours> findByTheme(String titre);
 
+    @Query("SELECT * FROM Cours c where ressourcedescriptionColonnetitreColonne= :title")
+    public Cours findByTitle(String title);
+
     @Query("SELECT COUNT(*) FROM Cours where themeColonneidthemeColonne = :idthemeColonne")
     public int nombreCoursParTheme(int idthemeColonne);
 

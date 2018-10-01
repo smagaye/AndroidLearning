@@ -19,9 +19,16 @@
                         <photo>source photo 1</photo>
                         <etat>1</etat>
                     </ressourcedescription>
-                    <contenu>Android est un OS mobile Open Source pour smartphone, PDA, MP3 et tablette. Conçu initialement par Android Inc., il a été racheté par Google en 2005.
-                        Android est un projet open source largement adopté. Google développe activement la plate-forme Android mais en donne une partie gratuitement aux fabricants de matériel et aux opérateurs de téléphonie qui souhaitent utiliser Android sur leurs appareils. Google facture uniquement les fabricants s’ils installent également la partie des applications Google du système d’exploitation. Beaucoup (mais pas tous) les principaux appareils qui utilisent Android optent également pour la partie des applications Google du service. Une exception notable est Amazon. Bien que les tablettes Kindle Fire utilisent Android, elles n'utilisent pas les portions de Google et Amazon gère un magasin d'applications Android distinct.
-                        Dès son origine, la démarche de Google a été d’ouvrir le développement d’Android en rassemblant autour de lui et au travers de l’Open Handset Alliance (OHA) un maximum de sociétés. Les membres de ce consortium sont très variés : nous y trouvons des fabricants de téléphones connus tels que Sony Ericsson, Samsung ou Motorola, des opérateurs de téléphonie comme Sprint, T-Mobile ou NTT DoCoMo, des sociétés Internet, Google évidemment mais aussi eBay, des constructeurs de puces électroniques Intel, nVidia, ou encore des acteurs du marché du GPS comme Garmin. Toutes ces entités se retrouvent donc au sein de cette alliance, pour des raisons qui leur sont propres, pour œuvrer au développement d’Android.
+                    <contenu>Android est un OS mobile Open Source pour smartphone, PDA, MP3 et tablette. Conçu initialement par Android Inc., il a été racheté par Google en 2005.+++
+                        Android est un projet open source largement adopté. Google développe activement la plate-forme Android mais en donne une partie gratuitement aux +++
+                        fabricants de matériel et aux opérateurs de téléphonie qui souhaitent utiliser Android sur leurs appareils. Google facture uniquement les fabricants s’ils+++
+                        installent également la partie des applications Google du système d’exploitation. Beaucoup (mais pas tous) les principaux appareils qui utilisent Android +++
+                        optent également pour la partie des applications Google du service. Une exception notable est Amazon. Bien que les tablettes Kindle Fire utilisent Android,+++
+                        elles n'utilisent pas les portions de Google et Amazon gère un magasin d'applications Android distinct. Dès son origine, la démarche de Google a été d’ouvrir+++
+                        le développement d’Android en rassemblant autour de lui et au travers de l’Open Handset Alliance (OHA) un maximum de sociétés. Les membres de ce consortium+++
+                        sont très variés : nous y trouvons des fabricants de téléphones connus tels que Sony Ericsson, Samsung ou Motorola, des opérateurs de téléphonie comme Sprint,+++
+                        T-Mobile ou NTT DoCoMo, des sociétés Internet, Google évidemment mais aussi eBay, des constructeurs de puces électroniques Intel, nVidia, ou encore des acteurs+++
+                        du marché du GPS comme Garmin. Toutes ces entités se retrouvent donc au sein de cette alliance, pour des raisons qui leur sont propres, pour œuvrer au développement d’Android.
                     </contenu>
                 </cours>
                 <cours>
@@ -33,8 +40,14 @@
                         <photo>source photo 2</photo>
                         <etat>1</etat>
                     </ressourcedescription>
-                    <contenu>Comme il est mentionné sur le site officiel, la licence préférée d’Android est l’Apache open source licence v2. Le terme « préférée » signifie que le projet Android pourra dans une certaine mesure accepter et intégrer du code source n’ayant pas été publié sous cette licence. Néanmoins, de façon prévisible, seules les licences « open source » approuvées par l’Open Source Initiative, organisation dont l’objet est de labéliser les licences « open source » - sont acceptées. Les contributeurs directs au projet, individus ou sociétés, devront, par contre, signer (il est possible de le faire en ligne) un agrément de licence.
-                        La licence Apache a été choisie pour son côté « business friendly » comme on dit. Plus clairement, la licence Apache, contrairement aux licences GPL, autorise la reprise de tout ou partie du code dans un produit sous une autre licence y compris propriétaire. La licence Apache autorise la modification et la distribution du code sous forme libre ou non, et permet, comme toute licence vraiment libre, d’en faire un usage commercial. Elle oblige le maintien du copyright lors de toute modification (et également du texte de la licence elle-même).
+                    <contenu>Comme il est mentionné sur le site officiel, la licence préférée d’Android est l’Apache open source licence v2. Le terme « préférée » signifie que le+++
+                        projet Android pourra dans une certaine mesure accepter et intégrer du code source n’ayant pas été publié sous cette licence. Néanmoins, de façon prévisible, seules+++
+                        les licences « open source » approuvées par l’Open Source Initiative, organisation dont l’objet est de labéliser les licences « open source » - sont acceptées.+++
+                        Les contributeurs directs au projet, individus ou sociétés, devront, par contre, signer (il est possible de le faire en ligne) un agrément de licence.+++
+                        La licence Apache a été choisie pour son côté « business friendly » comme on dit. Plus clairement, la licence Apache, contrairement aux licences GPL, autorise+++
+                        la reprise de tout ou partie du code dans un produit sous une autre licence y compris propriétaire. La licence Apache autorise la modification et la distribution+++
+                        du code sous forme libre ou non, et permet, comme toute licence vraiment libre, d’en faire un usage commercial. Elle oblige le maintien du copyright lors de toute+++
+                        modification (et également du texte de la licence elle-même).
                     </contenu>
                 </cours>
                 <cours>
@@ -46,8 +59,10 @@
                         <photo>source photo 3</photo>
                         <etat>0</etat>
                     </ressourcedescription>
-                    <contenu>Les terminaux Android de base sont livrés avec un ensemble d’applications dénommées « Core Applications ». En fonction des constructeurs, d’autres logiciels pourront être préinstallés sur le téléphone mais les Core Applications constituent un socle commun minimum obligatoire.
-                        Comme Android est destiné à motoriser en premier lieu des téléphones, parmi ces applications se trouvent tout logiquement le composeur de numéro et la gestion des contacts, ensuite viennent des applications plus sophistiquées comme Google Maps. un navigateur web, un gestionnaire de contacts, un calendrier…
+                    <contenu>Les terminaux Android de base sont livrés avec un ensemble d’applications dénommées « Core Applications ». En fonction des constructeurs, d’autres logiciels+++
+                        pourront être préinstallés sur le téléphone mais les Core Applications constituent un socle commun minimum obligatoire.+++
+                        Comme Android est destiné à motoriser en premier lieu des téléphones, parmi ces applications se trouvent tout logiquement le composeur de numéro et la gestion des+++
+                        contacts, ensuite viennent des applications plus sophistiquées comme Google Maps. un navigateur web, un gestionnaire de contacts, un calendrier…
                     </contenu>
                 </cours>
                 <cours>
@@ -59,11 +74,20 @@
                     <photo>source photo 3</photo>
                     <etat>0</etat>
                 </ressourcedescription>
-                <contenu>Au-delà du Framework de développement, Android est une pile logicielle qui repose sur le couple, en passe de devenir un classique : Linux/Java. Le noyau Linux employé est le 2.6 dont on peut remarquer au passage qu’il constitue un composant central d’Android qui n’est pas publié sous licence Apache 2.0 mais sous GPL v2. Comme n’importe quel OS, ce noyau a la responsabilité de gérer le matériel à l’aide de drivers, la mémoire, les processus ou encore les couches réseaux basses.
-                    Au-dessus du noyau proprement dit se loge un ensemble de librairies C/C++ constituant les couches bases du système. Parmi celles-ci on peut noter l’incontournable libc (librairie système C standard) dont l’implémentation a été adaptée pour l’occasion à un mode embarqué.
-                    Notre système Android est donc constitué d’un noyau Linux et d’une suite de bibliothèques C/C++ fort utile. Mais comment se fait l’accès à ces librairies ? Pour l’instant exclusivement par l’API Java d’Android.
-                    Si nous remontons les couches de la plateforme, après le noyau Linux et les librairies C/C++, nous arrivons au middleware, l’environnement d’exécution Android. Cet environnement est constitué en premier lieu d’une machine virtuelle qui ne peut prétendre à l’appellation Java car elle ne respecte pas les spécifications officielles
-                    La raison d’être de Dalvik est de fournir un environnement optimisé aux petits oignons pour le mobile où les ressources CPU et mémoires sont précieuses. Par exemple, pour de meilleures performances sur un système embarqué, Dalvik est une machine virtuelle dite « registered-based », basée sur les registres, et non pas « stack-based » comme la JVM de Sun. Par ailleurs, sur Android, par défaut, chaque application tourne dans son propre processus Linux, c’est-à-dire sa propre VM. L’un des points forts d’Android étant ses capacités multitâches, il doit être possible de lancer efficacement plusieurs VM Dalvik sur le terminal. À chaque fois qu’une application est démarrée, une VM se crée, puis le processus meurt à la fermeture du programme. On est bien loin du modèle de la JVM pensée pour être rarement arrêtée ou relancée et censée exécuter simultanément plusieurs applications distinctes isolées entre elles par une hiérarchie de ClassLoader. Les besoins d’Android imposaient vraiment de concevoir une machine virtuelle spécifique.
+                <contenu>Au-delà du Framework de développement, Android est une pile logicielle qui repose sur le couple, en passe de devenir un classique : Linux/Java. Le noyau Linux employé+++
+                    est le 2.6 dont on peut remarquer au passage qu’il constitue un composant central d’Android qui n’est pas publié sous licence Apache 2.0 mais sous GPL v2. Comme n’importe+++
+                    quel OS, ce noyau a la responsabilité de gérer le matériel à l’aide de drivers, la mémoire, les processus ou encore les couches réseaux basses.+++
+                    Au-dessus du noyau proprement dit se loge un ensemble de librairies C/C++ constituant les couches bases du système. Parmi celles-ci on peut noter l’incontournable libc+++
+                    (librairie système C standard) dont l’implémentation a été adaptée pour l’occasion à un mode embarqué.+++
+                    Notre système Android est donc constitué d’un noyau Linux et d’une suite de bibliothèques C/C++ fort utile. Mais comment se fait l’accès à ces librairies ? Pour l’instant+++
+                    exclusivement par l’API Java d’Android. Si nous remontons les couches de la plateforme, après le noyau Linux et les librairies C/C++, nous arrivons au middleware, l’environnement+++
+                    d’exécution Android. Cet environnement est constitué en premier lieu d’une machine virtuelle qui ne peut prétendre à l’appellation Java car elle ne respecte pas les spécifications+++
+                    officielles. La raison d’être de Dalvik est de fournir un environnement optimisé aux petits oignons pour le mobile où les ressources CPU et mémoires sont précieuses. +++
+                    Par exemple, pour de meilleures performances sur un système embarqué, Dalvik est une machine virtuelle dite « registered-based », basée sur les registres, et non pas « stack-based »+++
+                    comme la JVM de Sun. Par ailleurs, sur Android, par défaut, chaque application tourne dans son propre processus Linux, c’est-à-dire sa propre VM. L’un des points forts d’Android étant+++
+                    ses capacités multitâches, il doit être possible de lancer efficacement plusieurs VM Dalvik sur le terminal. À chaque fois qu’une application est démarrée, une VM se crée, puis+++
+                    le processus meurt à la fermeture du programme. On est bien loin du modèle de la JVM pensée pour être rarement arrêtée ou relancée et censée exécuter simultanément plusieurs+++
+                    applications distinctes isolées entre elles par une hiérarchie de ClassLoader. Les besoins d’Android imposaient vraiment de concevoir une machine virtuelle spécifique.
                 </contenu>
             </cours>
                 <cours>
@@ -76,7 +100,13 @@
                         <etat>0</etat>
                     </ressourcedescription>
                     <contenu>
-                        Exploiter une nouvelle plate-forme n’est jamais chose aisée. C’est pourquoi Google fournit, en plus du système d’exploitation, un kit de développement (Software Development Toolkit ou SDK). Ce SDK est un ensemble d’outils qui permet aux développeurs et aux entreprises de créer des applications. Le SDK Android est composé de plusieurs éléments pour aider les développeurs à créer et à maintenir des applications : des API (interface de programmation), des exemples de code, de la documentation, des outils parmi lesquels un émulateur permettant de couvrir quasiment toutes les étapes du cycle de développement d’une application. Le SDK Android est disponible gratuitement sur le site de Google. La documentation du SDK Android est scindée en deux parties bien distinctes, le guide du développeur, la documentation des API et est disponible via le lien https://developer.android.com. Le SDK est livré avec un certain nombre d’outils couvrant différents aspects du cycle de développement d’une application Android. Le kit de développement propose une boîte à outils complète pour les tâches de compilation, débogage, génération de code AIDL, signature de votre application, etc.
+                        Exploiter une nouvelle plate-forme n’est jamais chose aisée. C’est pourquoi Google fournit, en plus du système d’exploitation, un kit de développement+++
+                        (Software Development Toolkit ou SDK). Ce SDK est un ensemble d’outils qui permet aux développeurs et aux entreprises de créer des applications. Le SDK Android est composé de+++
+                        plusieurs éléments pour aider les développeurs à créer et à maintenir des applications : des API (interface de programmation), des exemples de code, de la documentation, des outils+++
+                        parmi lesquels un émulateur permettant de couvrir quasiment toutes les étapes du cycle de développement d’une application. Le SDK Android est disponible gratuitement sur le site de+++
+                        Google. La documentation du SDK Android est scindée en deux parties bien distinctes, le guide du développeur, la documentation des API et est disponible via le lien +++
+                        https://developer.android.com. Le SDK est livré avec un certain nombre d’outils couvrant différents aspects du cycle de développement d’une application Android. Le kit de développement+++
+                        propose une boîte à outils complète pour les tâches de compilation, débogage, génération de code AIDL, signature de votre application, etc.
                     </contenu>
                 </cours>
             </blockcours>
@@ -122,9 +152,15 @@
                         <etat>0</etat>
                     </ressourcedescription>
                     <contenu>
-                        En programmation informatique, un environnement de développement est un ensemble d'outils qui permet d'augmenter la productivité des programmeurs qui développent des logiciels. Il comporte un éditeur de texte destiné à la programmation, des fonctions qui permettent, par pression sur un bouton, de démarrer le compilateur ou l'éditeur de liens ainsi qu'un débogueur en ligne, qui permet d'exécuter ligne par ligne le programme en cours de construction. Certains environnements sont dédiés à un langage de programmation en particulier.
-                        Dans un environnement de développement « intégré » (abrégé EDI en français ou IDE en anglais, pour integrated development environment), les outils sont prévus pour être utilisés ensemble (le produit d'un outil peut servir de matière première pour un autre outil). Les outils peuvent être intégrés dès le départ, c'est-à-dire qu'ils sont construits dans le but d'être utilisés ensemble. Il peut aussi s'agir d'un ensemble d'outils développés sans lien entre eux et intégrés a posteriori.
-                        L'objectif d'un environnement de développement est d'augmenter la productivité des programmeurs en automatisant une partie des activités et en simplifiant les opérations. Les environnements de développement visent également à améliorer la qualité de la documentation en rapport avec le logiciel en construction5. Certains environnements de développement offrent également la possibilité de créer des prototypes, de planifier les travaux et de gérer des projets
+                        En programmation informatique, un environnement de développement est un ensemble d'outils qui permet d'augmenter la productivité des programmeurs qui développent des logiciels. Il comporte+++
+                        un éditeur de texte destiné à la programmation, des fonctions qui permettent, par pression sur un bouton, de démarrer le compilateur ou l'éditeur de liens ainsi qu'un débogueur en ligne, qui+++
+                        permet d'exécuter ligne par ligne le programme en cours de construction. Certains environnements sont dédiés à un langage de programmation en particulier.+++
+                        Dans un environnement de développement « intégré » (abrégé EDI en français ou IDE en anglais, pour integrated development environment), les outils sont prévus pour être utilisés ensemble+++
+                        (le produit d'un outil peut servir de matière première pour un autre outil). Les outils peuvent être intégrés dès le départ, c'est-à-dire qu'ils sont construits dans le but d'être utilisés ensemble.+++
+                        Il peut aussi s'agir d'un ensemble d'outils développés sans lien entre eux et intégrés a posteriori.+++
+                        L'objectif d'un environnement de développement est d'augmenter la productivité des programmeurs en automatisant une partie des activités et en simplifiant les opérations. Les environnements+++
+                        de développement visent également à améliorer la qualité de la documentation en rapport avec le logiciel en construction5. Certains environnements de développement offrent également la+++
+                        possibilité de créer des prototypes, de planifier les travaux et de gérer des projets
                     </contenu>
                 </cours>
                 <cours>
@@ -137,7 +173,8 @@
                         <etat>0</etat>
                     </ressourcedescription>
                     <contenu>
-                        Avant d’installer un environnement de développement, vous devez posséder un environnement d’exécution Java ou JRE (pour Java Runtime Environment) installé et correctement configuré sur votre machine, ainsi que le JDK (kit de développement de Java).
+                        Avant d’installer un environnement de développement, vous devez posséder un environnement d’exécution Java ou JRE (pour Java Runtime Environment) installé et correctement configuré sur votre machine,+++
+                        ainsi que le JDK (kit de développement de Java).
                     </contenu>
                 </cours>
                 <cours>
@@ -150,7 +187,14 @@
                         <etat>0</etat>
                     </ressourcedescription>
                     <contenu>
-                        Eclipse est un projet, décliné et organisé en un ensemble de sous-projets de développements logiciels, de la fondation Eclipse visant à développer un environnement de production de logiciels libre qui soit extensible, universel et polyvalent, en s'appuyant principalement sur Java. Son objectif est de produire et fournir des outils pour la réalisation de logiciels, englobant les activités de programmation (notamment environnement de développement intégré et frameworks) mais aussi d'AGL recouvrant modélisation, conception, test, gestion de configuration, reporting… Son EDI, partie intégrante du projet, vise notamment à supporter tout langage de programmation à l'instar de Microsoft Visual Studio. Bien qu'Eclipse ait d'abord été conçu uniquement pour produire des environnements de développement, les utilisateurs et contributeurs se sont rapidement mis à réutiliser ses briques logicielles pour des applications clientes classiques. Figurant parmi les grandes réussites de l'open source, Eclipse est devenu un standard du marché des logiciels de développement, intégré par de grands éditeurs logiciels et sociétés de services. Pour faciliter le développement d’applications Android, Google propose un module, compatible avec cet IDE, nommé ADT (Android Development Tools). Une fois Eclipse démarré, vous devez installer le module ADT. Le téléchargement et l’installation d’ADT sont des processus simples pour l’utilisateur et s’effectuent directement depuis Eclipse.
+                        Eclipse est un projet, décliné et organisé en un ensemble de sous-projets de développements logiciels, de la fondation Eclipse visant à développer un environnement de production de logiciels libre qui+++
+                        soit extensible, universel et polyvalent, en s'appuyant principalement sur Java. Son objectif est de produire et fournir des outils pour la réalisation de logiciels, englobant les activités de+++
+                        programmation (notamment environnement de développement intégré et frameworks) mais aussi d'AGL recouvrant modélisation, conception, test, gestion de configuration, reporting… Son EDI, partie+++
+                        intégrante du projet, vise notamment à supporter tout langage de programmation à l'instar de Microsoft Visual Studio. Bien qu'Eclipse ait d'abord été conçu uniquement pour produire des environnements+++
+                        de développement, les utilisateurs et contributeurs se sont rapidement mis à réutiliser ses briques logicielles pour des applications clientes classiques. Figurant parmi les grandes réussites de+++
+                        l'open source, Eclipse est devenu un standard du marché des logiciels de développement, intégré par de grands éditeurs logiciels et sociétés de services. Pour faciliter le développement d’applications+++
+                        Android, Google propose un module, compatible avec cet IDE, nommé ADT (Android Development Tools). Une fois Eclipse démarré, vous devez installer le module ADT. Le téléchargement et l’installation d’ADT+++
+                        sont des processus simples pour l’utilisateur et s’effectuent directement depuis Eclipse.
                     </contenu>
                 </cours>
                 <cours>
@@ -158,7 +202,7 @@
                     <ressourcedescription>
                         <idressource>11</idressource>
                         <titre>NetBeans pour Android</titre>
-                        <description>NetBeans est un environnement de développement intégré (EDI), placé en open source par Sun en juin 2000 sous licence CDDL (Common Development and Distribution License) et GPLv2.  </description>
+                        <description>NetBeans est un environnement de développement intégré (EDI), placé en open source par Sun en juin 2000 sous licence CDDL (Common Development and Distribution License) et GPLv2.</description>
                         <photo>source photo 6</photo>
                         <etat>0</etat>
                     </ressourcedescription>
@@ -176,8 +220,14 @@
                     <etat>0</etat>
                 </ressourcedescription>
                 <contenu>
-                    Android Studio est l'environnement de développement intégré officiel du système d'exploitation Android de Google, basé sur le logiciel IntelliJ IDEA de JetBrains et conçu spécifiquement pour le développement Android. Il est disponible en téléchargement sur les systèmes d'exploitation Windows, Mac OS et Linux. Il remplace les outils de développement Android Eclipse (ADT) en tant qu'EDI principal pour le développement d'applications natives Android. La version stable actuelle est la 3.1.4, qui a été publiée en août 2018.
-                    Les fonctionnalités suivantes sont fournies dans la version stable actuelle : Support de construction basé sur Gradle, Refactoring spécifique à Android et solutions rapides, Des outils pour attraper les performances, la facilité d'utilisation, la compatibilité des versions et d'autres problèmes, intégration ProGuard et capacités de signature d'application, assistants basés sur des modèles pour créer des conceptions et des composants Android communs, un éditeur de mise en page riche qui permet aux utilisateurs de glisser-déposer des composants de l'interface utilisateur, une option permettant de prévisualiser les modèles sur plusieurs configurations d'écran, prise en charge de la création d'applications Android Wear, prise en charge intégrée de Google Cloud Platform, permettant l'intégration avec Firebase Cloud Messaging («Google Cloud Messaging») et Google App Engine, Android Virtual Device (Emulator) pour exécuter et déboguer des applications dans le studio Android.
+                    Android Studio est l'environnement de développement intégré officiel du système d'exploitation Android de Google, basé sur le logiciel IntelliJ IDEA de JetBrains et conçu spécifiquement pour le développement Android.+++
+                    Il est disponible en téléchargement sur les systèmes d'exploitation Windows, Mac OS et Linux. Il remplace les outils de développement Android Eclipse (ADT) en tant qu'EDI principal pour le développement d'applications+++
+                    natives Android. La version stable actuelle est la 3.1.4, qui a été publiée en août 2018.+++
+                    Les fonctionnalités suivantes sont fournies dans la version stable actuelle : Support de construction basé sur Gradle, Refactoring spécifique à Android et solutions rapides, Des outils pour attraper les performances, +++
+                    la facilité d'utilisation, la compatibilité des versions et d'autres problèmes, intégration ProGuard et capacités de signature d'application, assistants basés sur des modèles pour créer des conceptions et des composants+++
+                    Android communs, un éditeur de mise en page riche qui permet aux utilisateurs de glisser-déposer des composants de l'interface utilisateur, une option permettant de prévisualiser les modèles sur plusieurs configurations+++
+                    d'écran, prise en charge de la création d'applications Android Wear, prise en charge intégrée de Google Cloud Platform, permettant l'intégration avec Firebase Cloud Messaging («Google Cloud Messaging») et Google App Engine,+++
+                    Android Virtual Device (Emulator) pour exécuter et déboguer des applications dans le studio Android.
                 </contenu>
             </cours>
             </blockcours>
@@ -371,5 +421,23 @@
                 </exercice>
             </blockexercices>
     </theme>
+        <theme>
+            <ressourcedescription>
+                <idressource>22</idressource>
+                <titre>Les Ressources Sous Android</titre>
+                <description> Le fichier le plus important dans un projet Android</description>
+                <photo>Source photo Theme 2</photo>
+                <etat>0</etat>
+            </ressourcedescription>
+        </theme>
+        <theme>
+            <ressourcedescription>
+                <idressource>23</idressource>
+                <titre>Les Ressources Sous Android</titre>
+                <description> Le fichier le plus important dans un projet Android</description>
+                <photo>Source photo Theme 2</photo>
+                <etat>0</etat>
+            </ressourcedescription>
+        </theme>
     </themes>
 </androidlearningdata>

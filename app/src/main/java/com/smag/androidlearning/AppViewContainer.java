@@ -34,7 +34,7 @@ import devlight.io.library.ntb.NavigationTabBar;
 
 public class AppViewContainer extends AppCompatActivity {
 
-    private int [] imagesCours =new int[] {R.drawable.theme1 , R.drawable.theme1x ,R.drawable.theme3 , R.drawable.theme4,R.drawable.theme5 , R.drawable.theme6,R.drawable.theme6};
+    private int [] imagesCours =new int[] {R.drawable.theme1 , R.drawable.theme1x ,R.drawable.theme3 , R.drawable.theme4,R.drawable.theme5, R.drawable.locked , R.drawable.locked};
     private List<Theme> themes;
 
     @Override

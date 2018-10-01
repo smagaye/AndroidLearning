@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.smag.androidlearning.CoursExerciceContainer;
+import com.smag.androidlearning.CoursViewer;
 import com.smag.androidlearning.R;
 import com.smag.androidlearning.beans.Cours;
 import com.smag.androidlearning.beans.Exercice;
@@ -19,6 +20,7 @@ import com.smag.androidlearning.beans.Theme;
 import com.smag.androidlearning.database.DatabaseFactory;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -27,7 +29,7 @@ public class RecycleAdapterCours extends RecyclerView.Adapter<RecycleAdapterCour
 
     private static Context context;
     private  int[] images;
-    private List<Cours> cours;
+    private List<Cours> cours=new ArrayList<Cours>();
 
     public RecycleAdapterCours(Context context, int[] images , List<Cours> cours) {
         this.context = context;
@@ -68,11 +70,13 @@ public class RecycleAdapterCours extends RecyclerView.Adapter<RecycleAdapterCour
             description = itemView.findViewById(R.id.id_description);
             imageView = itemView.findViewById(R.id.id_image);
             icone = itemView.findViewById(R.id.valide_icon);
-            imageView.setOnClickListener(new View.OnClickListener() {
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(itemView.getContext(),"Image Cours",Toast.LENGTH_LONG).show();
-                    //Envoie des donnees vers CoursExerciceContainer
+                    Cours cours = DatabaseFactory.getAppDatabase(context).getCoursDao().findByTitle(titre.getText().toString());
+                    Intent intent = new Intent(context,CoursViewer.class);
+                    intent.putExtra("cours",(Serializable) cours);
+                    context.startActivity(intent);
                 }
             });
         }
