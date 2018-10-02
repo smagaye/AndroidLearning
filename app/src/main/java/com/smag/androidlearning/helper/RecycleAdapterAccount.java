@@ -1,16 +1,19 @@
 package com.smag.androidlearning.helper;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.smag.androidlearning.EditProfil;
 import com.smag.androidlearning.R;
 import com.smag.androidlearning.beans.Exercice;
 import com.smag.androidlearning.database.DatabaseFactory;
@@ -75,6 +78,8 @@ public class RecycleAdapterAccount extends RecyclerView.Adapter<RecycleAdapterAc
         TextView cours_lu;
         TextView note_quizz;
 
+        Button editButton ;
+
         public ViewHolder(final View itemView) {
             super(itemView);
             imageProfil = itemView.findViewById(R.id.id_profile);
@@ -88,6 +93,14 @@ public class RecycleAdapterAccount extends RecyclerView.Adapter<RecycleAdapterAc
             theme_ouvert = itemView.findViewById(R.id.id_theme_ouvert);
             cours_lu = itemView.findViewById(R.id.id_note_cours);
             note_quizz =itemView.findViewById(R.id.id_note_quizz);
+
+            editButton = itemView.findViewById(R.id.id_btn_editer);
+
+            editButton.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    context.startActivity( new Intent( itemView.getContext(), EditProfil.class));
+                }
+            });
         }
     }
 }

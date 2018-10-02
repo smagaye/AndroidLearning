@@ -92,20 +92,20 @@
         <LinearLayout
             android:layout_width="397dp"
             android:layout_height="115dp"
-            android:layout_below="@+id/id_profile"
             android:layout_alignParentStart="true"
+            android:layout_below="@+id/id_profile"
             android:layout_marginTop="4dp"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="111dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="34dp"
-                android:layout_marginLeft="34dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_marginBottom="101dp"
+                android:layout_marginLeft="34dp"
+                android:layout_marginStart="34dp"
                 android:orientation="vertical">
 
                 <ImageView
@@ -130,12 +130,12 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="111dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="34dp"
-                android:layout_marginLeft="34dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_marginBottom="101dp"
+                android:layout_marginLeft="34dp"
+                android:layout_marginStart="34dp"
                 android:orientation="vertical">
 
                 <ImageView
@@ -160,12 +160,12 @@
             <LinearLayout
                 android:layout_width="89dp"
                 android:layout_height="96dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="34dp"
-                android:layout_marginLeft="34dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_marginBottom="101dp"
+                android:layout_marginLeft="34dp"
+                android:layout_marginStart="34dp"
                 android:orientation="vertical">
 
                 <ImageView
@@ -193,8 +193,8 @@
             android:id="@+id/id_stat"
             android:layout_width="406dp"
             android:layout_height="467dp"
-            android:layout_marginTop="5dp"
             android:layout_marginBottom="200dp"
+            android:layout_marginTop="5dp"
             app:srcCompat="@drawable/barre_chart" />
 
     </LinearLayout>
