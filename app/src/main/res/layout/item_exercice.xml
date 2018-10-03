@@ -20,7 +20,7 @@
             android:id="@+id/id_image"
             android:layout_width="93dp"
             android:layout_height="match_parent"
-            android:background="@android:color/holo_blue_light"
+            android:background="@color/cardview_light_background"
             android:contentDescription="TODO"
             app:srcCompat="@drawable/android_im" />
 

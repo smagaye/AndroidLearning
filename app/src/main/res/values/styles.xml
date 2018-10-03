@@ -4,4 +4,8 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
     </style>
 
+
+    <style name="TranslucentGreen" parent="android:Theme.Translucent">
+        <item name="android:windowBackground">@color/transparent_green_color</item>
+    </style>
 </resources>

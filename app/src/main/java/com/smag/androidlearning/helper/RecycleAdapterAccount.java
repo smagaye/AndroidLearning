@@ -1,10 +1,13 @@
 package com.smag.androidlearning.helper;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +21,7 @@ import com.smag.androidlearning.R;
 import com.smag.androidlearning.beans.Exercice;
 import com.smag.androidlearning.database.DatabaseFactory;
 
+import java.io.File;
 import java.util.List;
 
 public class RecycleAdapterAccount extends RecyclerView.Adapter<RecycleAdapterAccount.ViewHolder> {
@@ -25,6 +29,7 @@ public class RecycleAdapterAccount extends RecyclerView.Adapter<RecycleAdapterAc
     private static Context context;
     private  int[] images;
     private List<Exercice> exercices;
+    private static final String PICTURE_PATH = "picture_path";
 
     public RecycleAdapterAccount(Context context) {
         this.context = context;
@@ -38,7 +43,10 @@ public class RecycleAdapterAccount extends RecyclerView.Adapter<RecycleAdapterAc
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.imageProfil.setImageResource(R.drawable.user_default_icon);
+        SharedPreferences sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_key) , Context.MODE_PRIVATE);
+        String picture_path = sharedPref.getString( PICTURE_PATH,"");
+        if( !picture_path.equals("")) holder.imageProfil.setImageURI(Uri.fromFile(new File(picture_path)));
+        Toast.makeText(context.getApplicationContext(),picture_path , Toast.LENGTH_LONG).show();
         holder.imageTheme.setImageResource(R.drawable.theme_image);
         holder.imageCours.setImageResource(R.drawable.classeur);
         holder.imageQuizz.setImageResource(R.drawable.quizz_image);
@@ -82,7 +90,7 @@ public class RecycleAdapterAccount extends RecyclerView.Adapter<RecycleAdapterAc
 
         public ViewHolder(final View itemView) {
             super(itemView);
-            imageProfil = itemView.findViewById(R.id.id_profile);
+            imageProfil = itemView.findViewById(R.id.photo_profile_image_view);
             imageTheme = itemView.findViewById(R.id.id_img_theme);
             imageCours = itemView.findViewById(R.id.id_img_cours);
             imageQuizz = itemView.findViewById(R.id.id_img_quizz);
