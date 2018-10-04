@@ -51,9 +51,14 @@ public class Card {
         List<Card> list = new ArrayList<Card>();
         int i=0;
         while (stringTokenizer.hasMoreTokens()){
+            StringTokenizer stringTokenizer1 =new StringTokenizer(stringTokenizer.nextToken().trim(),"--");
+            StringBuilder ligne = new StringBuilder();
+            while (stringTokenizer1.hasMoreTokens()){
+                ligne.append(stringTokenizer1.nextToken());
+            }
             Card card = new Card();
             card.setPosition(++i);
-            card.setContenu(stringTokenizer.nextToken());
+            card.setContenu(ligne.toString());
             card.setCours(cours);
             list.add(card);
         }

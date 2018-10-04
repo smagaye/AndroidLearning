@@ -32,27 +32,21 @@
             <TextView
                 android:id="@+id/id_titre"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
+                android:layout_height="42dp"
                 android:layout_alignParentTop="true"
-                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:background="#ffffff"
                 android:text="Titre du Exercice"
                 android:textColor="#38D0FD"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/id_description"
-                android:layout_width="231dp"
-                android:layout_height="64dp"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:background="#ffffff"
-                android:text="Description sommaire du cours. Autrement ne relever que les points saillant de ce dernier."
-                android:textColor="#38D0FD" />
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:layout_marginBottom="30dp"
+                android:maxWidth="24dp"
+                android:stepSize="1" />
 
         </LinearLayout>
     </LinearLayout>

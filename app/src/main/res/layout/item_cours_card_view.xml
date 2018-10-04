@@ -43,7 +43,7 @@
                 android:layout_width="309dp"
                 android:layout_height="258dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="35dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="75dp"
                 android:lineSpacingExtra="8sp"
@@ -73,9 +73,9 @@
 
             <TextView
                 android:id="@+id/index"
-                android:layout_width="wrap_content"
+                android:layout_width="78dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="215dp"
+                android:layout_marginLeft="200dp"
                 android:text="1/10"
                 android:textColor="@color/colorAccent"
                 android:textSize="20sp"

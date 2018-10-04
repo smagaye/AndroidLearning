@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import java.util.HashMap;
+import java.util.List;
+
 public class ExercicesView extends AppCompatActivity {
 
     //Les Buttons des différentes réponses...
@@ -37,6 +40,10 @@ public class ExercicesView extends AppCompatActivity {
         setContentView(R.layout.activity_exercices_view);
         initialiserElements();
         initialiserProgressBar();
+
+        HashMap<String,List<String>> exo =(HashMap<String,List<String>>)getIntent().getSerializableExtra("exerciceParse");
+        System.out.println(exo.get("bonneReponse"));
+        System.out.println(exo.get("morceaux"));
     }
 
     private void initialiserElements() {

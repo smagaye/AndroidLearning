@@ -227,7 +227,9 @@ public class DatabaseService extends Service {
                 }
                 eventType = xpp.next();
             }
-        }catch (Exception er){er.printStackTrace();}
+        }catch (Exception er){
+            //er.printStackTrace();
+            }
         return listeCours;
     }
 

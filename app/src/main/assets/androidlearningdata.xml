@@ -19,9 +19,10 @@
                         <photo>source photo 1</photo>
                         <etat>1</etat>
                     </ressourcedescription>
-                    <contenu>Android est un OS mobile --Open Source-- pour smartphone, PDA, MP3 et tablette.--- Conçu initialement par Android Inc., il a été racheté par Google en 2005.+++
-                        Android est un projet open source largement adopté. Google développe activement la plate-forme Android mais en donne une partie gratuitement aux +++
-                        fabricants de matériel et aux opérateurs de téléphonie qui souhaitent utiliser Android sur leurs appareils. Google facture uniquement les fabricants s’ils+++
+                    <contenu>
+                        Android est un --OS mobile-- Open Source pour --smartphone--, PDA, MP3 et tablette.Conçu initialement par Android Inc., il a été racheté par --Google-- en 2005.+++
+                        Android est un projet --open source-- largement adopté. Google développe activement la plateforme --Android-- mais en donne une partie gratuitement+++
+                        aux fabricants de matériel et aux opérateurs de téléphonie qui souhaitent utiliser Android sur leurs appareils. Google facture uniquement les fabricants s’ils+++
                         installent également la partie des applications Google du système d’exploitation. Beaucoup (mais pas tous) les principaux appareils qui utilisent Android +++
                         optent également pour la partie des applications Google du service. Une exception notable est Amazon. Bien que les tablettes Kindle Fire utilisent Android,+++
                         elles n'utilisent pas les portions de Google et Amazon gère un magasin d'applications Android distinct. Dès son origine, la démarche de Google a été d’ouvrir+++
@@ -40,9 +41,9 @@
                         <photo>source photo 2</photo>
                         <etat>1</etat>
                     </ressourcedescription>
-                    <contenu>Comme il est mentionné sur le site officiel, la licence préférée d’Android est l’Apache open source licence v2. Le terme « préférée » signifie que le+++
-                        projet Android pourra dans une certaine mesure accepter et intégrer du code source n’ayant pas été publié sous cette licence. Néanmoins, de façon prévisible, seules+++
-                        les licences « open source » approuvées par l’Open Source Initiative, organisation dont l’objet est de labéliser les licences « open source » - sont acceptées.+++
+                    <contenu>Comme il est mentionné sur le --site officiel--, la licence --préférée-- d’Android est --l’Apache-- open source licence v2.+++
+                        Le terme « préférée » signifie que le projet --Android-- pourra dans une certaine mesure accepter et --intégrer-- du code source n’ayant pas été --publié-- sous cette licence.+++
+                        Néanmoins, de façon prévisible, seules les licences « open source » approuvées par l’Open Source Initiative, organisation dont l’objet est de labéliser les licences « open source » - sont acceptées.+++
                         Les contributeurs directs au projet, individus ou sociétés, devront, par contre, signer (il est possible de le faire en ligne) un agrément de licence.+++
                         La licence Apache a été choisie pour son côté « business friendly » comme on dit. Plus clairement, la licence Apache, contrairement aux licences GPL, autorise+++
                         la reprise de tout ou partie du code dans un produit sous une autre licence y compris propriétaire. La licence Apache autorise la modification et la distribution+++
@@ -59,8 +60,8 @@
                         <photo>source photo 3</photo>
                         <etat>0</etat>
                     </ressourcedescription>
-                    <contenu>Les terminaux Android de base sont livrés avec un ensemble d’applications dénommées « Core Applications ». En fonction des constructeurs, d’autres logiciels+++
-                        pourront être préinstallés sur le téléphone mais les Core Applications constituent un socle commun minimum obligatoire.+++
+                    <contenu>Les --terminaux-- Android de base sont --livrés-- avec un ensemble d’applications --dénommées-- « Core Applications ».
+                        En fonction des --constructeurs--, d’autres --logiciels-- pourront être préinstallés sur le téléphone mais les Core --Applications-- constituent un socle commun minimum obligatoire.+++
                         Comme Android est destiné à motoriser en premier lieu des téléphones, parmi ces applications se trouvent tout logiquement le composeur de numéro et la gestion des+++
                         contacts, ensuite viennent des applications plus sophistiquées comme Google Maps. un navigateur web, un gestionnaire de contacts, un calendrier…
                     </contenu>
