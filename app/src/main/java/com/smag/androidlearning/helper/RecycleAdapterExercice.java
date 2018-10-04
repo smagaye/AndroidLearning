@@ -16,6 +16,7 @@ import com.smag.androidlearning.ExercicesView;
 import com.smag.androidlearning.R;
 import com.smag.androidlearning.beans.Cours;
 import com.smag.androidlearning.beans.Exercice;
+import com.smag.androidlearning.helper.ExerciceHelper;
 import com.smag.androidlearning.database.DatabaseFactory;
 
 import java.util.List;
@@ -70,7 +71,7 @@ public class RecycleAdapterExercice extends RecyclerView.Adapter<RecycleAdapterE
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context,ExercicesView.class);
-                    intent.putExtra("exerciceParse", Exercice.extractExercise(cours.get((int)ratingBar.getRating()-1)));
+                    intent.putExtra("exerciceParse", ExerciceHelper.extractExercise(cours.get((int)ratingBar.getRating()-1),context));
                     context.startActivity(intent);
 
                 }

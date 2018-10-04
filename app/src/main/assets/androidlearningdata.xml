@@ -75,8 +75,8 @@
                     <photo>source photo 3</photo>
                     <etat>0</etat>
                 </ressourcedescription>
-                <contenu>Au-delà du Framework de développement, Android est une pile logicielle qui repose sur le couple, en passe de devenir un classique : Linux/Java. Le noyau Linux employé+++
-                    est le 2.6 dont on peut remarquer au passage qu’il constitue un composant central d’Android qui n’est pas publié sous licence Apache 2.0 mais sous GPL v2. Comme n’importe+++
+                <contenu>Au delà du --Framework-- de développement, Android est une pile --logicielle-- qui repose sur le couple, en passe de devenir un --classique-- : Linux/Java.+++
+                    Le noyau --Linux-- employé est le 2.6 dont on peut remarquer au passage qu’il constitue un --composant-- central d’Android qui n’est pas publié sous licence --Apache 2.0-- mais sous GPL v2. Comme n’importe+++
                     quel OS, ce noyau a la responsabilité de gérer le matériel à l’aide de drivers, la mémoire, les processus ou encore les couches réseaux basses.+++
                     Au-dessus du noyau proprement dit se loge un ensemble de librairies C/C++ constituant les couches bases du système. Parmi celles-ci on peut noter l’incontournable libc+++
                     (librairie système C standard) dont l’implémentation a été adaptée pour l’occasion à un mode embarqué.+++
@@ -101,8 +101,8 @@
                         <etat>0</etat>
                     </ressourcedescription>
                     <contenu>
-                        Exploiter une nouvelle plate-forme n’est jamais chose aisée. C’est pourquoi Google fournit, en plus du système d’exploitation, un kit de développement+++
-                        (Software Development Toolkit ou SDK). Ce SDK est un ensemble d’outils qui permet aux développeurs et aux entreprises de créer des applications. Le SDK Android est composé de+++
+                        Exploiter une nouvelle --plateforme-- n’est jamais chose aisée. C’est pourquoi --Google-- fournit, en plus du système d’exploitation, un --kit-- de développement+++
+                        SDK (Software Development Toolkit ou SDK) est un --ensemble-- d’outils qui permet aux --développeurs-- et aux entreprises de créer des --applications--. Le SDK Android est composé de+++
                         plusieurs éléments pour aider les développeurs à créer et à maintenir des applications : des API (interface de programmation), des exemples de code, de la documentation, des outils+++
                         parmi lesquels un émulateur permettant de couvrir quasiment toutes les étapes du cycle de développement d’une application. Le SDK Android est disponible gratuitement sur le site de+++
                         Google. La documentation du SDK Android est scindée en deux parties bien distinctes, le guide du développeur, la documentation des API et est disponible via le lien +++
