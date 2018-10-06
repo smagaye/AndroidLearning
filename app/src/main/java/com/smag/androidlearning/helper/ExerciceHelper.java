@@ -26,11 +26,11 @@ public class ExerciceHelper {
         List<String> list = parse(crs).get("bonneReponse");
         List<String> bad = new ArrayList<String>();
         int index = list.size();
-        int pos1 = (int) (Math.random() * ( index ));
+        int pos1 = (int) (Math.random() * ( index -1));
         bad.add(list.get(pos1));
-        int pos2 = (int) (Math.random() * ( index  ));
+        int pos2 = (int) (Math.random() * ( index  -1));
         while(pos1==pos2){
-            pos2 = (int) (Math.random() * ( index ));
+            pos2 = (int) (Math.random() * ( index -1));
         }
         bad.add(list.get(pos2));
         return  bad;
@@ -59,7 +59,7 @@ public class ExerciceHelper {
                     morceaux.add(mot);
                 }
             }
-            if(k==2) break;
+            if(k==3) break;
         }
         parts.put("bonneReponse",bonneReponse);
         parts.put("morceaux",morceaux);

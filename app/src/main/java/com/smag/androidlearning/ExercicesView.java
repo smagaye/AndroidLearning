@@ -92,9 +92,9 @@ public class ExercicesView extends AppCompatActivity {
                 }
             }
         }).start();
-       // HashMap<String,List<String>> exo =(HashMap<String,List<String>>)getIntent().getSerializableExtra("exerciceParse");
-   //     System.out.println(exo.get("bonneReponse"));
-     //   System.out.println(exo.get("morceaux"));
+        HashMap<String,List<String>> exo =(HashMap<String,List<String>>)getIntent().getSerializableExtra("exerciceParse");
+        //   System.out.println(exo.get("bonneReponse"));
+        //   System.out.println(exo.get("morceaux"));
     }
 
     private void initialiserElements() {
