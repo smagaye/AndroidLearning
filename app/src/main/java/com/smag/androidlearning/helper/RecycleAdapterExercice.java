@@ -71,7 +71,7 @@ public class RecycleAdapterExercice extends RecyclerView.Adapter<RecycleAdapterE
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context,ExercicesView.class);
-                    intent.putExtra("exerciceParse", ExerciceHelper.extractExercise(cours.get((int)ratingBar.getRating()),context));
+                    intent.putExtra("exerciceParse", ExerciceHelper.extractExercise(cours.get((int)ratingBar.getRating()-1),context));
                     context.startActivity(intent);
 
                 }

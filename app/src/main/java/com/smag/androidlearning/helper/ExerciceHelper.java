@@ -59,7 +59,7 @@ public class ExerciceHelper {
                     morceaux.add(mot);
                 }
             }
-            if(k==2) break;
+            if(k==3) break;
         }
         parts.put("bonneReponse",bonneReponse);
         parts.put("morceaux",morceaux);
