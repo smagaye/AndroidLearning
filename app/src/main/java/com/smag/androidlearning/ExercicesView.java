@@ -5,11 +5,12 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.smag.androidlearning.helper.Question;
 
 import java.util.HashMap;
 import java.util.List;
@@ -33,12 +34,18 @@ public class ExercicesView extends AppCompatActivity {
     private Button reponse_indicator_item5;
 
     //Les différents TextFields
+    private TextView text_part;
+    private TextView outputGameVue;
 
-
-    //Variabe pour gestion du score et de la progression
+    //Variable pour gestion du score et de la progression
+    private List<String> listTexteClaire;
+    private  List<String> listTexteCache;
+    private int scoreFinal;
     private int progessionGlobale;
+    private int nombreTour ;
     private RingProgressBar ringProgressBar;
     private int progress =0;
+    private int numeroChoix;
     private Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -48,12 +55,17 @@ public class ExercicesView extends AppCompatActivity {
                     ringProgressBar.setProgress(progress);
                 }
                 if(progress ==100){
-                    finishGame.sendEmptyMessage(0);
+                    Toast.makeText(getApplicationContext() , "nombre De Tour :"+nombreTour , Toast.LENGTH_SHORT);
+                    if(nombreTour == 1){
+                        playground(3);
+                    }else{
+                        finishGame.sendEmptyMessage(0);
+                    }
                 }
             }
+
         }
     };
-    private int numeroChoix;
     private Handler finishGame = new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -64,14 +76,13 @@ public class ExercicesView extends AppCompatActivity {
             }
         }
     };
+    private Thread thread;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercices_view);
         initialiserElements();
-        ringProgressBar = (RingProgressBar) findViewById(R.id.progressBar);
-
         ringProgressBar.setOnProgressListener(new RingProgressBar.OnProgressListener() {
             @Override
             public void progressToComplete() {
@@ -79,7 +90,7 @@ public class ExercicesView extends AppCompatActivity {
             }
         });
 
-        new Thread(new Runnable() {
+       thread =  new Thread(new Runnable() {
             @Override
             public void run() {
                 for(int i =0; i<100;i++ ){
@@ -87,19 +98,45 @@ public class ExercicesView extends AppCompatActivity {
                         Thread.sleep(250);
                         handler.sendEmptyMessage(0);
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
+                       // e.printStackTrace();
                     }
                 }
             }
-        }).start();
-        HashMap<String,List<String>> exo =(HashMap<String,List<String>>)getIntent().getSerializableExtra("exerciceParse");
-        //   System.out.println(exo.get("bonneReponse"));
-        //   System.out.println(exo.get("morceaux"));
+        });
+       thread.start();
+       HashMap<String,List<String>> exo =(HashMap<String,List<String>>)getIntent().getSerializableExtra("exerciceParse");
+       listTexteCache =  exo.get("bonneReponse");
+       listTexteClaire = exo.get("morceaux");
+       playground(0);
+    }
+
+    private void playground(int ind) {
+        Question question = new Question(listTexteClaire.get(ind), listTexteClaire.get(ind+1),listTexteClaire.get(ind+2),listTexteClaire.get(ind+3),
+                listTexteCache.get(ind),listTexteCache.get(ind+1),listTexteCache.get(ind+2)
+                );
+        nombreTour++;
+        text_part.setText(null);
+        text_part.setText(question.getTextClaire1()+"...(1)..."+question.getTextClaire2()+"...(2)..."+question.getTextClaire3()+"...(3)..."+question.getTextClaire4());
+
+    }
+
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        thread.interrupt();
+        Toast.makeText(getApplicationContext() , "Appli Stopped" , Toast.LENGTH_SHORT).show();
     }
 
     private void initialiserElements() {
 
         numeroChoix = 0;
+        nombreTour =0;
+
+        ringProgressBar = (RingProgressBar) findViewById(R.id.progressBar);
+        text_part =(TextView) findViewById(R.id.text_part);
+        outputGameVue =(TextView) findViewById(R.id.output_game_vue);
         reponse_indicator_item1 = (Button) findViewById(R.id.reponse_indicator_item1);
         reponse_indicator_item2 = (Button) findViewById(R.id.reponse_indicator_item2);
         reponse_indicator_item3 = (Button) findViewById(R.id.reponse_indicator_item3);
@@ -157,7 +194,7 @@ public class ExercicesView extends AppCompatActivity {
                 }
             }
         }else{
-            Toast.makeText(getApplicationContext() , "Déja Choisit...", Toast.LENGTH_SHORT);
+            Toast.makeText(getApplicationContext() , "Déja Choisit...", Toast.LENGTH_SHORT).show();
         }
     }
     private boolean incrementerNombreReponses() {
