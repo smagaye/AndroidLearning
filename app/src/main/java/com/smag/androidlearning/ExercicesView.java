@@ -1,6 +1,8 @@
 package com.smag.androidlearning;
 
+import android.content.Intent;
 import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +14,8 @@ import android.widget.Toast;
 import java.util.HashMap;
 import java.util.List;
 
+import io.netopen.hotbitmapgg.library.view.RingProgressBar;
+
 public class ExercicesView extends AppCompatActivity {
 
     //Les Buttons des différentes réponses...
@@ -21,36 +25,81 @@ public class ExercicesView extends AppCompatActivity {
     private Button reponse_text_item4;
     private Button reponse_text_item5;
 
-    //Les différents choix éffectuées
+    //Les différents choix éffectués
     private Button reponse_indicator_item1;
     private Button reponse_indicator_item2;
     private Button reponse_indicator_item3;
     private Button reponse_indicator_item4;
     private Button reponse_indicator_item5;
 
+    //Les différents TextFields
+
 
     //Variabe pour gestion du score et de la progression
-    private ProgressBar progressBar;
-    private Handler handler = new Handler();
+    private int progessionGlobale;
+    private RingProgressBar ringProgressBar;
+    private int progress =0;
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            if(msg.what ==0){
+                if(progress <100){
+                    progress++;
+                    ringProgressBar.setProgress(progress);
+                }
+                if(progress ==100){
+                    finishGame.sendEmptyMessage(0);
+                }
+            }
+        }
+    };
     private int numeroChoix;
+    private Handler finishGame = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            if(msg.what == 0){
+                Intent intent = new Intent(getApplicationContext() , ResultExercice.class);
+                startActivity(intent);
+                Toast.makeText(getApplicationContext(), "Game Completed...." , Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercices_view);
         initialiserElements();
-        initialiserProgressBar();
+        ringProgressBar = (RingProgressBar) findViewById(R.id.progressBar);
 
-        HashMap<String,List<String>> exo =(HashMap<String,List<String>>)getIntent().getSerializableExtra("exerciceParse");
-        System.out.println(exo.get("bonneReponse"));
-        System.out.println(exo.get("morceaux"));
+        ringProgressBar.setOnProgressListener(new RingProgressBar.OnProgressListener() {
+            @Override
+            public void progressToComplete() {
+                Toast.makeText(getApplicationContext() , "Completed" , Toast.LENGTH_SHORT);
+            }
+        });
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for(int i =0; i<100;i++ ){
+                    try {
+                        Thread.sleep(250);
+                        handler.sendEmptyMessage(0);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
+       // HashMap<String,List<String>> exo =(HashMap<String,List<String>>)getIntent().getSerializableExtra("exerciceParse");
+   //     System.out.println(exo.get("bonneReponse"));
+     //   System.out.println(exo.get("morceaux"));
     }
 
     private void initialiserElements() {
 
         numeroChoix = 0;
-        progressBar = (ProgressBar) findViewById(R.id.progress_time);
-
         reponse_indicator_item1 = (Button) findViewById(R.id.reponse_indicator_item1);
         reponse_indicator_item2 = (Button) findViewById(R.id.reponse_indicator_item2);
         reponse_indicator_item3 = (Button) findViewById(R.id.reponse_indicator_item3);
@@ -66,6 +115,7 @@ public class ExercicesView extends AppCompatActivity {
         reponse_text_item1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "valeur :"+ numeroChoix , Toast.LENGTH_SHORT);
                incrementeurNombreReponse(reponse_indicator_item1);
             }
         });
@@ -96,19 +146,18 @@ public class ExercicesView extends AppCompatActivity {
 
     }
     private void incrementeurNombreReponse(Button button){
-        Toast.makeText(getApplicationContext() , String.valueOf(numeroChoix) , Toast.LENGTH_LONG);
+       // Toast.makeText(getApplicationContext() , String.valueOf(numeroChoix) , Toast.LENGTH_LONG).show();
         if(button.isEnabled()){
-            button.setVisibility(View.VISIBLE);
-            button.setEnabled(false);
             if( ! incrementerNombreReponses()){
                 button.setText(String.valueOf(numeroChoix));
+                button.setVisibility(View.VISIBLE);
+                button.setEnabled(false);
+                if(numeroChoix ==3){
+                    finishGame.sendEmptyMessage(0);
+                }
             }
         }else{
-            if(numeroChoix < 3){
-                numeroChoix--;
-                button.setEnabled(false);
-                button.setVisibility(View.INVISIBLE);
-            }
+            Toast.makeText(getApplicationContext() , "Déja Choisit...", Toast.LENGTH_SHORT);
         }
     }
     private boolean incrementerNombreReponses() {
@@ -118,35 +167,5 @@ public class ExercicesView extends AppCompatActivity {
         numeroChoix++;
         return false;
     }
-    private void initialiserProgressBar(){
-        Log.i("verife", "Works");
-        new Thread(new Runnable() {
-            int i= 0;
-            int progressStatus = 0;
 
-            @Override
-            public void run() {
-                while (progressStatus < 100){
-                    progressStatus += doWork();
-                    try {
-                        Thread.sleep(500);
-                    }catch (InterruptedException e){
-                        e.printStackTrace();
-                    }
-                    //Update the progress bar
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            progressBar.setProgress(progressStatus);
-                            i++;
-                        }
-                    });
-                }
-            }
-
-            private int doWork() {
-                return i * 3;
-            }
-        });
-    }
 }

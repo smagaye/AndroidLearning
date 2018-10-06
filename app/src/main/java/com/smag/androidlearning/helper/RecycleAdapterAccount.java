@@ -30,6 +30,8 @@ public class RecycleAdapterAccount extends RecyclerView.Adapter<RecycleAdapterAc
     private  int[] images;
     private List<Exercice> exercices;
     private static final String PICTURE_PATH = "picture_path";
+    private static final String INFO_USER = "info_user";
+    private static final String PROFESSION_USER = "profession_user";
 
     public RecycleAdapterAccount(Context context) {
         this.context = context;
@@ -45,16 +47,24 @@ public class RecycleAdapterAccount extends RecyclerView.Adapter<RecycleAdapterAc
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         SharedPreferences sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_key) , Context.MODE_PRIVATE);
         String picture_path = sharedPref.getString( PICTURE_PATH,"");
+        String info_user = sharedPref.getString(INFO_USER,"");
+        String profession_user = sharedPref.getString(PROFESSION_USER , "");
         if( !picture_path.equals("")) holder.imageProfil.setImageURI(Uri.fromFile(new File(picture_path)));
+        if(! info_user.equals("")){
+            String [] nomEtPrenom = info_user.split(" ");
+            holder.prenom.setText(nomEtPrenom[0]);
+            holder.nom.setText(nomEtPrenom[1]);
+        }else{
+            holder.prenom.setText(R.string.prenom);
+            holder.nom.setText(R.string.nom);
+        }
+        holder.statut.setText(R.string.statut);
+        if(!profession_user.equals(""))  holder.statut.setText(profession_user);
         Toast.makeText(context.getApplicationContext(),picture_path , Toast.LENGTH_LONG).show();
         holder.imageTheme.setImageResource(R.drawable.theme_image);
         holder.imageCours.setImageResource(R.drawable.classeur);
         holder.imageQuizz.setImageResource(R.drawable.quizz_image);
         holder.imageStat.setImageResource(R.drawable.barre_chart);
-        holder.prenom.setText(R.string.prenom);
-        holder.nom.setText(R.string.nom);
-        holder.statut.setText(R.string.statut);
-
         DatabaseFactory databaseFactory = DatabaseFactory.getAppDatabase(context);
         /*
 

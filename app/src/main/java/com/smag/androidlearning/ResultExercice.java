@@ -1,9 +1,10 @@
 package com.smag.androidlearning;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class ResultExercice extends AppCompatActivity {
+public class ResultExercice extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

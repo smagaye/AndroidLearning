@@ -104,29 +104,40 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="60dp"
-                android:layout_marginStart="60dp"
-                android:layout_marginTop="56dp"
+                android:layout_marginLeft="164dp"
+                android:layout_marginStart="164dp"
+                android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_part4">
 
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="Surveiller Le Temps" />
+                <io.netopen.hotbitmapgg.library.view.RingProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    app:max="100"
+                    app:ringColor="@android:color/white"
+                    app:ringProgressColor="@android:color/holo_red_light"
+                    app:ringWidth="3dp"
+                    app:style="FILL"
+                    app:textColor="@color/deeppurple"
+                    app:textIsShow="true"
+                    app:textSize="16dp" />
 
-                <ProgressBar
-                    android:id="@+id/progress_time"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="315dp"
-                    android:layout_height="35dp"
-                    android:minHeight="100dp"
-                    android:progress="0"
-                    tools:layout_editor_absoluteX="33dp"
-                    tools:layout_editor_absoluteY="192dp" />
             </RelativeLayout>
+
+            <TextView
+                android:id="@+id/output_game_vue"
+                android:layout_width="44dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="48dp"
+                android:background="@drawable/cerclebackgroundpink"
+                android:text="1/3"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_part4" />
         </android.support.constraint.ConstraintLayout>
     </LinearLayout>
 
@@ -138,13 +149,14 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="399dp">
+            android:layout_height="399dp"
+            android:background="@color/cardview_light_background">
 
             <Button
                 android:id="@+id/reponse_text_item5"
                 android:layout_width="150dp"
                 android:layout_height="147dp"
-                android:background="@drawable/circle"
+                android:background="@drawable/cerclebackgroundgreen"
                 android:text="dqsdsqdsqdqsdsqdsqdqsdqsdqsdsqdqsfdfdfdsdsfdfsdfdsfdsf"
                 android:textSize="10sp"
                 android:textStyle="italic"
@@ -161,7 +173,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="124dp"
-                android:background="@drawable/circle"
+                android:background="@drawable/cerclebackgroundpink"
                 android:text="dqsdsqdsqdqsdsqdsqdqsdqsdqsdsqdqsfdfdfdsdsfdfsdfdsfdsf"
                 android:textSize="10sp"
                 android:textStyle="italic"
@@ -177,7 +189,7 @@
                 android:layout_width="150dp"
                 android:layout_height="146dp"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/circle"
+                android:background="@drawable/cerclebackgroundpurple"
                 android:text="dqsdsqdsqdqsdsqdsqdqsdqsdqsdsqdqsfdfdfdsdsfdfsdfdsfdsf"
                 android:textSize="10sp"
                 android:textStyle="italic"
@@ -192,7 +204,8 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
-                android:background="@drawable/circle"
+                android:background="@drawable/cerclebackgroundyello"
+                android:elevation="18dp"
                 android:text="dqsdsqdsqdqsdsqdsqdqsdqsdqsdsqdqsfdfdfdsdsfdfsdfdsfdsf"
                 android:textSize="10sp"
                 android:textStyle="italic"

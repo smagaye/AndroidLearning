@@ -3,8 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    style="@style/TranslucentGreen"
+    app:style="@style/TranslucentGreen"
     android:layout_height="match_parent"
-    tools:context=".ResultExercice">
+    tools:context=".ResultExercice"
+    android:background="@color/transparent_green_color"
+    >
 
 </android.support.constraint.ConstraintLayout>

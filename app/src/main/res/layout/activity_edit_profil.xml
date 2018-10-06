@@ -10,97 +10,94 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="148dp"
+        android:layout_height="165dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:background="@color/cardview_light_background"
         android:orientation="horizontal">
 
-        <de.hdodenhof.circleimageview.CircleImageView
+        <LinearLayout
+            android:layout_width="153dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            android:id="@+id/photo_profile_image_view"
-            android:layout_width="135dp"
-            android:layout_height="117dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/user_default_icon"
-            app:civ_border_color="#ffffff"
-            app:civ_border_width="2dp" />
+            <de.hdodenhof.circleimageview.CircleImageView
 
-        <Button
-            android:id="@+id/edit_photo_profil"
-            android:layout_width="131dp"
-            android:layout_height="wrap_content"
-            android:elevation="16dp"
-            android:layout_marginRight="70dp"
-            android:layout_marginTop="90dp"
-            android:layout_weight="1"
-            android:background="#75cffc"
-            android:text="EDITER"
-            android:textColor="@color/cardview_light_background" />
+                android:id="@+id/photo_profile_image_view"
+                android:layout_width="143dp"
+                android:layout_height="96dp"
+                android:src="@drawable/user_default_icon"
+                app:civ_border_color="#ffffff"
+                app:civ_border_width="2dp" />
+
+            <Button
+                android:id="@+id/edit_photo_profil"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:layout_weight="1"
+                android:background="#75cffc"
+                android:elevation="16dp"
+                android:text="EDITER"
+                android:textColor="@color/cardview_light_background" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="251dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/info_perso_user_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Prénom et Nom"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/profession_user_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Profession"
+                android:inputType="textPersonName" />
+        </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/grey"
+        android:background="@color/cardview_light_background"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="126dp"
-            android:background="@color/cardview_light_background"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/info_perso_user_input"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="Prénom et Nom"
-                    android:inputType="textPersonName" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/profession_user_input"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="Profession"
-                    android:inputType="textPersonName" />
-            </LinearLayout>
-        </LinearLayout>
 
         <TextView
+            android:id="@+id/textView4"
             android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:text="Définissez Votre Emploi du Temps"
-            android:textStyle="bold" />
-        <CalendarView
-            android:layout_width="match_parent"
-            android:layout_height="270dp"
-            android:id="@+id/date_picker">
+            android:layout_height="wrap_content"
+            android:text="Emploi Du Temps" />
 
-        </CalendarView>
+        <Button
+            android:id="@+id/date_picker_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Date Picker" />
+
+        <Button
+            android:id="@+id/h_debut_picker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Heure Début Picker" />
+
+        <Button
+            android:id="@+id/h_fin_picker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Heure Fin Picker" />
+
     </LinearLayout>
 
 </LinearLayout>
