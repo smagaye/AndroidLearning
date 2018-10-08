@@ -34,7 +34,7 @@ import devlight.io.library.ntb.NavigationTabBar;
 
 public class AppViewContainer extends AppCompatActivity {
 
-    private int [] imagesCours =new int[] {R.drawable.theme1 , R.drawable.theme1x ,R.drawable.theme3 , R.drawable.theme4,R.drawable.theme5, R.drawable.locked , R.drawable.locked};
+    private int [] imagesCours =new int[] {R.drawable.theme1 , R.drawable.theme1x ,R.drawable.theme3 , R.drawable.theme4,R.drawable.theme5, R.drawable.locked , R.drawable.best};
     private List<Theme> themes;
 
     @Override
@@ -178,7 +178,7 @@ public class AppViewContainer extends AppCompatActivity {
             }
         });
 
-        final CoordinatorLayout coordinatorLayout = (CoordinatorLayout) findViewById(R.id.parent);
+       /* final CoordinatorLayout coordinatorLayout = (CoordinatorLayout) findViewById(R.id.parent);
         findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
@@ -207,12 +207,13 @@ public class AppViewContainer extends AppCompatActivity {
                     }
                 }, 1000);
             }
-        });
+        });*/
 
-        final CollapsingToolbarLayout collapsingToolbarLayout =
+       /* final CollapsingToolbarLayout collapsingToolbarLayout =
                 (CollapsingToolbarLayout) findViewById(R.id.toolbar);
         collapsingToolbarLayout.setExpandedTitleColor(Color.parseColor("#38D0FD"));
         collapsingToolbarLayout.setCollapsedTitleTextColor(Color.parseColor("#ffffff"));
+        */
     }
 
     @Override

@@ -16,12 +16,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.mikephil.charting.charts.HorizontalBarChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
 import com.smag.androidlearning.EditProfil;
 import com.smag.androidlearning.R;
 import com.smag.androidlearning.beans.Exercice;
 import com.smag.androidlearning.database.DatabaseFactory;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RecycleAdapterAccount extends RecyclerView.Adapter<RecycleAdapterAccount.ViewHolder> {
@@ -64,7 +69,6 @@ public class RecycleAdapterAccount extends RecyclerView.Adapter<RecycleAdapterAc
         holder.imageTheme.setImageResource(R.drawable.theme_image);
         holder.imageCours.setImageResource(R.drawable.classeur);
         holder.imageQuizz.setImageResource(R.drawable.quizz_image);
-        holder.imageStat.setImageResource(R.drawable.barre_chart);
         DatabaseFactory databaseFactory = DatabaseFactory.getAppDatabase(context);
         /*
 
@@ -95,6 +99,7 @@ public class RecycleAdapterAccount extends RecyclerView.Adapter<RecycleAdapterAc
         TextView theme_ouvert;
         TextView cours_lu;
         TextView note_quizz;
+        HorizontalBarChart mChart;
 
         Button editButton ;
 
@@ -104,7 +109,6 @@ public class RecycleAdapterAccount extends RecyclerView.Adapter<RecycleAdapterAc
             imageTheme = itemView.findViewById(R.id.id_img_theme);
             imageCours = itemView.findViewById(R.id.id_img_cours);
             imageQuizz = itemView.findViewById(R.id.id_img_quizz);
-            imageStat = itemView.findViewById(R.id.id_stat);
             prenom = itemView.findViewById(R.id.id_prenom);
             nom = itemView.findViewById(R.id.id_nom);
             statut = itemView.findViewById(R.id.id_statut);
@@ -119,6 +123,25 @@ public class RecycleAdapterAccount extends RecyclerView.Adapter<RecycleAdapterAc
                     context.startActivity( new Intent( itemView.getContext(), EditProfil.class));
                 }
             });
+            int count =7,range=3;
+            mChart =(HorizontalBarChart)itemView.findViewById(R.id.bar_chart);
+            ArrayList<BarEntry> yVals =new ArrayList<>();
+            float barWith =2;
+            float spaceForBar =4;
+
+            for(int i = 1;i<count;i++){
+                float val = (float) Math.random()*range;
+                yVals.add(new BarEntry(i*range,i));
+            }
+            BarDataSet set;
+            set = new BarDataSet(yVals,"dataSet1");
+            BarData barData = new BarData(set);
+            barData.setBarWidth(barWith);
+            mChart.setData(barData);
         }
+    }
+    private void setData(HorizontalBarChart mChart,int count , int range ) {
+        ArrayList<BarEntry> yVals =new ArrayList<>();
+
     }
 }

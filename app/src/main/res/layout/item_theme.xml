@@ -104,10 +104,10 @@
 
             <TextView
                 android:id="@+id/id_note_quizz"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="102/104"
+                android:text="0/2"
                 android:textColor="@android:color/background_dark"
                 android:textStyle="bold" />
 

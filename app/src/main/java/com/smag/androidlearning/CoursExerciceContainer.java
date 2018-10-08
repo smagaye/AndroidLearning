@@ -1,17 +1,20 @@
 package com.smag.androidlearning;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.smag.androidlearning.beans.Cours;
 import com.smag.androidlearning.beans.Exercice;
@@ -28,7 +31,7 @@ public class CoursExerciceContainer extends AppCompatActivity {
 
     private List<Cours> listCours;
     private List<Exercice> listExercices;
-    private int [] images = new int[] {R.drawable.theme1 , R.drawable.theme1x ,R.drawable.theme3 , R.drawable.theme4,R.drawable.theme5 , R.drawable.theme6};
+    private int [] images = new int[] {R.drawable.theme1 , R.drawable.apache ,R.drawable.appim , R.drawable.architecture,R.drawable.theme5 , R.drawable.theme6};
     private int [] imagesExercices =new int[] {R.drawable.theme1 , R.drawable.theme1x ,R.drawable.theme3 , R.drawable.theme4,R.drawable.theme5 , R.drawable.theme6};
 
 
@@ -40,6 +43,12 @@ public class CoursExerciceContainer extends AppCompatActivity {
         listExercices = (List<Exercice>) getIntent().getSerializableExtra("listeExercices");
         initUI();
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
 
     private void initUI() {
         final ViewPager viewPager = (ViewPager) findViewById(R.id.vp_horizontal_ntb);
@@ -72,8 +81,11 @@ public class CoursExerciceContainer extends AppCompatActivity {
                                     getBaseContext(), LinearLayoutManager.VERTICAL, false
                             )
                     );
-                    recyclerView.setAdapter(new RecycleAdapterCours(getApplicationContext(),images,listCours));
+                    RecycleAdapterCours rcm =new RecycleAdapterCours(getApplicationContext(),images,listCours);
 
+                    DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),DividerItemDecoration.HORIZONTAL);
+                    recyclerView.addItemDecoration(dividerItemDecoration);
+                    recyclerView.setAdapter(rcm);
                     container.addView(view);
                 }
                 else{
@@ -86,7 +98,7 @@ public class CoursExerciceContainer extends AppCompatActivity {
                                     getBaseContext(), LinearLayoutManager.VERTICAL, false
                             )
                     );
-                    recyclerView.setAdapter(new RecycleAdapterExercice(getApplicationContext(),images,listExercices));
+                    recyclerView.setAdapter(new RecycleAdapterExercice(getApplicationContext(),imagesExercices,listExercices));
                     container.addView(view);
                 }
                 return view;
@@ -155,6 +167,7 @@ public class CoursExerciceContainer extends AppCompatActivity {
                 }
             }
         });
+
     }
 
 }

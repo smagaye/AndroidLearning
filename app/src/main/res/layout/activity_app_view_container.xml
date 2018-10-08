@@ -68,7 +68,7 @@
         app:ntb_badged="true"
         app:ntb_typeface="fonts/agency.ttf" />
 
-    <android.support.design.widget.FloatingActionButton
+    <!--android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -78,6 +78,6 @@
         android:layout_marginRight="16dp"
         android:src="@drawable/ic_notifications_none_black_24dp"
         android:tint="@android:color/background_light"
-        app:backgroundTint="@color/colorAccent" />
+        app:backgroundTint="@color/colorAccent" /-->
 
 </android.support.design.widget.CoordinatorLayout>

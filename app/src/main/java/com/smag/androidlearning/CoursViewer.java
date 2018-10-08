@@ -1,6 +1,8 @@
 package com.smag.androidlearning;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.DragEvent;
@@ -12,19 +14,24 @@ import com.mindorks.placeholderview.SwipePlaceHolderView;
 import com.smag.androidlearning.beans.Card;
 import com.smag.androidlearning.beans.Cours;
 import com.smag.androidlearning.helper.CardFormatter;
+import com.smag.androidlearning.service.DatabaseService;
 
 import java.util.List;
+
+import nl.dionsegijn.konfetti.KonfettiView;
+import nl.dionsegijn.konfetti.models.Size;
 
 public class CoursViewer extends AppCompatActivity {
 
     private SwipePlaceHolderView mSwipeView;
     private Context mContext;
+    private Cours cours;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cours_viewer);
-        Cours cours =(Cours)getIntent().getSerializableExtra("cours");
+        cours =(Cours)getIntent().getSerializableExtra("cours");
         mSwipeView = (SwipePlaceHolderView)findViewById(R.id.swipeView);
         mContext = getApplicationContext();
 
@@ -58,5 +65,19 @@ public class CoursViewer extends AppCompatActivity {
                 mSwipeView.doSwipe(true);
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(mSwipeView.getAllResolvers().size()==0){
+            cours.getRessourcedescription().setEtat("1");
+            onBackPressed();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

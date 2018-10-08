@@ -1,1 +1,1 @@
-include ':app',':navigationtabbar'
+include ':app',':navigationtabbar',':konfetti'
