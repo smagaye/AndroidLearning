@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,7 +29,7 @@ public class Driver extends AppCompatActivity {
     private DatabaseService service;
     private boolean isServiceBound;
 
-    private TextView txtname;
+    private Button btn;
     private ImageView image;
 
     @Override
@@ -90,7 +91,7 @@ public class Driver extends AppCompatActivity {
             try {
                 initComponent();
                 bindService();
-                sleep(3000);
+                sleep(4000);
                 if(isServiceBound){
                     // Transfert des donnees vers AppViewContainer
                     Intent intent =new Intent(getApplicationContext(),AppViewContainer.class);
@@ -108,11 +109,12 @@ public class Driver extends AppCompatActivity {
     }
 
     private void initComponent() {
-        txtname =(TextView) findViewById(R.id.txt_id);
+        btn =(Button) findViewById(R.id.btn_id);
         image = (ImageView) findViewById(R.id.img_id);
-        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.animation_res);
-        txtname.setAnimation(animation);
-        image.setAnimation(animation);
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.frombottom);
+        Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.animation);
+        btn.setAnimation(animation);
+        image.setAnimation(animation1);
     }
 
 }
