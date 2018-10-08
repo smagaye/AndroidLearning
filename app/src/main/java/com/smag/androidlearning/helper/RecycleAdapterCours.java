@@ -74,6 +74,7 @@ public class RecycleAdapterCours extends RecyclerView.Adapter<RecycleAdapterCour
                 @Override
                 public void onClick(View view) {
                     Cours cours = DatabaseFactory.getAppDatabase(context).getCoursDao().findByTitle(titre.getText().toString());
+                    icone.setImageResource(R.drawable.valide_icon);
                     Intent intent = new Intent(context,CoursViewer.class);
                     intent.putExtra("cours",(Serializable) cours);
                     context.startActivity(intent);

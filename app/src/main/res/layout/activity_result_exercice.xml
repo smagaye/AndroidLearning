@@ -8,7 +8,11 @@
     tools:context=".ResultExercice"
     android:background="@color/transparent_green_color"
     >
-
+    <nl.dionsegijn.konfetti.KonfettiView
+        android:id="@+id/konfettiView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent" />
     <TextView
         android:id="@+id/score_vue"
         android:layout_width="147dp"

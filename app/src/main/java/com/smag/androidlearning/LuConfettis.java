@@ -31,6 +31,9 @@ public class LuConfettis extends AppCompatActivity {
                 .addSizes(new Size(10, 2f))
                 .setPosition(-50f, konfettiView.getWidth() + 50f, -50f, -50f)
                 .streamFor(900, 15000L);
+    }
 
+    public void onButonClick(View view){
+        onBackPressed();
     }
 }

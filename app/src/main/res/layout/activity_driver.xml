@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:alwaysDrawnWithCache="false"
-    android:background="@drawable/bg"
+    android:background="@drawable/bg_ro"
     tools:context=".Driver">
 
 
@@ -16,10 +16,10 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="96dp"
-        android:layout_marginLeft="96dp"
-        android:layout_marginTop="78dp"
-        app:srcCompat="@drawable/ballon" />
+        android:layout_marginStart="97dp"
+        android:layout_marginLeft="97dp"
+        android:layout_marginTop="0dp"
+        app:srcCompat="@drawable/aj" />
 
     <Button
         android:id="@+id/btn_id"
@@ -31,5 +31,5 @@
         android:layout_marginStart="111dp"
         android:layout_marginLeft="111dp"
         android:layout_marginBottom="138dp"
-        android:background="@drawable/sub_btn" />
+        android:background="@drawable/el" />
 </RelativeLayout>

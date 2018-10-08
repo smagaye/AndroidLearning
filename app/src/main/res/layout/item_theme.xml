@@ -104,7 +104,7 @@
 
             <TextView
                 android:id="@+id/id_note_quizz"
-                android:layout_width="48dp"
+                android:layout_width="59dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="0/2"
